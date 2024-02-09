@@ -10,6 +10,9 @@ public class Vision : MonoBehaviour
     public float sensitivity;
     private void Update()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         MouseX += Input.GetAxis("Mouse X") * sensitivity;
         MouseY += Input.GetAxis("Mouse Y") * sensitivity;
         MouseY = Mathf.Clamp(MouseY, -90, 90);
