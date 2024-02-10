@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FishingRod : MonoBehaviour
 {
+    public state State;
+    public enum state
+    {
+        idle,cast,hooking,
+    }
+
     public Player player;
-    public bool hooked;
     public int chanceToHook;
+
+    public GameObject floatObject;
+    public Transform whereToSpawnFloat;
+    public GameObject floatPrefab;
 
     private void Start()
     {
@@ -14,7 +24,8 @@ public class FishingRod : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
-        {            
+        {
+            if (State == state.cast) { Hooked(); return; }
             StartCoroutine(Cast());
         }
     }
@@ -25,17 +36,19 @@ public class FishingRod : MonoBehaviour
 
     public void Hooked()
     {
-        hooked = false;
+        State = state.idle;
         player.Screen.hookedSquare.gameObject.SetActive(false);
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
-        Debug.Log("Hooked");        
+        Destroy(floatObject);
+        Debug.Log("Hooked");
+        StopAllCoroutines();
     }
 
     IEnumerator Cast()
     {
-        if (hooked) { yield break; }
-
-        Debug.Log("Casted");
+        if (State == state.hooking) { yield break; }
+        ThrowFloat();
+        State = state.cast;
         //Cast UI
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(true);
 
@@ -50,7 +63,7 @@ public class FishingRod : MonoBehaviour
     {
         while (true)
         {
-            if (hooked) { yield break; }
+            if (State == state.hooking) { yield break; }
             Debug.Log("hookTick");
             yield return new WaitForSeconds(time);
             Tick();
@@ -62,7 +75,7 @@ public class FishingRod : MonoBehaviour
             Debug.Log(a);
             if (a < chanceToHook)
             {
-                hooked = true;
+                State = state.hooking;
             }
         }
     }
@@ -70,5 +83,16 @@ public class FishingRod : MonoBehaviour
     {
         while (!Input.GetKeyDown(keyCode))
             yield return null;
+    }
+
+    public void ThrowFloat()
+    {
+        if (State == state.idle)
+        {
+            if (floatObject != null) { Destroy(floatObject); }
+            floatObject = Instantiate(floatPrefab, whereToSpawnFloat.position, Quaternion.Euler(new Vector3(0, 0, -90)));
+            floatObject.GetComponent<floatThrowing>().Throw(player.cam.transform.forward);
+            floatObject.GetComponent<FloatHelper>().floatAnimation.FloatUp();
+        }
     }
 }
