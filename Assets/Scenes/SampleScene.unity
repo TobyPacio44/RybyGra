@@ -446,7 +446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &766478051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9e65629f63c2c498115f1b9ed86fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Screen: {fileID: 0}
+  Screen: {fileID: 171177645}
   holder: {fileID: 1024957757}
   cam: {fileID: 171177642}
 --- !u!1 &1350170502
@@ -2202,8 +2202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56fb2cf58be1b846b4fafa0c3eadd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1300399718}
   hooked: 0
-  chanceToHook: 10
+  chanceToHook: 30
 --- !u!4 &7685259905779166671
 Transform:
   m_ObjectHideFlags: 0
