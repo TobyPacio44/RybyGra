@@ -5,10 +5,18 @@ using UnityEngine.UI;
 
 public class Vision : MonoBehaviour
 {
+    public GameObject reticle;
+    public GameObject hookedSquare;
+
     float MouseX;
     float MouseY;
     public float sensitivity;
     private void Update()
+    {
+        CameraMovement();
+    }
+
+    public void CameraMovement()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
