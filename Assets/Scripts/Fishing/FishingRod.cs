@@ -47,6 +47,8 @@ public class FishingRod : MonoBehaviour
     IEnumerator Cast()
     {
         if (State == state.hooking) { yield break; }
+        GetComponent<Animation>().Play("RodAnimation");
+        yield return new WaitForSeconds(0.45f);
         ThrowFloat();
         State = state.cast;
         //Cast UI
