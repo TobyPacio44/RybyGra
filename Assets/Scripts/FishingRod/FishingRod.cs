@@ -17,7 +17,7 @@ public class FishingRod : MonoBehaviour
     public GameObject floatObject;
     public Transform whereToSpawnFloat;
     public GameObject floatPrefab;
-
+    public FishingMinigame minigame;
     private void Start()
     {
     }
@@ -25,7 +25,7 @@ public class FishingRod : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (State == state.cast) { Hooked(); return; }
+            if (State == state.cast) { Hooked(false); return; }
             StartCoroutine(Cast());
         }
     }
@@ -34,14 +34,18 @@ public class FishingRod : MonoBehaviour
         return Random.Range(0, 100);
     }
 
-    public void Hooked()
+    public void Hooked(bool caught)
     {
+        minigame.parent.SetActive(false);
         State = state.idle;
-        player.Screen.hookedSquare.gameObject.SetActive(false);
-        player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
         Destroy(floatObject);
         Debug.Log("Hooked");
         StopAllCoroutines();
+
+        if (caught)
+        {
+
+        }
     }
 
     IEnumerator Cast()
@@ -59,14 +63,17 @@ public class FishingRod : MonoBehaviour
         player.Screen.hookedSquare.gameObject.SetActive(true);
         yield return StartCoroutine(WaitForKeyDown(KeyCode.Space));
 
-        Hooked();
+        player.Screen.hookedSquare.gameObject.SetActive(false);
+        player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
+
+        minigame.parent.SetActive(true);
+        yield return StartCoroutine(minigame.Minigame(2, 1, 4, this));
     }
     IEnumerator hookTick(float time) 
     {
         while (true)
         {
             if (State == state.hooking) { yield break; }
-            Debug.Log("hookTick");
             yield return new WaitForSeconds(time);
             Tick();
         }
@@ -74,7 +81,6 @@ public class FishingRod : MonoBehaviour
         void Tick()
         {
             int a = RandomTick();
-            Debug.Log(a);
             if (a < chanceToHook)
             {
                 State = state.hooking;

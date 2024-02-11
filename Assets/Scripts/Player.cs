@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public Vision Screen;
     public Holder holder;
     public Transform cam;
-
+    public FishingMinigame minigame;
     private void Update()
     {
         RaycastHit hit;
