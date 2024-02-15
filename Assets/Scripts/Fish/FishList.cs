@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloatHelper : MonoBehaviour
+public class FishList : MonoBehaviour
 {
-    public floatAnimation floatAnimation;
+    public List<FishObject> list;
 }

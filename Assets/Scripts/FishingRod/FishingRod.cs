@@ -18,15 +18,15 @@ public class FishingRod : MonoBehaviour
     public Transform whereToSpawnFloat;
     public GameObject floatPrefab;
     public FishingMinigame minigame;
-    private void Start()
-    {
-    }
+
+    public FishList fishList;
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
             if (State == state.cast) { Hooked(false); return; }
-            StartCoroutine(Cast());
+            StartCoroutine(Throw());
         }
     }
     public int RandomTick()
@@ -40,6 +40,9 @@ public class FishingRod : MonoBehaviour
         State = state.idle;
         Destroy(floatObject);
         Debug.Log("Hooked");
+        player.Screen.hookedSquare.gameObject.SetActive(false);
+        player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
+        fishList = null;
         StopAllCoroutines();
 
         if (caught)
@@ -48,13 +51,22 @@ public class FishingRod : MonoBehaviour
         }
     }
 
-    IEnumerator Cast()
+    IEnumerator Throw()
     {
+        Debug.Log("Throw");
+
         if (State == state.hooking) { yield break; }
         GetComponent<Animation>().Play("RodAnimation");
         yield return new WaitForSeconds(0.45f);
         ThrowFloat();
         State = state.cast;
+
+        yield return StartCoroutine(WaitForFishList());
+        yield return StartCoroutine(Cast());
+    }
+    IEnumerator Cast()
+    {
+        Debug.Log("Cast");
         //Cast UI
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(true);
 
@@ -84,9 +96,22 @@ public class FishingRod : MonoBehaviour
             if (a < chanceToHook)
             {
                 State = state.hooking;
+                floatObject.GetComponent<FloatScript>().floatAnimation.FloatDown();
             }
         }
     }
+    IEnumerator WaitForFishList()
+    {
+        Debug.Log("WaitForFishList");
+        while (fishList == null)
+        {
+            yield return null;
+        }
+        Debug.Log("WaitForFishList Finished");
+
+        yield return true;
+    }
+
     IEnumerator WaitForKeyDown(KeyCode keyCode) 
     {
         while (!Input.GetKeyDown(keyCode))
@@ -99,8 +124,11 @@ public class FishingRod : MonoBehaviour
         {
             if (floatObject != null) { Destroy(floatObject); }
             floatObject = Instantiate(floatPrefab, whereToSpawnFloat.position, Quaternion.Euler(new Vector3(0, 0, -90)));
-            floatObject.GetComponent<floatThrowing>().Throw(player.cam.transform.forward);
-            floatObject.GetComponent<FloatHelper>().floatAnimation.FloatUp();
+
+            FloatScript fs = floatObject.GetComponent<FloatScript>();
+            fs.Throw(player.cam.transform.forward);
+            fs.floatAnimation.FloatUp();
+            fs.rod = this;
         }
     }
 }
