@@ -30,7 +30,7 @@ public class FishingMinigame : MonoBehaviour
     private void Start()
     {
     }
-    public IEnumerator Minigame(float greenSize, float pointerSpeedV, float fillDiff, FishingRod rod)
+    public IEnumerator Minigame(float greenSize, float pointerSpeedV, float fillDiff, FishingRod rod, ItemObject fish)
     {
         GreenSize = greenSize;
         pointerSpeed = pointerSpeedV;
@@ -45,12 +45,12 @@ public class FishingMinigame : MonoBehaviour
         if (won)
         {
             //pass the bool if caught or not
-            rod.Hooked(true);
+            rod.Hooked(true, fish);
         }
         else
         {
             //pass the bool if caught or not
-            rod.Hooked(false);
+            rod.Hooked(false, fish);
         }
     }
     private void Update()

@@ -13,19 +13,20 @@ public class FishingRod : MonoBehaviour
 
     public Player player;
     public int chanceToHook;
+    public int power;
 
-    public GameObject floatObject;
+    [HideInInspector] public GameObject floatObject;
     public Transform whereToSpawnFloat;
     public GameObject floatPrefab;
     public FishingMinigame minigame;
 
-    public FishList fishList;
+    [HideInInspector] public FishList fishList;
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (State == state.cast) { Hooked(false); return; }
+            if (State == state.cast) { Hooked(false, null); return; }
             StartCoroutine(Throw());
         }
     }
@@ -34,7 +35,29 @@ public class FishingRod : MonoBehaviour
         return Random.Range(0, 100);
     }
 
-    public void Hooked(bool caught)
+    public FishObject SelectFish()
+    {
+        List<FishObject> eligibleFish = new List<FishObject>();
+
+        foreach (FishObject fish in fishList.list)
+        {
+            if (fish.weight <= power)
+            {
+                eligibleFish.Add(fish);
+            }
+        }
+
+        if (eligibleFish.Count > 0)
+        {
+            FishObject selected = eligibleFish[Random.Range(0, eligibleFish.Count)];
+            return selected;
+        }
+        else
+        {
+            return null;
+        }
+    }
+    public void Hooked(bool caught, ItemObject fish)
     {
         minigame.parent.SetActive(false);
         State = state.idle;
@@ -45,9 +68,9 @@ public class FishingRod : MonoBehaviour
         fishList = null;
         StopAllCoroutines();
 
-        if (caught)
+        if (caught && fish != null)
         {
-
+            player.inventory.items.Add(fish);
         }
     }
 
@@ -79,7 +102,7 @@ public class FishingRod : MonoBehaviour
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
 
         minigame.parent.SetActive(true);
-        yield return StartCoroutine(minigame.Minigame(2, 1, 4, this));
+        yield return StartCoroutine(minigame.Minigame(2, 1, 4, this, SelectFish()));
     }
     IEnumerator hookTick(float time) 
     {

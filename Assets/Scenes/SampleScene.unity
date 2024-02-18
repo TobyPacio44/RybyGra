@@ -1040,8 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2193e4db964d3441a49f0ec9a88bb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 11400000, guid: f21c93bdb293942488f27f3c7b604bd4, type: 2}
+  items: []
 --- !u!1 &1024957755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,6 +1288,7 @@ MonoBehaviour:
   holder: {fileID: 1024957757}
   cam: {fileID: 171177642}
   minigame: {fileID: 436742093}
+  inventory: {fileID: 1001324583}
 --- !u!1 &1350170502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1807,7 @@ RectTransform:
   m_GameObject: {fileID: 2040863610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.2993, y: 0.42993, z: 1.4331}
+  m_LocalScale: {x: 4.2993, y: 0.22572185, z: 1.4331}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 291643727}
@@ -1817,7 +1817,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -197}
+  m_AnchoredPosition: {x: 0, y: -249.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &2040863612
@@ -3014,6 +3014,7 @@ MonoBehaviour:
   State: 0
   player: {fileID: 1300399718}
   chanceToHook: 30
+  power: 1
   floatObject: {fileID: 0}
   whereToSpawnFloat: {fileID: 1211759032}
   floatPrefab: {fileID: 7837972321110556742, guid: d96723c5c9999e14caf4501192b467e9, type: 3}

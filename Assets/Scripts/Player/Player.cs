@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public Holder holder;
     public Transform cam;
     public FishingMinigame minigame;
+    public Inventory inventory;
     private void Update()
     {
         RaycastHit hit;
