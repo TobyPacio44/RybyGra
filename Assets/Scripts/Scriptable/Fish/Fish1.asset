@@ -15,5 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 8458440758302779607, guid: c7634ee6fcde57a44b7a2dd09aa0fbe5, type: 3}
   type: 0
   name: Fish
-  price: 0
+  price: 5
   weight: 1

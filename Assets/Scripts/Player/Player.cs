@@ -21,11 +21,10 @@ public class Player : MonoBehaviour
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 2.5f))
         {
-            Screen.reticle.gameObject.SetActive(true);
             IInteractable interactable = hit.transform.GetComponent<IInteractable>();
-
             if (interactable != null)
             {
+                Screen.reticle.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactable.Interact(this);

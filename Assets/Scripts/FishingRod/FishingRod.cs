@@ -5,20 +5,28 @@ using UnityEngine;
 
 public class FishingRod : MonoBehaviour
 {
+    public int chanceToHook;
+    public int power;
+
+    [Header("greenSize - from 1 to 10")]
+    public float GreenSize;
+    [Header("pointerSpeed - from 1 to 10(more extreme after)")]
+    public float pointerSpeed;
+    [Header("fillBar - from 1 to 4(more extreme after)")]
+    public float fillBarDiff;
+
+    [HideInInspector]
     public state State;
     public enum state
     {
         idle,cast,hooking,
     }
 
-    public Player player;
-    public int chanceToHook;
-    public int power;
-
     [HideInInspector] public GameObject floatObject;
     public Transform whereToSpawnFloat;
     public GameObject floatPrefab;
     public FishingMinigame minigame;
+    public Player player;
 
     [HideInInspector] public FishList fishList;
 
@@ -70,7 +78,7 @@ public class FishingRod : MonoBehaviour
 
         if (caught && fish != null)
         {
-            player.inventory.items.Add(fish);
+            player.inventory.fishes.Add(fish);
         }
     }
 
@@ -102,7 +110,9 @@ public class FishingRod : MonoBehaviour
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
 
         minigame.parent.SetActive(true);
-        yield return StartCoroutine(minigame.Minigame(2, 1, 4, this, SelectFish()));
+
+        //greenSize, pointerSpeedV, fillDiff
+        yield return StartCoroutine(minigame.Minigame(GreenSize, pointerSpeed, fillBarDiff, this, SelectFish())); 
     }
     IEnumerator hookTick(float time) 
     {

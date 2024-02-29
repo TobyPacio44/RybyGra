@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<ItemObject> items = new List<ItemObject>();
+    public List<ItemObject> fishes = new List<ItemObject>();
 }
