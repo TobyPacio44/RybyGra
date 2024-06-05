@@ -1386,8 +1386,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 85ff842bdd350f644962c1b21e8f8827, type: 3}
   teleports:
-  - {fileID: 1452209168}
   - {fileID: 130937308}
+  - {fileID: 1452209168}
+  - {fileID: 1911642849}
 --- !u!1 &291643723
 GameObject:
   m_ObjectHideFlags: 0
