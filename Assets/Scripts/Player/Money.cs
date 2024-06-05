@@ -6,10 +6,11 @@ using TMPro;
 public class Money : MonoBehaviour
 {
     public int points;
-    private void Awake()
+    public GameObject text;
+    public void UpdateMoney()
     {
         points = PlayerPrefs.GetInt("money");
-        GetComponent<TextMeshProUGUI>().text = points.ToString();
+        text.GetComponent<TextMeshProUGUI>().text = points.ToString();
         StartCoroutine(RepeatFunction());
     }
 
@@ -19,7 +20,8 @@ public class Money : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             points = PlayerPrefs.GetInt("money");
-            GetComponent<TextMeshProUGUI>().text = points.ToString();
+            text.GetComponent<TextMeshProUGUI>().text = points.ToString();
         }
     }
+    
 }

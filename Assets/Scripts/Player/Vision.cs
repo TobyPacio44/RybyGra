@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Vision : MonoBehaviour
 {
+    public bool move = true;
     public GameObject reticle;
     public GameObject hookedSquare;
 
@@ -13,7 +14,15 @@ public class Vision : MonoBehaviour
     public float sensitivity;
     private void Update()
     {
-        CameraMovement();
+        if (move)
+        {
+            CameraMovement();
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 
     public void CameraMovement()

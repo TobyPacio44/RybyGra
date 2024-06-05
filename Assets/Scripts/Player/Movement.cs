@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public CharacterController controller;
+    [HideInInspector] public CharacterController controller;
     public float Speed;
     public Transform orientation;
 

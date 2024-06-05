@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public Vision Screen;
     public Holder holder;
-    public Transform cam;
     public FishingMinigame minigame;
     public Inventory inventory;
+    public Teleports tel;
+
+    public Vision Screen;
+    public Transform cam;
     private void Update()
     {
         RaycastHit hit;
