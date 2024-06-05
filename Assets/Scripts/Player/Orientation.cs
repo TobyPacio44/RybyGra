@@ -11,8 +11,11 @@ public class Orientation : MonoBehaviour
 
     private void Update()
     {
-        MouseX += Input.GetAxis("Mouse X") * cam.sensitivity;
+        if (cam.move)
+        {
+            MouseX += Input.GetAxis("Mouse X") * cam.sensitivity;
 
-        player.transform.rotation = Quaternion.Euler(0, MouseX, 0);
+            player.transform.rotation = Quaternion.Euler(0, MouseX, 0);
+        }
     }
 }

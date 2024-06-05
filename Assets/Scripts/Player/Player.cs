@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Transform cam;
     public FishingMinigame minigame;
     public Inventory inventory;
+    public Teleports tel;
     private void Update()
     {
         RaycastHit hit;
