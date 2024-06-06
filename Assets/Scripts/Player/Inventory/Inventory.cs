@@ -1,6 +1,7 @@
 using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,6 +47,11 @@ public class Inventory : MonoBehaviour
 
         }
     }
+    public void afterShop()
+    {
+        SetUpEQ();
+        UpdateEq();
+    }
     public void SetUpEQ()
     {
         foreach (GameObject x in ui.fishesItems)
@@ -67,6 +73,10 @@ public class Inventory : MonoBehaviour
     }
     public void UpdateEq()
     {      
+        foreach(GameObject x in ui.fishesItems)
+        {
+            x.GetComponent<UnityEngine.UI.Image>().sprite = null;
+        }
         for (int i  = 0; i < fishes.Count; i++)
         {
             var element = ui.fishesItems[i];
