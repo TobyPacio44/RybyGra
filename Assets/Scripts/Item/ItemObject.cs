@@ -7,12 +7,12 @@ public enum ItemType
 {
     Fish,
     Item,
+    Equipment
 }
 public abstract class ItemObject : ScriptableObject
 {
     public Sprite sprite;
     public GameObject prefab;
-    public ItemType type;
     public string name;
     public int price;
 }

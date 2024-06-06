@@ -37,6 +37,7 @@ public class FishingRod : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             if (holdingFish) { return; }
+            if (player.inventory.fishesCapacity <= player.inventory.fishes.Count) { return; };
             if (State == state.cast) { Hooked(false, null); return; }
             StartCoroutine(Throw());
         }
@@ -68,7 +69,7 @@ public class FishingRod : MonoBehaviour
             return null;
         }
     }
-    public void Hooked(bool caught, ItemObject fish)
+    public void Hooked(bool caught, FishObject fish)
     {
         minigame.parent.SetActive(false);
         State = state.idle;
@@ -89,7 +90,7 @@ public class FishingRod : MonoBehaviour
             StartCoroutine(takeFish(fish, instantiate));
         }
     }
-    IEnumerator takeFish(ItemObject fish, GameObject fishObject)
+    IEnumerator takeFish(FishObject fish, GameObject fishObject)
     {
         while (holdingFish)
         {

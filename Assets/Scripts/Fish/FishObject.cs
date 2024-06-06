@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static FishingMinigame;
-[CreateAssetMenu(fileName = "New Fish Object", menuName = "Inventory/Items/Fish")]
+[CreateAssetMenu(fileName = "New Fish Object", menuName = "Items/Fish")]
 public class FishObject : ItemObject
 {
     [Header("(0-17)")]
