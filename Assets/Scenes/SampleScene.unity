@@ -8878,9 +8878,9 @@ MonoBehaviour:
   fishes:
   - {fileID: 11400000, guid: f21c93bdb293942488f27f3c7b604bd4, type: 2}
   - {fileID: 11400000, guid: f21c93bdb293942488f27f3c7b604bd4, type: 2}
-  - {fileID: 11400000, guid: f21c93bdb293942488f27f3c7b604bd4, type: 2}
   "zan\u0119ty": []
   "przyn\u0119ty": []
+  opened: 0
 --- !u!114 &1001324584
 MonoBehaviour:
   m_ObjectHideFlags: 0
