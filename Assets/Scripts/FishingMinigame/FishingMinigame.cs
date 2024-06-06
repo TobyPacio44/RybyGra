@@ -50,7 +50,7 @@ public class FishingMinigame : MonoBehaviour
         else
         {
             //pass the bool if caught or not
-            rod.Hooked(false, fish);
+            rod.Hooked(false, null);
         }
     }
     private void Update()
@@ -129,8 +129,7 @@ public class FishingMinigame : MonoBehaviour
 
         }
         if (blueRect.transform.localScale.x <= 0) { won = false; yield return false; }
-        won = true;
-        yield return true;       
+        else {  won = true; yield return true; }     
     }
     IEnumerator WaitForKeyDown(KeyCode keyCode)
     {

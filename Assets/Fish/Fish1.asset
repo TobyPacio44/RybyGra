@@ -17,4 +17,5 @@ MonoBehaviour:
   type: 0
   name: Fish
   price: 5
+  fishDifficulty: 0
   weight: 1

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public FishingMinigame minigame;
     public Inventory inventory;
     public Teleports tel;
+    public Accept accept;
 
     public Vision Screen;
     public Transform cam;
