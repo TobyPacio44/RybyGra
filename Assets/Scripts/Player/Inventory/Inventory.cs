@@ -81,6 +81,7 @@ public class Inventory : MonoBehaviour
         foreach(GameObject x in ui.fishesItems)
         {
             x.GetComponent<UnityEngine.UI.Image>().sprite = null;
+            x.SetActive(false);
         }
         for (int i  = 0; i < fishes.Count; i++)
         {
@@ -92,6 +93,7 @@ public class Inventory : MonoBehaviour
         foreach (GameObject x in ui.itemsItems)
         {
             x.GetComponent<UnityEngine.UI.Image>().sprite = null;
+            x.SetActive(false);
         }
         for (int i = 0; i < items.Count; i++)
         {
