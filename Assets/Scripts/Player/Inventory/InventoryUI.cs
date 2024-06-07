@@ -10,5 +10,5 @@ public class InventoryUI : MonoBehaviour
     public List<GameObject> zanêtyItems = new List<GameObject>();
     public List<GameObject> przynêtyItems = new List<GameObject>();
     public List<GameObject> fishRodItems = new List<GameObject>();
-
+    public List<Sprite> fishRodItemsPlaceHolders = new List<Sprite>();
 }

@@ -1,8 +1,10 @@
 using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Xml.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,10 +18,10 @@ public class Inventory : MonoBehaviour
 
     public int itemsCapacity;
     public List<ItemObject> items = new List<ItemObject>();
-    public List<GameObject> unlockedItems = new List<GameObject>();
+    public List<GameObject> unlockedItemsSlots = new List<GameObject>();
     public int fishesCapacity;
     public List<FishObject> fishes = new List<FishObject>();
-    public List<GameObject> unlockedFishes = new List<GameObject>();
+    public List<GameObject> unlockedFishesSlots = new List<GameObject>();
     public List<ItemObject> zanêty = new List<ItemObject>();
     public List<ItemObject> przynêty = new List<ItemObject>();
 
@@ -64,7 +66,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < fishesCapacity; i++)
         {
             //ui.fishesItems[i].SetActive(true);
-            unlockedFishes[i].SetActive(true);
+            unlockedFishesSlots[i].SetActive(true);
         }
         foreach (GameObject x in ui.itemsItems)
         {
@@ -73,7 +75,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < itemsCapacity; i++)
         {
             //ui.itemsItems[i].SetActive(true);
-            unlockedItems[i].SetActive(true);
+            unlockedItemsSlots[i].SetActive(true);
         }
     }
     public void UpdateEq()
@@ -105,6 +107,6 @@ public class Inventory : MonoBehaviour
 
     public void ClickItemSlot(int slot)
     {
-        Debug.Log(player.inventory.items[slot-1].name);
+        Debug.Log(items[slot-1]);
     }
 }
