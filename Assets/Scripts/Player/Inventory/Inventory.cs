@@ -2,6 +2,7 @@ using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -83,5 +84,21 @@ public class Inventory : MonoBehaviour
             element.SetActive(true);
             element.GetComponent<UnityEngine.UI.Image>().sprite = fishes[i].sprite;
         }
+
+        foreach (GameObject x in ui.itemsItems)
+        {
+            x.GetComponent<UnityEngine.UI.Image>().sprite = null;
+        }
+        for (int i = 0; i < items.Count; i++)
+        {
+            var element = ui.itemsItems[i];
+            element.SetActive(true);
+            element.GetComponent<UnityEngine.UI.Image>().sprite = items[i].sprite;
+        }
+    }
+
+    public void ClickItemSlot(int slot)
+    {
+        Debug.Log(player.inventory.items[slot-1].name);
     }
 }
