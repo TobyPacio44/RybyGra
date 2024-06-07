@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c9e33a224dea140b645e54fd2bbc9c, type: 3}
   m_Name: "1 - P\u0142o\u0107"
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: bac0a11a5cdf8a94784b032697544244, type: 3}
+  sprite: {fileID: 21300000, guid: 26bcc3885613b9c4f8af7271f8e6ed44, type: 3}
   prefab: {fileID: 3556193577493299837, guid: e952d40d1b36fd04989783161f961595, type: 3}
   name: "P\u0142o\u0107"
   price: 5

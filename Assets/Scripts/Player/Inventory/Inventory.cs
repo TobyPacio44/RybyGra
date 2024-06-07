@@ -16,8 +16,10 @@ public class Inventory : MonoBehaviour
 
     public int itemsCapacity;
     public List<ItemObject> items = new List<ItemObject>();
+    public List<GameObject> unlockedItems = new List<GameObject>();
     public int fishesCapacity;
     public List<FishObject> fishes = new List<FishObject>();
+    public List<GameObject> unlockedFishes = new List<GameObject>();
     public List<ItemObject> zanêty = new List<ItemObject>();
     public List<ItemObject> przynêty = new List<ItemObject>();
 
@@ -61,7 +63,8 @@ public class Inventory : MonoBehaviour
         }
         for (int i = 0; i < fishesCapacity; i++)
         {
-            ui.fishesItems[i].SetActive(true);
+            //ui.fishesItems[i].SetActive(true);
+            unlockedFishes[i].SetActive(true);
         }
         foreach (GameObject x in ui.itemsItems)
         {
@@ -69,7 +72,8 @@ public class Inventory : MonoBehaviour
         }
         for (int i = 0; i < itemsCapacity; i++)
         {
-            ui.itemsItems[i].SetActive(true);
+            //ui.itemsItems[i].SetActive(true);
+            unlockedItems[i].SetActive(true);
         }
     }
     public void UpdateEq()
