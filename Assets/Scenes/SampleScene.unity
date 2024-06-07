@@ -8984,9 +8984,7 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: da37dc99fc853264988372ca0cbfb08c, type: 2}
   fishesCapacity: 4
-  fishes:
-  - {fileID: 11400000, guid: f21c93bdb293942488f27f3c7b604bd4, type: 2}
-  - {fileID: 11400000, guid: f21c93bdb293942488f27f3c7b604bd4, type: 2}
+  fishes: []
   "zan\u0119ty": []
   "przyn\u0119ty": []
   opened: 0
@@ -10509,6 +10507,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173787874}
   m_CullTransparentMesh: 1
+--- !u!1 &1176553843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1176553844}
+  m_Layer: 0
+  m_Name: haczykSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1176553844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176553843}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 151.14, y: -0.4, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5813611336548490369}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1211759031
 GameObject:
   m_ObjectHideFlags: 0
@@ -21244,6 +21273,7 @@ Transform:
   m_Children:
   - {fileID: 1211759032}
   - {fileID: 440864373}
+  - {fileID: 1176553844}
   m_Father: {fileID: 1024957756}
   m_LocalEulerAnglesHint: {x: 0, y: -92.797, z: 35}
 --- !u!1 &6507901977825707065
@@ -21344,7 +21374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list:
-  - {fileID: 11400000, guid: f21c93bdb293942488f27f3c7b604bd4, type: 2}
+  - {fileID: 11400000, guid: 811d3f46c2b14b542a0943c4a6c497eb, type: 2}
 --- !u!64 &6697621763513444209
 MeshCollider:
   m_ObjectHideFlags: 0

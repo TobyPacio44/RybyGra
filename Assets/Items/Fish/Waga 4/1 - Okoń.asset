@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "1 - Oko\u0144"
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: bac0a11a5cdf8a94784b032697544244, type: 3}
-  prefab: {fileID: 8458440758302779607, guid: c7634ee6fcde57a44b7a2dd09aa0fbe5, type: 3}
+  prefab: {fileID: 3159599341915701815, guid: 719425218e941de41b72d97ee6bef65c, type: 3}
   name: "Oko\u0144"
   price: 5
   fishDifficulty: 1

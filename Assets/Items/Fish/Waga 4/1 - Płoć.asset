@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "1 - P\u0142o\u0107"
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: bac0a11a5cdf8a94784b032697544244, type: 3}
-  prefab: {fileID: 8458440758302779607, guid: c7634ee6fcde57a44b7a2dd09aa0fbe5, type: 3}
+  prefab: {fileID: 3556193577493299837, guid: e952d40d1b36fd04989783161f961595, type: 3}
   name: "P\u0142o\u0107"
   price: 5
   fishDifficulty: 1
