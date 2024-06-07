@@ -7048,68 +7048,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604545434}
   m_CullTransparentMesh: 1
---- !u!1001 &611184345
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1152427873}
-    m_Modifications:
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.00035988397
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.00013652044
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.00014713984
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.0000000074505797
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6477035945511405848, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_Name
-      value: 1 - Drewniany Patyk
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
---- !u!4 &611184346 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-  m_PrefabInstance: {fileID: 611184345}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &639300099
 GameObject:
   m_ObjectHideFlags: 0
@@ -13395,7 +13333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 611184346}
+  - {fileID: 1361782636}
   m_Father: {fileID: 5813611336548490369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1173787874
@@ -15895,6 +15833,68 @@ Transform:
   - {fileID: 156444958}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1361782635
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1152427873}
+    m_Modifications:
+    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0000000074505797
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6477035945511405848, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+      propertyPath: m_Name
+      value: 1 - Drewniany Patyk
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+--- !u!4 &1361782636 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
+  m_PrefabInstance: {fileID: 1361782635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1371707538
 GameObject:
   m_ObjectHideFlags: 0
