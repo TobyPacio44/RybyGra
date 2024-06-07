@@ -30,7 +30,7 @@ public class FishingMinigame : MonoBehaviour
     private void Start()
     {
     }
-    public IEnumerator Minigame(float greenSize, float pointerSpeedV, float fillDiff, FishingRod rod, ItemObject fish)
+    public IEnumerator Minigame(float greenSize, float pointerSpeedV, float fillDiff, FishingRod rod, FishObject fish)
     {
         GreenSize = greenSize;
         pointerSpeed = pointerSpeedV;
@@ -39,7 +39,7 @@ public class FishingMinigame : MonoBehaviour
         rect.transform.localPosition = new Vector3(-50, rect.transform.localPosition.y, rect.transform.localPosition.z);
         blueRect.transform.localScale = new Vector3(0, 1, 1);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         yield return StartCoroutine(Progress());
 
         if (won)
@@ -50,7 +50,7 @@ public class FishingMinigame : MonoBehaviour
         else
         {
             //pass the bool if caught or not
-            rod.Hooked(false, fish);
+            rod.Hooked(false, null);
         }
     }
     private void Update()
@@ -129,8 +129,7 @@ public class FishingMinigame : MonoBehaviour
 
         }
         if (blueRect.transform.localScale.x <= 0) { won = false; yield return false; }
-        won = true;
-        yield return true;       
+        else {  won = true; yield return true; }     
     }
     IEnumerator WaitForKeyDown(KeyCode keyCode)
     {

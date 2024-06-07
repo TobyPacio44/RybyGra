@@ -5,14 +5,18 @@ using UnityEngine;
 
 public class FishingRod : MonoBehaviour
 {
-    public int chanceToHook;
-    public int power;
+    public Player player;
+    public FishingMinigame minigame;
+    public FishingRodStats stats;
+    public GameObject floatPrefab;
+    public GameObject fishSpawn;
 
+    [Header("Minigame")]
     [Header("greenSize - from 1 to 10")]
     public float GreenSize;
-    [Header("pointerSpeed - from 1 to 10(more extreme after)")]
+    [Header("pointerSpeed - from 1 to 10")]
     public float pointerSpeed;
-    [Header("fillBar - from 1 to 4(more extreme after)")]
+    [Header("fillBar - from 1 to 4")]
     public float fillBarDiff;
 
     [HideInInspector]
@@ -24,16 +28,16 @@ public class FishingRod : MonoBehaviour
 
     [HideInInspector] public GameObject floatObject;
     public Transform whereToSpawnFloat;
-    public GameObject floatPrefab;
-    public FishingMinigame minigame;
-    public Player player;
 
     [HideInInspector] public FishList fishList;
+    public bool holdingFish;
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
+            if (holdingFish) { return; }
+            if (player.inventory.fishesCapacity <= player.inventory.fishes.Count) { return; };
             if (State == state.cast) { Hooked(false, null); return; }
             StartCoroutine(Throw());
         }
@@ -49,7 +53,7 @@ public class FishingRod : MonoBehaviour
 
         foreach (FishObject fish in fishList.list)
         {
-            if (fish.weight <= power)
+            if (fish.fishDifficulty+fish.weight <= stats.power)
             {
                 eligibleFish.Add(fish);
             }
@@ -65,7 +69,7 @@ public class FishingRod : MonoBehaviour
             return null;
         }
     }
-    public void Hooked(bool caught, ItemObject fish)
+    public void Hooked(bool caught, FishObject fish)
     {
         minigame.parent.SetActive(false);
         State = state.idle;
@@ -78,10 +82,36 @@ public class FishingRod : MonoBehaviour
 
         if (caught && fish != null)
         {
-            player.inventory.fishes.Add(fish);
+            Debug.Log("Can you take it");
+            player.accept.gameObject.SetActive(true);
+            player.accept.SetAcceptUI(fish.sprite, fish.name, fish.price);
+            holdingFish = true;
+            var instantiate = Instantiate(fish.prefab, fishSpawn.transform);
+            StartCoroutine(takeFish(fish, instantiate));
         }
     }
-
+    IEnumerator takeFish(FishObject fish, GameObject fishObject)
+    {
+        while (holdingFish)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Took fish");
+                player.inventory.fishes.Add(fish);
+                holdingFish = false;
+                Destroy(fishObject);
+                player.accept.gameObject.SetActive(false);
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Debug.Log("Did not take fish");
+                holdingFish = false;
+                Destroy(fishObject);
+                player.accept.gameObject.SetActive(false);
+            }
+            yield return null;
+        }
+    }
     IEnumerator Throw()
     {
         Debug.Log("Throw");
@@ -126,7 +156,7 @@ public class FishingRod : MonoBehaviour
         void Tick()
         {
             int a = RandomTick();
-            if (a < chanceToHook)
+            if (a < stats.chanceToHook)
             {
                 State = state.hooking;
                 floatObject.GetComponent<FloatScript>().floatAnimation.FloatDown();

@@ -18,6 +18,7 @@ public class Shop : MonoBehaviour, IInteractable
         {
             money += fishes.price;
         }
+        player.inventory.afterShop();
         player.inventory.fishes.Clear();
         PlayerPrefs.SetInt("money", money);
     }
