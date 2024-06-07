@@ -11680,6 +11680,8 @@ MonoBehaviour:
   fishingRod: {fileID: 6621918840770545211}
   itemsCapacity: 12
   items:
+  - {fileID: 11400000, guid: 9d50c07a2f3a8654bb57da3af776e364, type: 2}
+  - {fileID: 11400000, guid: c059fa68dc6f5ef43a11402f2705e745, type: 2}
   - {fileID: 11400000, guid: 18a1944d1b6c83a409acefe46f5804c5, type: 2}
   unlockedItemsSlots:
   - {fileID: 1940315682}
