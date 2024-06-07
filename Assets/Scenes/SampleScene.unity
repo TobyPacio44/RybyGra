@@ -21375,6 +21375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - {fileID: 11400000, guid: 811d3f46c2b14b542a0943c4a6c497eb, type: 2}
+  - {fileID: 11400000, guid: 709564b5be9b1704d91f0178f15110fc, type: 2}
 --- !u!64 &6697621763513444209
 MeshCollider:
   m_ObjectHideFlags: 0
