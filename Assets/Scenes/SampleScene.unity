@@ -4323,13 +4323,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440864372}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6031757, y: 0.42234856, z: -0.00000045448536, w: 0.6766098}
-  m_LocalPosition: {x: 137.1, y: -28.7, z: 0}
+  m_LocalRotation: {x: 0.57576996, y: -0.403158, z: 0.0000002682209, w: 0.7113035}
+  m_LocalPosition: {x: 135.4, y: -27.5, z: -4.8}
   m_LocalScale: {x: 28.568, y: 28.568, z: 28.568}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5813611336548490369}
-  m_LocalEulerAnglesHint: {x: -54.709, y: 98.4, z: -61.873}
+  m_LocalEulerAnglesHint: {x: 54.994, y: -88.811, z: -54.026}
 --- !u!1 &473626766
 GameObject:
   m_ObjectHideFlags: 0
@@ -8672,7 +8672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &987224282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8982,7 +8982,7 @@ MonoBehaviour:
   fishingRod: {fileID: 6621918840770545211}
   itemsCapacity: 6
   items:
-  - {fileID: 11400000, guid: d8e478bd7a2ca3b47a8b29ec56501dc7, type: 2}
+  - {fileID: 11400000, guid: da37dc99fc853264988372ca0cbfb08c, type: 2}
   fishesCapacity: 4
   fishes:
   - {fileID: 11400000, guid: f21c93bdb293942488f27f3c7b604bd4, type: 2}
