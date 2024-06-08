@@ -41,6 +41,12 @@ public class FishingRod : MonoBehaviour
             if (holdingFish) { return; }
             if (player.inventory.fishesCapacity <= player.inventory.fishes.Count) { return; };
             if (State == state.cast) { Hooked(false, null); return; }
+
+            foreach (Transform child in components.haczyk.transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+
             StartCoroutine(Throw());
         }
     }
@@ -73,6 +79,11 @@ public class FishingRod : MonoBehaviour
     }
     public void Hooked(bool caught, FishObject fish)
     {
+        foreach (Transform child in components.haczyk.transform)
+        {
+            child.gameObject.SetActive(true);
+        }
+
         minigame.parent.SetActive(false);
         State = state.idle;
         Destroy(floatObject);
