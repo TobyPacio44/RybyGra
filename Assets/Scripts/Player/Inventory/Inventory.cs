@@ -25,6 +25,12 @@ public class Inventory : MonoBehaviour
     public List<ItemObject> zanêty = new List<ItemObject>();
     public List<ItemObject> przynêty = new List<ItemObject>();
 
+    public EquipmentObject kij;
+    public EquipmentObject kolowrotek;
+    public EquipmentObject zylka;
+    public EquipmentObject splawik;
+    public EquipmentObject haczyk;
+
     public bool opened;
     private void Start()
     {
@@ -107,6 +113,11 @@ public class Inventory : MonoBehaviour
 
     public void ClickItemSlot(int slot)
     {
-        Debug.Log(items[slot-1]);
+        var Object = items[slot - 1];
+
+        if(Object.GetType()==typeof(EquipmentObject)) {
+            Debug.Log("ok");
+        }
+
     }
 }
