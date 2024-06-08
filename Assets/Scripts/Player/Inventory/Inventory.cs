@@ -16,7 +16,7 @@ public class Inventory : MonoBehaviour
     public InventoryUI ui;
 
     public Money money;
-    public GameObject fishingRod;
+    public FishingRod fishingRod;
 
     public int itemsCapacity;
     public List<ItemObject> items = new List<ItemObject>();
@@ -32,13 +32,11 @@ public class Inventory : MonoBehaviour
     public EquipmentObject zylka;
     public EquipmentObject splawik;
     public EquipmentObject haczyk;
-    public int RodPower;
 
-
-    public bool opened;
+    private bool opened;
     private void Start()
     {
-        SetUpEQ();
+        afterShop();
         money.UpdateMoney();
     }
     private void Update()
@@ -69,6 +67,8 @@ public class Inventory : MonoBehaviour
         UpdateEq();
         UpdateEquipment();
         CalculateRodPower();
+
+        fishingRod.canFish = canFish();
     }
     public void SetUpEQ()
     {
@@ -122,8 +122,18 @@ public class Inventory : MonoBehaviour
         if (kij != null) { ui.fishRodItems[0].GetComponent<UnityEngine.UI.Image>().sprite = kij.sprite; }
         if (kolowrotek != null) { ui.fishRodItems[1].GetComponent<UnityEngine.UI.Image>().sprite = kolowrotek.sprite; }
         if (zylka != null) { ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = zylka.sprite; }
-        if (splawik != null) { ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = splawik.sprite; }
         if (haczyk != null) { ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = haczyk.sprite; }
+        if (splawik != null) { ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = splawik.sprite; }
+    }
+
+    public void InstantiateRod(GameObject Parent, EquipmentObject eq)
+    {
+        foreach (Transform child in Parent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        Instantiate(eq.prefab, Parent.transform);
     }
 
     public void ClickItemSlot(int slot)
@@ -142,6 +152,8 @@ public class Inventory : MonoBehaviour
                     kij = eq;
                     items[slot - 1] = ram;
                 }
+
+                InstantiateRod(fishingRod.components.kij, eq);
             }
             if (eq.eqType == EquipmentObject.EquipmentType.Kolowrotek)
             {
@@ -152,6 +164,7 @@ public class Inventory : MonoBehaviour
                     kolowrotek = eq;
                     items[slot - 1] = ram;
                 }
+                InstantiateRod(fishingRod.components.kolowrotek, eq);
             }
             if (eq.eqType == EquipmentObject.EquipmentType.Zylka)
             {
@@ -172,6 +185,8 @@ public class Inventory : MonoBehaviour
                     haczyk = eq;
                     items[slot - 1] = ram;
                 }
+
+                InstantiateRod(fishingRod.components.haczyk, eq);
             }
             if (eq.eqType == EquipmentObject.EquipmentType.Splawik)
             {
@@ -187,7 +202,15 @@ public class Inventory : MonoBehaviour
 
         afterShop();
     }
-
+    public bool canFish()
+    {
+        if (kij == null) { return false; }
+        if (kolowrotek == null) { return false; }
+        if (zylka == null) { return false; }
+        if (haczyk == null) { return false; }
+        if (splawik == null) { return false; }
+        return true;
+    }
     public void CalculateRodPower()
     {
         int a = 0;
@@ -197,7 +220,7 @@ public class Inventory : MonoBehaviour
         if (haczyk != null) { a += haczyk.power; }
         if (splawik != null) { a += splawik.power; }
 
-        RodPower = a;
-        ui.rodPower.text = RodPower.ToString();
+        fishingRod.stats.RodPower = a;
+        ui.rodPower.text = fishingRod.stats.RodPower.ToString();
     }
 }

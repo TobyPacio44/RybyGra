@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FishingRodStats : MonoBehaviour
 {
+    public int RodPower;
     [Header("Chance to hook something - from 1 to 100")]
     public int chanceToHook;
     [Header("Power of rod - from 1 to 30")]

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 6 - Haczyk Taty
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 478e84e56ae1e46479aae0e4cd6662f2, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 1158153408114896320, guid: 30e85723e9da4c24aae6e33480497791, type: 3}
   name: Haczyk taty
   price: 0
   eqType: 3

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Sp\u0142awik podstawowy"
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 5c84d820e0b7ee443a78fd167d5ab3a4, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 7837972321110556742, guid: d96723c5c9999e14caf4501192b467e9, type: 3}
   name: "Sp\u0142awik podstawowy"
   price: 0
   eqType: 4

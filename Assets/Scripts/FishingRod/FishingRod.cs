@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class FishingRod : MonoBehaviour
 {
+    public bool canFish;
+
     public Player player;
     public FishingMinigame minigame;
     public FishingRodStats stats;
-    public GameObject floatPrefab;
+    public FishingRodComponents components;
     public GameObject fishSpawn;
 
     [Header("Minigame")]
@@ -27,7 +29,6 @@ public class FishingRod : MonoBehaviour
     }
 
     [HideInInspector] public GameObject floatObject;
-    public Transform whereToSpawnFloat;
 
     [HideInInspector] public FishList fishList;
     public bool holdingFish;
@@ -36,6 +37,7 @@ public class FishingRod : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            if (!canFish) { return; }
             if (holdingFish) { return; }
             if (player.inventory.fishesCapacity <= player.inventory.fishes.Count) { return; };
             if (State == state.cast) { Hooked(false, null); return; }
@@ -186,7 +188,7 @@ public class FishingRod : MonoBehaviour
         if (State == state.idle)
         {
             if (floatObject != null) { Destroy(floatObject); }
-            floatObject = Instantiate(floatPrefab, whereToSpawnFloat.position, Quaternion.Euler(new Vector3(0, 0, -90)));
+            floatObject = Instantiate(player.inventory.splawik.prefab, components.splawik.transform.position, Quaternion.Euler(new Vector3(0, 0, -90)));
 
             FloatScript fs = floatObject.GetComponent<FloatScript>();
             fs.Throw(player.cam.transform.forward);

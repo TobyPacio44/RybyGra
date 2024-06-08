@@ -5091,7 +5091,7 @@ GameObject:
   - component: {fileID: 436256024}
   - component: {fileID: 436256023}
   m_Layer: 5
-  m_Name: Splawik
+  m_Name: Haczyk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5180,7 +5180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8bb1cc9144559144093e88844c16d0ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f25d628d06b043c408ceda49e3bd46b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5502,7 +5502,7 @@ Transform:
   m_GameObject: {fileID: 440864372}
   serializedVersion: 2
   m_LocalRotation: {x: 0.57576996, y: -0.403158, z: 0.0000002682209, w: 0.7113035}
-  m_LocalPosition: {x: 135.4, y: -27.5, z: -4.8}
+  m_LocalPosition: {x: 140.7, y: -31.2, z: -6.3}
   m_LocalScale: {x: 28.568, y: 28.568, z: 28.568}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9243,6 +9243,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766478050}
   m_CullTransparentMesh: 1
+--- !u!1 &769433223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 769433224}
+  m_Layer: 0
+  m_Name: kolowrotekParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &769433224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769433223}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5813611336548490369}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &775035782
 GameObject:
   m_ObjectHideFlags: 0
@@ -11720,14 +11751,8 @@ MonoBehaviour:
   - {fileID: 596165573}
   - {fileID: 696578441}
   - {fileID: 1348572295}
-  "zan\u0119tyItems":
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  "przyn\u0119tyItems":
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  zanetyItems: []
+  przynetyItems: []
   fishRodItems:
   - {fileID: 740279943}
   - {fileID: 1625016003}
@@ -11738,8 +11763,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5a2df46d974c74748afff033529fd545, type: 3}
   - {fileID: 21300000, guid: 4cb4cf5d6bfb01a43ae4b68c6592fe73, type: 3}
   - {fileID: 21300000, guid: f8d792753a05ba148962668b848cdf81, type: 3}
-  - {fileID: 21300000, guid: 8bb1cc9144559144093e88844c16d0ed, type: 3}
   - {fileID: 21300000, guid: f25d628d06b043c408ceda49e3bd46b7, type: 3}
+  - {fileID: 21300000, guid: 8bb1cc9144559144093e88844c16d0ed, type: 3}
   rodPower: {fileID: 474554643}
 --- !u!114 &987224284
 MonoBehaviour:
@@ -11948,7 +11973,7 @@ MonoBehaviour:
   player: {fileID: 1300399718}
   ui: {fileID: 987224283}
   money: {fileID: 1001324584}
-  fishingRod: {fileID: 6621918840770545211}
+  fishingRod: {fileID: 7422428204014965541}
   itemsCapacity: 12
   items:
   - {fileID: 11400000, guid: 18a1944d1b6c83a409acefe46f5804c5, type: 2}
@@ -11957,6 +11982,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: deaa361fba798314dbb10b6d8c74c9ae, type: 2}
   - {fileID: 11400000, guid: da37dc99fc853264988372ca0cbfb08c, type: 2}
   - {fileID: 11400000, guid: ed9e66d5757494b488f72cc7c7b3a269, type: 2}
+  - {fileID: 11400000, guid: 008e0b3c5117e0f49af3e94b812950d0, type: 2}
   unlockedItemsSlots:
   - {fileID: 1940315682}
   - {fileID: 1235610347}
@@ -12008,8 +12034,6 @@ MonoBehaviour:
   zylka: {fileID: 0}
   splawik: {fileID: 0}
   haczyk: {fileID: 0}
-  RodPower: 0
-  opened: 0
 --- !u!114 &1001324584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13767,7 +13791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1152427873}
   m_Layer: 0
-  m_Name: KijParent
+  m_Name: kijParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13785,8 +13809,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1361782636}
+  m_Children: []
   m_Father: {fileID: 5813611336548490369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1173787874
@@ -14051,7 +14074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1176553844}
   m_Layer: 0
-  m_Name: haczykSpawn
+  m_Name: haczykParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14065,13 +14088,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176553843}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 151.14, y: -0.4, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.4728315, y: 0.67527366, z: 0.00000019371507, w: 0.5660707}
+  m_LocalPosition: {x: 164, y: -1.2, z: 0}
+  m_LocalScale: {x: 1.5743104, y: 1.5743104, z: 1.5743104}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5813611336548490369}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 32.365, y: 115.162, z: 49.115}
 --- !u!1 &1180727439
 GameObject:
   m_ObjectHideFlags: 0
@@ -14202,7 +14225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1211759032}
   m_Layer: 0
-  m_Name: floatSpawn
+  m_Name: splawikParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14217,7 +14240,7 @@ Transform:
   m_GameObject: {fileID: 1211759031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 151.2, y: 0, z: -3.7}
+  m_LocalPosition: {x: 164.59, y: 0, z: -3.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16286,68 +16309,6 @@ Transform:
   - {fileID: 156444958}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1361782635
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1152427873}
-    m_Modifications:
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 9.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.0000000074505797
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6477035945511405848, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-      propertyPath: m_Name
-      value: 1 - Drewniany Patyk
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
---- !u!4 &1361782636 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5956253828689204130, guid: cd5e7ee6d2fcb364abca484f174c6a66, type: 3}
-  m_PrefabInstance: {fileID: 1361782635}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1371707538
 GameObject:
   m_ObjectHideFlags: 0
@@ -23125,7 +23086,7 @@ GameObject:
   - component: {fileID: 1777897728}
   - component: {fileID: 1777897727}
   m_Layer: 5
-  m_Name: Haczyk
+  m_Name: Splawik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23214,7 +23175,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f25d628d06b043c408ceda49e3bd46b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8bb1cc9144559144093e88844c16d0ed, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28123,9 +28084,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1152427873}
+  - {fileID: 769433224}
   - {fileID: 1211759032}
-  - {fileID: 440864373}
   - {fileID: 1176553844}
+  - {fileID: 440864373}
   m_Father: {fileID: 1024957756}
   m_LocalEulerAnglesHint: {x: 0, y: -92.797, z: 35}
 --- !u!1 &6507901977825707065
@@ -28158,6 +28120,7 @@ GameObject:
   - component: {fileID: 5813611336548490369}
   - component: {fileID: 7422428204014965540}
   - component: {fileID: 4676201417381767150}
+  - component: {fileID: 7422428204014965544}
   - component: {fileID: 7422428204014965543}
   - component: {fileID: 7422428204014965541}
   - component: {fileID: 7422428204014965542}
@@ -28520,17 +28483,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56fb2cf58be1b846b4fafa0c3eadd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canFish: 0
   player: {fileID: 1300399718}
   minigame: {fileID: 436742093}
   stats: {fileID: 7422428204014965543}
-  floatPrefab: {fileID: 7837972321110556742, guid: d96723c5c9999e14caf4501192b467e9, type: 3}
+  components: {fileID: 7422428204014965544}
   fishSpawn: {fileID: 440864372}
   GreenSize: 5
   pointerSpeed: 1
   fillBarDiff: 4
   State: 0
   floatObject: {fileID: 0}
-  whereToSpawnFloat: {fileID: 1211759032}
   fishList: {fileID: 0}
   holdingFish: 0
 --- !u!111 &7422428204014965542
@@ -28562,8 +28525,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e16bcffcbd6bf46b8c9ca6e5252895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RodPower: 0
   chanceToHook: 30
   power: 2
+--- !u!114 &7422428204014965544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6621918840770545211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d1789de1a95164da2ed419029222aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kij: {fileID: 1152427872}
+  kolowrotek: {fileID: 769433223}
+  haczyk: {fileID: 1176553843}
+  splawik: {fileID: 1211759031}
 --- !u!4 &7685259905779166671
 Transform:
   m_ObjectHideFlags: 0
