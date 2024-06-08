@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd95b128175886c418fa7aab8b6fe2ae, type: 3}
   m_Name: "5 - \u017By\u0142ka konstelacji"
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: a244ff17a5671ab4098525e64032dab9, type: 3}
   prefab: {fileID: 0}
   name: "\u017By\u0142ka konstelacji"
   price: 0

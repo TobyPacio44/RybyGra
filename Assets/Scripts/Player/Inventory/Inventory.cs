@@ -1,12 +1,14 @@
 using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.WebSockets;
 using System.Security.Cryptography;
 using System.Xml.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows.Speech;
 
 public class Inventory : MonoBehaviour
 {
@@ -30,6 +32,8 @@ public class Inventory : MonoBehaviour
     public EquipmentObject zylka;
     public EquipmentObject splawik;
     public EquipmentObject haczyk;
+    public int RodPower;
+
 
     public bool opened;
     private void Start()
@@ -41,7 +45,8 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (!opened) {
+            if (!opened)
+            {
                 player.GetComponent<CharacterController>().enabled = false;
                 player.Screen.move = false;
                 ui.gameObject.SetActive(true);
@@ -62,6 +67,8 @@ public class Inventory : MonoBehaviour
     {
         SetUpEQ();
         UpdateEq();
+        UpdateEquipment();
+        CalculateRodPower();
     }
     public void SetUpEQ()
     {
@@ -85,13 +92,13 @@ public class Inventory : MonoBehaviour
         }
     }
     public void UpdateEq()
-    {      
-        foreach(GameObject x in ui.fishesItems)
+    {
+        foreach (GameObject x in ui.fishesItems)
         {
             x.GetComponent<UnityEngine.UI.Image>().sprite = null;
             x.SetActive(false);
         }
-        for (int i  = 0; i < fishes.Count; i++)
+        for (int i = 0; i < fishes.Count; i++)
         {
             var element = ui.fishesItems[i];
             element.SetActive(true);
@@ -110,14 +117,87 @@ public class Inventory : MonoBehaviour
             element.GetComponent<UnityEngine.UI.Image>().sprite = items[i].sprite;
         }
     }
+    public void UpdateEquipment()
+    {
+        if (kij != null) { ui.fishRodItems[0].GetComponent<UnityEngine.UI.Image>().sprite = kij.sprite; }
+        if (kolowrotek != null) { ui.fishRodItems[1].GetComponent<UnityEngine.UI.Image>().sprite = kolowrotek.sprite; }
+        if (zylka != null) { ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = zylka.sprite; }
+        if (splawik != null) { ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = splawik.sprite; }
+        if (haczyk != null) { ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = haczyk.sprite; }
+    }
 
     public void ClickItemSlot(int slot)
     {
         var Object = items[slot - 1];
+        if (Object is EquipmentObject)
+        {
+            var eq = (EquipmentObject)Object;
 
-        if(Object.GetType()==typeof(EquipmentObject)) {
-            Debug.Log("ok");
+            if (eq.eqType == EquipmentObject.EquipmentType.Kij)
+            {
+                if (kij == null) { kij = eq; items.Remove(Object); }
+                else
+                {
+                    var ram = kij;
+                    kij = eq;
+                    items[slot - 1] = ram;
+                }
+            }
+            if (eq.eqType == EquipmentObject.EquipmentType.Kolowrotek)
+            {
+                if (kolowrotek == null) { kolowrotek = eq; items.Remove(Object); }
+                else
+                {
+                    var ram = kolowrotek;
+                    kolowrotek = eq;
+                    items[slot - 1] = ram;
+                }
+            }
+            if (eq.eqType == EquipmentObject.EquipmentType.Zylka)
+            {
+                if (zylka == null) { zylka = eq; items.Remove(Object); }
+                else
+                {
+                    var ram = zylka;
+                    zylka = eq;
+                    items[slot - 1] = ram;
+                }
+            }
+            if (eq.eqType == EquipmentObject.EquipmentType.Haczyk)
+            {
+                if (haczyk == null) { haczyk = eq; items.Remove(Object); }
+                else
+                {
+                    var ram = haczyk;
+                    haczyk = eq;
+                    items[slot - 1] = ram;
+                }
+            }
+            if (eq.eqType == EquipmentObject.EquipmentType.Splawik)
+            {
+                if (splawik == null) { splawik = eq; items.Remove(Object); }
+                else
+                {
+                    var ram = splawik;
+                    splawik = eq;
+                    items[slot - 1] = ram;
+                }
+            }
         }
 
+        afterShop();
+    }
+
+    public void CalculateRodPower()
+    {
+        int a = 0;
+        if (kij != null) { a += kij.power; }
+        if (kolowrotek != null) { a += kolowrotek.power; }
+        if (zylka != null) { a += zylka.power; }
+        if (haczyk != null) { a += haczyk.power; }
+        if (splawik != null) { a += splawik.power; }
+
+        RodPower = a;
+        ui.rodPower.text = RodPower.ToString();
     }
 }

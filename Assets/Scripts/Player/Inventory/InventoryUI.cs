@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class InventoryUI : MonoBehaviour
 {
     public GameObject fishingRod;
@@ -11,4 +11,5 @@ public class InventoryUI : MonoBehaviour
     public List<GameObject> przynêtyItems = new List<GameObject>();
     public List<GameObject> fishRodItems = new List<GameObject>();
     public List<Sprite> fishRodItemsPlaceHolders = new List<Sprite>();
+    public TextMeshProUGUI rodPower;
 }
