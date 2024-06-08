@@ -11363,7 +11363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &987224282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11466,8 +11466,8 @@ MonoBehaviour:
   - {fileID: 1777897725}
   fishRodItemsPlaceHolders:
   - {fileID: 21300000, guid: 5a2df46d974c74748afff033529fd545, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 4cb4cf5d6bfb01a43ae4b68c6592fe73, type: 3}
+  - {fileID: 21300000, guid: f8d792753a05ba148962668b848cdf81, type: 3}
   - {fileID: 21300000, guid: 8bb1cc9144559144093e88844c16d0ed, type: 3}
   - {fileID: 21300000, guid: f25d628d06b043c408ceda49e3bd46b7, type: 3}
 --- !u!114 &987224284
@@ -11681,8 +11681,8 @@ MonoBehaviour:
   itemsCapacity: 12
   items:
   - {fileID: 11400000, guid: 9d50c07a2f3a8654bb57da3af776e364, type: 2}
-  - {fileID: 11400000, guid: c059fa68dc6f5ef43a11402f2705e745, type: 2}
   - {fileID: 11400000, guid: 18a1944d1b6c83a409acefe46f5804c5, type: 2}
+  - {fileID: 11400000, guid: c059fa68dc6f5ef43a11402f2705e745, type: 2}
   unlockedItemsSlots:
   - {fileID: 1940315682}
   - {fileID: 1235610347}
@@ -11729,6 +11729,11 @@ MonoBehaviour:
   - {fileID: 9742305}
   "zan\u0119ty": []
   "przyn\u0119ty": []
+  kij: {fileID: 11400000, guid: 9d50c07a2f3a8654bb57da3af776e364, type: 2}
+  kolowrotek: {fileID: 0}
+  zylka: {fileID: 0}
+  splawik: {fileID: 0}
+  haczyk: {fileID: 0}
   opened: 0
 --- !u!114 &1001324584
 MonoBehaviour:
@@ -20359,7 +20364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1625016004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20443,7 +20448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4cb4cf5d6bfb01a43ae4b68c6592fe73, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -26905,7 +26910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2114292312
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26989,7 +26994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f8d792753a05ba148962668b848cdf81, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

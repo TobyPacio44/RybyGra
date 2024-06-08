@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd95b128175886c418fa7aab8b6fe2ae, type: 3}
   m_Name: 3 - Mocny Kij
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: fdcf8785f7db63a4fbfa9bf5310c6c1a, type: 3}
+  sprite: {fileID: 21300000, guid: 3ef9ec5c10225f247ad253a4127786d2, type: 3}
   prefab: {fileID: 3052311760715891308, guid: 5cc13a87de2894c47bb370ecf0a1dacd, type: 3}
   name: Mocny kij
   price: 0
