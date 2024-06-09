@@ -6,9 +6,15 @@ using static Player;
 
 public class Shop : MonoBehaviour, IInteractable
 {
+    public List<ItemObject> sellable;
+
     public void Interact(Player player)
     {
-        SellFish(player);
+        if (player.ShopUI.gameObject.active == false)
+        {
+            player.ShopUI.CreateList(sellable);
+            player.ShopUI.gameObject.SetActive(true);
+        }
     }
 
     public void SellFish(Player player)

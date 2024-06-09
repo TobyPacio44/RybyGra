@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class FishingRod : MonoBehaviour
 {
+    public List<FishObject> eligibleFish = new List<FishObject>();
+
+
     public bool canFish;
 
     public Player player;
@@ -30,7 +33,7 @@ public class FishingRod : MonoBehaviour
 
     [HideInInspector] public GameObject floatObject;
 
-    [HideInInspector] public FishList fishList;
+    public FishList fishList;
     public bool holdingFish;
 
     private void Update()
@@ -57,14 +60,14 @@ public class FishingRod : MonoBehaviour
 
     public FishObject SelectFish()
     {
-        List<FishObject> eligibleFish = new List<FishObject>();
 
         foreach (FishObject fish in fishList.list)
         {
-            if (fish.fishDifficulty+fish.weight <= stats.power)
-            {
-                eligibleFish.Add(fish);
-            }
+            if(stats.RodPower > 0) {  if(fish.fishDifficulty < 6) {eligibleFish.Add(fish); continue; }}
+            if(stats.RodPower > 99) {  if(fish.fishDifficulty < 9) {eligibleFish.Add(fish); continue; } }
+            if(stats.RodPower > 999) {  if(fish.fishDifficulty < 12) {eligibleFish.Add(fish); continue; } }
+            if(stats.RodPower > 2499) {  if(fish.fishDifficulty < 19) {eligibleFish.Add(fish); continue; } }
+            if(stats.RodPower > 7499) {eligibleFish.Add(fish); continue; }
         }
 
         if (eligibleFish.Count > 0)
@@ -87,7 +90,6 @@ public class FishingRod : MonoBehaviour
         minigame.parent.SetActive(false);
         State = state.idle;
         Destroy(floatObject);
-        Debug.Log("Hooked");
         player.Screen.hookedSquare.gameObject.SetActive(false);
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
         fishList = null;
@@ -95,7 +97,6 @@ public class FishingRod : MonoBehaviour
 
         if (caught && fish != null)
         {
-            Debug.Log("Can you take it");
             player.accept.gameObject.SetActive(true);
             player.accept.SetAcceptUI(fish.sprite, fish.name, fish.price);
             holdingFish = true;
@@ -109,7 +110,6 @@ public class FishingRod : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Took fish");
                 player.inventory.fishes.Add(fish);
                 holdingFish = false;
                 Destroy(fishObject);
@@ -178,13 +178,10 @@ public class FishingRod : MonoBehaviour
     }
     IEnumerator WaitForFishList()
     {
-        Debug.Log("WaitForFishList");
         while (fishList == null)
         {
             yield return null;
         }
-        Debug.Log("WaitForFishList Finished");
-
         yield return true;
     }
 

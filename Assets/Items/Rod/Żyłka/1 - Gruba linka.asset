@@ -15,6 +15,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 458f62f9449a2d648b7892788173e77d, type: 3}
   prefab: {fileID: 0}
   name: Gruba linka
-  price: 0
+  price: 5
   eqType: 2
   power: 0

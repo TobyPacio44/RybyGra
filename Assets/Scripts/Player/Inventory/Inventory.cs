@@ -128,6 +128,12 @@ public class Inventory : MonoBehaviour
 
     public void InstantiateRod(GameObject Parent, EquipmentObject eq)
     {
+        if (kij == null)
+        {
+            fishingRod.gameObject.SetActive(false);
+        }
+        else { fishingRod.gameObject.SetActive(true); }
+
         foreach (Transform child in Parent.transform)
         {
             Destroy(child.gameObject);
