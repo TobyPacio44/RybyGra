@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,12 +30,20 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyItem(ItemObject item)
     {
-        player.inventory.items.Add(item);
-        player.inventory.afterShop();
+        int money = PlayerPrefs.GetInt("money");
+        if(item.price < money)
+        {
+            money -= item.price;
+            PlayerPrefs.SetInt("money", money);
+            player.inventory.items.Add(item);
+            player.inventory.afterShop();
+        }      
     }
 
     public void Close(GameObject x)
     {
         x.SetActive(false);
+        player.GetComponent<CharacterController>().enabled = true;
+        player.Screen.move = true;
     }
 }

@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Tab)) { ShopUI.gameObject.SetActive(false); }
     }
     public interface IInteractable
     {
