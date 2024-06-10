@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Holder holder;
     public FishingMinigame minigame;
     public Inventory inventory;
+    public ShopUI ShopUI;
     public Teleports tel;
     public Accept accept;
 
@@ -34,6 +35,8 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Tab)) { ShopUI.gameObject.SetActive(false); }
     }
     public interface IInteractable
     {
