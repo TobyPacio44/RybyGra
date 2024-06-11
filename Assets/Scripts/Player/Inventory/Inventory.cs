@@ -33,7 +33,9 @@ public class Inventory : MonoBehaviour
     public EquipmentObject splawik;
     public EquipmentObject haczyk;
 
-    public List<EquipmentObject> przynety = new List<EquipmentObject>();
+    public List<EquipmentObject> bait = new List<EquipmentObject>();
+    private int previous_bait;
+
 
     private bool opened;
     private void Start()
@@ -204,6 +206,19 @@ public class Inventory : MonoBehaviour
                     var ram = splawik;
                     splawik = eq;
                     items[slot - 1] = ram;
+                }
+            }
+
+            if(eq.eqType == EquipmentObject.EquipmentType.Przyneta)
+            {
+                if (previous_bait > 2) { previous_bait = 0; }
+                if (bait[previous_bait] == null) { bait[previous_bait] = eq; items.Remove(Object); previous_bait++; }
+                else
+                {
+                    var ram = bait[previous_bait];
+                    splawik = eq;
+                    items[slot - 1] = ram;
+                    previous_bait++;
                 }
             }
         }
