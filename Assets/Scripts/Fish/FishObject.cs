@@ -8,4 +8,6 @@ public class FishObject : ItemObject
     public int fishDifficulty;
     [Header("(1-4)")]
     public int weight;
+
+    public EquipmentObject likes;
 }

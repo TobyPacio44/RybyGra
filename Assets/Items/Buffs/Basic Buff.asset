@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd95b128175886c418fa7aab8b6fe2ae, type: 3}
-  m_Name: RobakBialy
+  m_Script: {fileID: 11500000, guid: 87ea18f9c66c85a42be4484f460e0987, type: 3}
+  m_Name: Basic Buff
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 45f83354888ccff40ae0675020f5b7be, type: 3}
-  prefab: {fileID: 1966131811506692946, guid: 29ead9cc993756445a65f84e7120c539, type: 3}
-  name: RobakB
+  sprite: {fileID: 0}
+  prefab: {fileID: 0}
+  name: 
   price: 0
-  eqType: 5
-  power: 0
+  buffType: 0

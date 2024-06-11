@@ -8846,6 +8846,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671017618}
   m_CullTransparentMesh: 1
+--- !u!1 &679760802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 679760803}
+  m_Layer: 0
+  m_Name: baitParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &679760803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679760802}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 158.19, y: -10.93, z: 1.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5813611336548490369}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &680237190
 GameObject:
   m_ObjectHideFlags: 0
@@ -13464,12 +13495,6 @@ MonoBehaviour:
   - {fileID: 1719723946}
   - {fileID: 9742305}
   "zan\u0119ty": []
-  "przyn\u0119ty": []
-  kij: {fileID: 0}
-  kolowrotek: {fileID: 0}
-  zylka: {fileID: 0}
-  splawik: {fileID: 0}
-  haczyk: {fileID: 0}
   bait:
   - {fileID: 0}
   - {fileID: 0}
@@ -13478,6 +13503,11 @@ MonoBehaviour:
   - {fileID: 1851506882}
   - {fileID: 1248886650}
   - {fileID: 680237190}
+  kij: {fileID: 0}
+  kolowrotek: {fileID: 0}
+  zylka: {fileID: 0}
+  splawik: {fileID: 0}
+  haczyk: {fileID: 0}
 --- !u!114 &1001324584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31823,6 +31853,7 @@ Transform:
   - {fileID: 769433224}
   - {fileID: 1211759032}
   - {fileID: 1176553844}
+  - {fileID: 679760803}
   - {fileID: 440864373}
   m_Father: {fileID: 1024957756}
   m_LocalEulerAnglesHint: {x: 0, y: -92.797, z: 35}
@@ -32717,6 +32748,7 @@ MonoBehaviour:
   kolowrotek: {fileID: 769433223}
   haczyk: {fileID: 1176553843}
   splawik: {fileID: 1211759031}
+  bait: {fileID: 679760802}
 --- !u!1 &7623545440460019498
 GameObject:
   m_ObjectHideFlags: 0

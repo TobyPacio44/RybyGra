@@ -7,7 +7,8 @@ public enum ItemType
 {
     Fish,
     Item,
-    Equipment
+    Equipment,
+    Buff
 }
 public abstract class ItemObject : ScriptableObject
 {

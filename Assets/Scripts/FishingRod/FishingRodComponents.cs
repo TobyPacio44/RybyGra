@@ -8,5 +8,5 @@ public class FishingRodComponents : MonoBehaviour
     public GameObject kolowrotek;
     public GameObject haczyk;
     public GameObject splawik;
-
+    public GameObject bait;
 }

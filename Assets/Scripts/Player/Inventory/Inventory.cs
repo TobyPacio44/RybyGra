@@ -25,7 +25,10 @@ public class Inventory : MonoBehaviour
     public List<FishObject> fishes = new List<FishObject>();
     public List<GameObject> unlockedFishesSlots = new List<GameObject>();
     public List<ItemObject> zanêty = new List<ItemObject>();
-    public List<ItemObject> przynêty = new List<ItemObject>();
+
+    public List<EquipmentObject> bait = new List<EquipmentObject>();
+    public List<GameObject> unlockedBaitSlots = new List<GameObject>();
+    private int previous_bait;
 
     public EquipmentObject kij;
     public EquipmentObject kolowrotek;
@@ -33,9 +36,6 @@ public class Inventory : MonoBehaviour
     public EquipmentObject splawik;
     public EquipmentObject haczyk;
 
-    public List<EquipmentObject> bait = new List<EquipmentObject>();
-    public List<GameObject> unlockedBaitSlots = new List<GameObject>();
-    private int previous_bait;
 
 
     private bool opened;
@@ -73,6 +73,7 @@ public class Inventory : MonoBehaviour
         UpdateEq();
         UpdateEquipment();
         CalculateRodPower();
+        InstantiateBait();
 
         fishingRod.canFish = canFish();
     }
@@ -149,7 +150,17 @@ public class Inventory : MonoBehaviour
         }
 
     }
-
+    public void InstantiateBait()
+    {
+        foreach(Transform x in fishingRod.components.bait.transform) { Destroy(x.gameObject); }
+        foreach(EquipmentObject x in bait)
+        {
+            if (x != null)
+            {
+                Instantiate(x.prefab, fishingRod.components.bait.transform);
+            }
+        }
+    }
     public void InstantiateRod(GameObject Parent, EquipmentObject eq)
     {
         if (kij == null)
@@ -253,6 +264,7 @@ public class Inventory : MonoBehaviour
     }
     public void HandleBaitSlotManagement(EquipmentObject haczyk)
     {
+        previous_bait = 0;
         foreach(GameObject x in unlockedBaitSlots)
         {
             x.SetActive(false);

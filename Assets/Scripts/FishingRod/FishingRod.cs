@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class FishingRod : MonoBehaviour
 {
-    public List<FishObject> eligibleFish = new List<FishObject>();
-
-
     public bool canFish;
 
     public Player player;
@@ -60,19 +57,11 @@ public class FishingRod : MonoBehaviour
 
     public FishObject SelectFish()
     {
+        fishList.HandleFishSelection(stats.RodPower, player.inventory.bait);
 
-        foreach (FishObject fish in fishList.list)
+        if (fishList.eligibleFish.Count > 0)
         {
-            if(stats.RodPower > 0) {  if(fish.fishDifficulty < 6) {eligibleFish.Add(fish); continue; }}
-            if(stats.RodPower > 99) {  if(fish.fishDifficulty < 9) {eligibleFish.Add(fish); continue; } }
-            if(stats.RodPower > 999) {  if(fish.fishDifficulty < 12) {eligibleFish.Add(fish); continue; } }
-            if(stats.RodPower > 2499) {  if(fish.fishDifficulty < 19) {eligibleFish.Add(fish); continue; } }
-            if(stats.RodPower > 7499) {eligibleFish.Add(fish); continue; }
-        }
-
-        if (eligibleFish.Count > 0)
-        {
-            FishObject selected = eligibleFish[Random.Range(0, eligibleFish.Count)];
+            FishObject selected = fishList.eligibleFish[Random.Range(0, fishList.eligibleFish.Count)];
             return selected;
         }
         else
