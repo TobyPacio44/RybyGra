@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
     public EquipmentObject splawik;
     public EquipmentObject haczyk;
 
-    public List<EquipmentObject> przynety = new List<EquipmentObject>();
+    public List<EquipmentObject> bait = new List<EquipmentObject>();
 
     private bool opened;
     private void Start()
