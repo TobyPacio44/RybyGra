@@ -18772,6 +18772,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - {fileID: 11400000, guid: f21c93bdb293942488f27f3c7b604bd4, type: 2}
+  buff: {fileID: 0}
+  eligibleFish: []
 --- !u!64 &1389427350
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32106,6 +32108,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 811d3f46c2b14b542a0943c4a6c497eb, type: 2}
   - {fileID: 11400000, guid: 709564b5be9b1704d91f0178f15110fc, type: 2}
   - {fileID: 11400000, guid: 381e7a3eb78c31041b4496fabef025ee, type: 2}
+  buff: {fileID: 11400000, guid: 2e8b0f461680b834490439c019e45ab3, type: 2}
+  eligibleFish: []
 --- !u!64 &6697621763513444209
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32687,7 +32691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56fb2cf58be1b846b4fafa0c3eadd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eligibleFish: []
   canFish: 0
   player: {fileID: 1300399718}
   minigame: {fileID: 436742093}

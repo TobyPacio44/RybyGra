@@ -18,3 +18,4 @@ MonoBehaviour:
   price: 5
   fishDifficulty: 1
   weight: 1
+  likes: {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
