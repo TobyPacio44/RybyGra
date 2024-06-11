@@ -11,7 +11,8 @@ public class EquipmentObject : ItemObject
         Kolowrotek,
         Zylka,
         Haczyk,
-        Splawik
+        Splawik,
+        Przyneta
     }
 
     public EquipmentType eqType;
