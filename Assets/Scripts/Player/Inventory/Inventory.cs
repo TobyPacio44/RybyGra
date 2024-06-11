@@ -40,6 +40,7 @@ public class Inventory : MonoBehaviour
     private bool opened;
     private void Start()
     {
+        previous_bait = 0;
         afterShop();
         money.UpdateMoney();
     }
@@ -128,6 +129,11 @@ public class Inventory : MonoBehaviour
         if (zylka != null) { ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = zylka.sprite; }
         if (haczyk != null) { ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = haczyk.sprite; }
         if (splawik != null) { ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = splawik.sprite; }
+
+        for(int i = 0; i < 3; i++) {
+            if (bait[i] != null) { ui.przynetyItems[i].GetComponent<UnityEngine.UI.Image>().sprite = bait[i].sprite; }
+        }
+        
     }
 
     public void InstantiateRod(GameObject Parent, EquipmentObject eq)
