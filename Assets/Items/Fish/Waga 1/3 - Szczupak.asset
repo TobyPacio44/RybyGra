@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3 - Szczupak
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 2ee7fe82a9e3c3b448ee497d04794fd0, type: 3}
-  prefab: {fileID: 8458440758302779607, guid: c7634ee6fcde57a44b7a2dd09aa0fbe5, type: 3}
+  prefab: {fileID: 3561421960660117333, guid: f7366ba328e95ec4bbca15230397f18a, type: 3}
   name: Szczupak
   price: 5
   fishDifficulty: 3

@@ -13089,7 +13089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &987224282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13418,6 +13418,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
   - {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
   - {fileID: 11400000, guid: d4dfc17d9756f794c97b4e089fe202a2, type: 2}
+  - {fileID: 11400000, guid: ed9e66d5757494b488f72cc7c7b3a269, type: 2}
   unlockedItemsSlots:
   - {fileID: 1940315682}
   - {fileID: 1235610347}
@@ -17019,7 +17020,7 @@ Transform:
   m_GameObject: {fileID: 1300399711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -96.039, y: 213.05, z: 317.179}
+  m_LocalPosition: {x: -69.3, y: 213.05, z: 286.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32073,6 +32074,7 @@ MonoBehaviour:
   list:
   - {fileID: 11400000, guid: 811d3f46c2b14b542a0943c4a6c497eb, type: 2}
   - {fileID: 11400000, guid: 709564b5be9b1704d91f0178f15110fc, type: 2}
+  - {fileID: 11400000, guid: 381e7a3eb78c31041b4496fabef025ee, type: 2}
 --- !u!64 &6697621763513444209
 MeshCollider:
   m_ObjectHideFlags: 0
