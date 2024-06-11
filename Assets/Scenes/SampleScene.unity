@@ -12789,7 +12789,7 @@ MonoBehaviour:
   ui: {fileID: 987224283}
   money: {fileID: 1001324584}
   fishingRod: {fileID: 7422428204014965541}
-  itemsCapacity: 12
+  itemsCapacity: 24
   items:
   - {fileID: 11400000, guid: 18a1944d1b6c83a409acefe46f5804c5, type: 2}
   - {fileID: 11400000, guid: c059fa68dc6f5ef43a11402f2705e745, type: 2}
@@ -12798,6 +12798,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: da37dc99fc853264988372ca0cbfb08c, type: 2}
   - {fileID: 11400000, guid: ed9e66d5757494b488f72cc7c7b3a269, type: 2}
   - {fileID: 11400000, guid: 008e0b3c5117e0f49af3e94b812950d0, type: 2}
+  - {fileID: 11400000, guid: d4dfc17d9756f794c97b4e089fe202a2, type: 2}
+  - {fileID: 11400000, guid: af44315bf4dcf1e4f80d1ee0bdcd23f2, type: 2}
+  - {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
   unlockedItemsSlots:
   - {fileID: 1940315682}
   - {fileID: 1235610347}
