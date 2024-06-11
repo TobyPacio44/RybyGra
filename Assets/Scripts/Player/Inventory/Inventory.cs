@@ -34,6 +34,7 @@ public class Inventory : MonoBehaviour
     public EquipmentObject haczyk;
 
     public List<EquipmentObject> bait = new List<EquipmentObject>();
+    public List<GameObject> unlockedBaitSlots = new List<GameObject>();
     private int previous_bait;
 
 
@@ -95,6 +96,10 @@ public class Inventory : MonoBehaviour
             //ui.itemsItems[i].SetActive(true);
             unlockedItemsSlots[i].SetActive(true);
         }
+        foreach (GameObject x in ui.przynetyItems)
+        {
+            x.SetActive(false);
+        }
     }
     public void UpdateEq()
     {
@@ -124,16 +129,25 @@ public class Inventory : MonoBehaviour
     }
     public void UpdateEquipment()
     {
-        if (kij != null) { ui.fishRodItems[0].GetComponent<UnityEngine.UI.Image>().sprite = kij.sprite; }
-        if (kolowrotek != null) { ui.fishRodItems[1].GetComponent<UnityEngine.UI.Image>().sprite = kolowrotek.sprite; }
-        if (zylka != null) { ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = zylka.sprite; }
-        if (haczyk != null) { ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = haczyk.sprite; }
-        if (splawik != null) { ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = splawik.sprite; }
+        if (kij != null) {          ui.fishRodItems[0].GetComponent<UnityEngine.UI.Image>().sprite = kij.sprite; }
+        if (kolowrotek != null) {   ui.fishRodItems[1].GetComponent<UnityEngine.UI.Image>().sprite = kolowrotek.sprite; }
+        if (zylka != null) {        ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = zylka.sprite; }
+        if (haczyk != null) {       ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = haczyk.sprite; }
+        if (splawik != null) {      ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = splawik.sprite; }
 
-        for(int i = 0; i < 3; i++) {
-            if (bait[i] != null) { ui.przynetyItems[i].GetComponent<UnityEngine.UI.Image>().sprite = bait[i].sprite; }
+        for(int i = 0; i < 3; i++)
+        {
+            if (bait[i] != null)
+            {
+                ui.przynetyItems[i].SetActive(true);
+                ui.przynetyItems[i].GetComponent<UnityEngine.UI.Image>().sprite = bait[i].sprite;
+            }
+            else
+            {
+                ui.przynetyItems[i].SetActive(false);
+            }
         }
-        
+
     }
 
     public void InstantiateRod(GameObject Parent, EquipmentObject eq)
@@ -202,6 +216,7 @@ public class Inventory : MonoBehaviour
                     items[slot - 1] = ram;
                 }
 
+                HandleBaitSlotManagement(eq);
                 InstantiateRod(fishingRod.components.haczyk, eq);
             }
             if (eq.eqType == EquipmentObject.EquipmentType.Splawik)
@@ -215,14 +230,19 @@ public class Inventory : MonoBehaviour
                 }
             }
 
-            if(eq.eqType == EquipmentObject.EquipmentType.Przyneta)
+            if (eq.eqType == EquipmentObject.EquipmentType.Przyneta)
             {
+                if (!unlockedBaitSlots[0].activeSelf) { return; }
+
                 if (previous_bait > 2) { previous_bait = 0; }
+                if (!unlockedBaitSlots[2].activeSelf && previous_bait > 1){previous_bait = 0;}
+                if (!unlockedBaitSlots[1].activeSelf && previous_bait > 0){previous_bait = 0;}
+
                 if (bait[previous_bait] == null) { bait[previous_bait] = eq; items.Remove(Object); previous_bait++; }
                 else
                 {
                     var ram = bait[previous_bait];
-                    splawik = eq;
+                    bait[previous_bait] = eq;
                     items[slot - 1] = ram;
                     previous_bait++;
                 }
@@ -230,6 +250,27 @@ public class Inventory : MonoBehaviour
         }
 
         afterShop();
+    }
+    public void HandleBaitSlotManagement(EquipmentObject haczyk)
+    {
+        foreach(GameObject x in unlockedBaitSlots)
+        {
+            x.SetActive(false);
+        }
+
+        if(haczyk.power > -1) { unlockedBaitSlots[0].SetActive(true); }
+        if(haczyk.power > 25) { unlockedBaitSlots[1].SetActive(true); }
+        if(haczyk.power > 625) { unlockedBaitSlots[2].SetActive(true); }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (!unlockedBaitSlots[i].activeSelf && bait[i] != null)
+            {
+                items.Add(bait[i]);
+                bait[i] = null;
+                ui.przynetyItems[i].GetComponent<UnityEngine.UI.Image>().sprite = null;
+            }
+        }
     }
     public bool canFish()
     {
