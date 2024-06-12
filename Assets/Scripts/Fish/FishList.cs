@@ -62,7 +62,6 @@ public class FishList : MonoBehaviour
                 foreach (FishObject fish in ram)
                 {
                     eligibleFish.Add(FishObject.Instantiate(fish));
-                    //eligibleFish[i].price += 100;
                     i++;
                 }
             }

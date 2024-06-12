@@ -49,6 +49,13 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            if(player.buffManager.ui.activeSelf == true)
+            {
+                player.buffManager.ui.gameObject.SetActive(false);
+                player.GetComponent<CharacterController>().enabled = true;
+                player.Screen.move = true;
+                return;
+            }
             if (!opened)
             {
                 player.GetComponent<CharacterController>().enabled = false;

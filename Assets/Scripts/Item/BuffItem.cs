@@ -14,4 +14,7 @@ public class BuffItem : ItemObject
     }
 
     public BuffType buffType;
+
+    [TextArea]
+    public string description;
 }

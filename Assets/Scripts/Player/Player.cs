@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public FishingMinigame minigame;
     public Inventory inventory;
     public ShopUI ShopUI;
+    public BuffManager buffManager;
     public Teleports tel;
     public Accept accept;
 
