@@ -13438,18 +13438,13 @@ MonoBehaviour:
   itemsCapacity: 24
   items:
   - {fileID: 11400000, guid: 18a1944d1b6c83a409acefe46f5804c5, type: 2}
-  - {fileID: 11400000, guid: c059fa68dc6f5ef43a11402f2705e745, type: 2}
-  - {fileID: 11400000, guid: ddcc126f24686254e8c92d7503acaf86, type: 2}
+  - {fileID: 11400000, guid: cb7b0dc2de5843e4d9202cab66d6227b, type: 2}
   - {fileID: 11400000, guid: da37dc99fc853264988372ca0cbfb08c, type: 2}
-  - {fileID: 11400000, guid: deaa361fba798314dbb10b6d8c74c9ae, type: 2}
-  - {fileID: 11400000, guid: 2c3c8ead4ec4f5c418d5986c18423cb5, type: 2}
   - {fileID: 11400000, guid: 008e0b3c5117e0f49af3e94b812950d0, type: 2}
-  - {fileID: 11400000, guid: d4dfc17d9756f794c97b4e089fe202a2, type: 2}
-  - {fileID: 11400000, guid: af44315bf4dcf1e4f80d1ee0bdcd23f2, type: 2}
-  - {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
-  - {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
-  - {fileID: 11400000, guid: d4dfc17d9756f794c97b4e089fe202a2, type: 2}
   - {fileID: 11400000, guid: ed9e66d5757494b488f72cc7c7b3a269, type: 2}
+  - {fileID: 11400000, guid: d4dfc17d9756f794c97b4e089fe202a2, type: 2}
+  - {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
+  - {fileID: 11400000, guid: af44315bf4dcf1e4f80d1ee0bdcd23f2, type: 2}
   unlockedItemsSlots:
   - {fileID: 1940315682}
   - {fileID: 1235610347}
@@ -18772,6 +18767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - {fileID: 11400000, guid: f21c93bdb293942488f27f3c7b604bd4, type: 2}
+  defaultFish: {fileID: 0}
   baseChanceToHook: 0
   buff: {fileID: 0}
   ram: []
@@ -32112,8 +32108,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 381e7a3eb78c31041b4496fabef025ee, type: 2}
   - {fileID: 11400000, guid: 0766484fc7e8cf84f9594ab96199cdb3, type: 2}
   - {fileID: 11400000, guid: 4dabbe003d1d9e34280a688b316ee5ac, type: 2}
+  defaultFish: {fileID: 11400000, guid: 811d3f46c2b14b542a0943c4a6c497eb, type: 2}
   baseChanceToHook: 30
-  buff: {fileID: 11400000, guid: 2e8b0f461680b834490439c019e45ab3, type: 2}
+  buff: {fileID: 11400000, guid: 703df134ab754284faa8bdb34787da2a, type: 2}
   ram: []
   eligibleFish: []
 --- !u!64 &6697621763513444209
