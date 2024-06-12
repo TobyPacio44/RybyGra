@@ -37,6 +37,17 @@ public class FishList : MonoBehaviour
             return;
         }
 
+        if (buff.buffType == BuffItem.BuffType.basic) 
+        {
+            int i = 0;
+            foreach (FishObject fish in eligibleFish)
+            {
+
+                eligibleFish[i] = FishObject.Instantiate(fish);
+                fish.price += 1;
+            }
+        }
+
         //Handle Buffs
     }
 }
