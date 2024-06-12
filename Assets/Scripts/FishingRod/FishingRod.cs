@@ -57,8 +57,6 @@ public class FishingRod : MonoBehaviour
 
     public FishObject SelectFish()
     {
-        fishList.HandleFishSelection(stats.RodPower, player.inventory.bait);
-
         if (fishList.eligibleFish.Count > 0)
         {
             FishObject selected = fishList.eligibleFish[Random.Range(0, fishList.eligibleFish.Count)];
@@ -129,7 +127,7 @@ public class FishingRod : MonoBehaviour
     }
     IEnumerator Cast()
     {
-        Debug.Log("Cast");
+        fishList.HandleFishSelection(this, player.inventory.bait);
         //Cast UI
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(true);
 
