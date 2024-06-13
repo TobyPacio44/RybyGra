@@ -15,7 +15,7 @@ public class FishList : MonoBehaviour
     public List<FishObject> ram = new List<FishObject>();
     public List<FishObject> eligibleFish = new List<FishObject>();
 
-    public void HandleFishSelection(FishingRod rod, List<EquipmentObject> bait)
+    public void HandleFishSelection(FishingRod rod, List<InventoryItem> bait)
     {
         ram.Clear();
         eligibleFish.Clear();
@@ -36,14 +36,14 @@ public class FishList : MonoBehaviour
         }
 
         foreach (FishObject fish in ram) {
-            foreach(EquipmentObject x in bait) {
-                if (x == fish.likes) { eligibleFish.Add(fish); }
+            foreach(InventoryItem x in bait) {
+                if (x.item == fish.likes) { eligibleFish.Add(fish); }
             }
         }
 
         if (buff == null)
         {
-            return;
+            return; 
         }
         else
         {

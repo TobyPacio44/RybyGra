@@ -35,7 +35,7 @@ public class ShopUI : MonoBehaviour
         {
             money -= item.price;
             PlayerPrefs.SetInt("money", money);
-            player.inventory.items.Add(item);
+            player.inventory.AddToInventory(item, 1);
             player.inventory.afterShop();
         }      
     }

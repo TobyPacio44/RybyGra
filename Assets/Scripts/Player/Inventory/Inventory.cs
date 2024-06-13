@@ -10,25 +10,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 
+
 public class Inventory : MonoBehaviour
 {
     public Player player;
     public InventoryUI ui;
-
     public Money money;
     public FishingRod fishingRod;
 
-    public int itemsCapacity;
-    public List<ItemObject> items = new List<ItemObject>();
+    public List<InventoryItem> items = new List<InventoryItem>();
+    //public List<ItemObject> items = new List<ItemObject>();
     public List<GameObject> unlockedItemsSlots = new List<GameObject>();
-    public int fishesCapacity;
+
     public List<FishObject> fishes = new List<FishObject>();
     public List<GameObject> unlockedFishesSlots = new List<GameObject>();
-    public List<ItemObject> zanêty = new List<ItemObject>();
 
-    public List<EquipmentObject> bait = new List<EquipmentObject>();
+    public List<ItemObject> zanêty = new List<ItemObject>();
+    public List<InventoryItem> bait = new List<InventoryItem>();
     public List<GameObject> unlockedBaitSlots = new List<GameObject>();
-    private int previous_bait;
 
     public EquipmentObject kij;
     public EquipmentObject kolowrotek;
@@ -36,8 +35,9 @@ public class Inventory : MonoBehaviour
     public EquipmentObject splawik;
     public EquipmentObject haczyk;
 
-
-
+    public int itemsCapacity;
+    public int fishesCapacity;
+    private int previous_bait;
     private bool opened;
     private void Start()
     {
@@ -127,12 +127,20 @@ public class Inventory : MonoBehaviour
         {
             x.GetComponent<UnityEngine.UI.Image>().sprite = null;
             x.SetActive(false);
+            x.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = 0.ToString();
         }
         for (int i = 0; i < items.Count; i++)
         {
             var element = ui.itemsItems[i];
             element.SetActive(true);
-            element.GetComponent<UnityEngine.UI.Image>().sprite = items[i].sprite;
+            element.GetComponent<UnityEngine.UI.Image>().sprite = items[i].item.sprite;
+
+            if (items[i].amount > 0)
+            {
+                element.transform.GetChild(0).gameObject.SetActive(true);
+                element.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = items[i].amount.ToString();
+            }
+            else { element.transform.GetChild(0).gameObject.SetActive(false); }
         }
     }
     public void UpdateEquipment()
@@ -145,14 +153,16 @@ public class Inventory : MonoBehaviour
 
         for(int i = 0; i < 3; i++)
         {
-            if (bait[i] != null)
+            if (bait[i].item != null)
             {
                 ui.przynetyItems[i].SetActive(true);
-                ui.przynetyItems[i].GetComponent<UnityEngine.UI.Image>().sprite = bait[i].sprite;
+                ui.przynetyItems[i].GetComponent<UnityEngine.UI.Image>().sprite = bait[i].item.sprite;
+                ui.przynetyItems[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = bait[i].amount.ToString();
             }
             else
             {
                 ui.przynetyItems[i].SetActive(false);
+                //ui.przynetyItems[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = 0.ToString();
             }
         }
 
@@ -160,11 +170,11 @@ public class Inventory : MonoBehaviour
     public void InstantiateBait()
     {
         foreach(Transform x in fishingRod.components.bait.transform) { Destroy(x.gameObject); }
-        foreach(EquipmentObject x in bait)
+        foreach(InventoryItem x in bait)
         {
-            if (x != null)
+            if (x.item != null)
             {
-                Instantiate(x.prefab, fishingRod.components.bait.transform);
+                Instantiate(x.item.prefab, fishingRod.components.bait.transform);
             }
         }
     }
@@ -187,9 +197,10 @@ public class Inventory : MonoBehaviour
     public void ClickItemSlot(int slot)
     {
         var Object = items[slot - 1];
-        if (Object is EquipmentObject)
+        if (Object.item is EquipmentObject)
         {
-            var eq = (EquipmentObject)Object;
+            var eq = (EquipmentObject)Object.item;
+            var amount = Object.amount;
 
             if (eq.eqType == EquipmentObject.EquipmentType.Kij)
             {
@@ -198,7 +209,7 @@ public class Inventory : MonoBehaviour
                 {
                     var ram = kij;
                     kij = eq;
-                    items[slot - 1] = ram;
+                    items[slot - 1].item = ram;
                 }
 
                 InstantiateRod(fishingRod.components.kij, eq);
@@ -210,7 +221,7 @@ public class Inventory : MonoBehaviour
                 {
                     var ram = kolowrotek;
                     kolowrotek = eq;
-                    items[slot - 1] = ram;
+                    items[slot - 1].item = ram;
                 }
                 InstantiateRod(fishingRod.components.kolowrotek, eq);
             }
@@ -221,7 +232,7 @@ public class Inventory : MonoBehaviour
                 {
                     var ram = zylka;
                     zylka = eq;
-                    items[slot - 1] = ram;
+                    items[slot - 1].item = ram;
                 }
             }
             if (eq.eqType == EquipmentObject.EquipmentType.Haczyk)
@@ -231,7 +242,7 @@ public class Inventory : MonoBehaviour
                 {
                     var ram = haczyk;
                     haczyk = eq;
-                    items[slot - 1] = ram;
+                    items[slot - 1].item = ram;
                 }
 
                 HandleBaitSlotManagement(eq);
@@ -244,7 +255,7 @@ public class Inventory : MonoBehaviour
                 {
                     var ram = splawik;
                     splawik = eq;
-                    items[slot - 1] = ram;
+                    items[slot - 1].item = ram;
                 }
             }
 
@@ -256,12 +267,23 @@ public class Inventory : MonoBehaviour
                 if (!unlockedBaitSlots[2].activeSelf && previous_bait > 1){previous_bait = 0;}
                 if (!unlockedBaitSlots[1].activeSelf && previous_bait > 0){previous_bait = 0;}
 
-                if (bait[previous_bait] == null) { bait[previous_bait] = eq; items.Remove(Object); previous_bait++; }
+                if (bait[previous_bait].item == null) 
+                { 
+                    bait[previous_bait].item = eq; 
+                    bait[previous_bait].amount = amount; 
+                    items.Remove(Object); 
+                    previous_bait++; 
+                }
                 else
                 {
-                    var ram = bait[previous_bait];
-                    bait[previous_bait] = eq;
-                    items[slot - 1] = ram;
+                    var ram = bait[previous_bait].item;
+                    var ram2 = bait[previous_bait].amount;
+
+                    bait[previous_bait].item = eq;
+                    bait[previous_bait].amount = amount;
+
+                    items[slot - 1].item = ram;
+                    items[slot - 1].amount = ram2;
                     previous_bait++;
                 }
             }
@@ -283,9 +305,9 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            if (!unlockedBaitSlots[i].activeSelf && bait[i] != null)
+            if (!unlockedBaitSlots[i].activeSelf && bait[i].item != null)
             {
-                items.Add(bait[i]);
+                AddToInventory(bait[i].item, 1);
                 bait[i] = null;
                 ui.przynetyItems[i].GetComponent<UnityEngine.UI.Image>().sprite = null;
             }
@@ -311,5 +333,22 @@ public class Inventory : MonoBehaviour
 
         fishingRod.stats.RodPower = a;
         ui.rodPower.text = fishingRod.stats.RodPower.ToString();
+    }
+
+    public void AddToInventory(ItemObject item, int amount)
+    {
+        items.Add(new InventoryItem(item, amount));
+    }
+}
+[System.Serializable]
+public class InventoryItem
+{
+    public ItemObject item;
+    public int amount;
+
+    public InventoryItem(ItemObject item, int amount)
+    {
+        this.item = item;
+        this.amount = amount;
     }
 }
