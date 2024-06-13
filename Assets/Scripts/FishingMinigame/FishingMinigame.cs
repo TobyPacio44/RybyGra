@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +27,8 @@ public class FishingMinigame : MonoBehaviour
     }
 
     public bool onGreen;
-
+    private Vector3 velocity = Vector3.zero;
+    public float dampingFactor = 0.9f; // Damping factor to reduce velocity over time
     private void Start()
     {
     }
@@ -66,21 +68,26 @@ public class FishingMinigame : MonoBehaviour
 
     }
 
+
     private void FixedUpdate()
     {
-        float newXPosition = rect.transform.localPosition.x;
+        float acceleration = 0.0f;
 
         if (Side == side.right)
         {
-            newXPosition += pointerSpeed*40 * Time.deltaTime;
+            acceleration = pointerSpeed * 40 * Time.deltaTime;
         }
         if (Side == side.left)
         {
-            newXPosition -= pointerSpeed*40 * Time.deltaTime;
+            acceleration = -pointerSpeed * 40 * Time.deltaTime;
         }
 
-        newXPosition = Mathf.Clamp(newXPosition, -50f, 50f);
-        rect.transform.localPosition = new Vector3(newXPosition, rect.transform.localPosition.y, rect.transform.localPosition.z);
+        velocity.x += acceleration;
+        velocity.x *= dampingFactor; // Apply damping
+
+        Vector3 newPosition = rect.localPosition + velocity * Time.deltaTime;
+        newPosition.x = Mathf.Clamp(newPosition.x, -50f, 50f);
+        rect.localPosition = newPosition;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

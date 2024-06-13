@@ -22,7 +22,10 @@ public class BuffManager : MonoBehaviour
     public List<Transform> activeSlots;
     public void UpdateBuffUI()
     {
-        if(activeBuff != null) { return; }
+        player.GetComponent<CharacterController>().enabled = false;
+        player.Screen.move = false;
+
+        if (activeBuff != null) { return; }
         foreach(GameObject x in buffButtons)
         {
             Destroy(x);

@@ -56,7 +56,7 @@ public class FishList : MonoBehaviour
 
             if (buff.buffType == BuffItem.BuffType.basic)
             {
-                rod.stats.chanceToHook = baseChanceToHook + baseChanceToHook * 0.15f;
+                rod.stats.chanceToHook = baseChanceToHook + 15;
 
                 int i = 0;
                 foreach (FishObject fish in ram)
@@ -68,7 +68,7 @@ public class FishList : MonoBehaviour
 
             if (buff.buffType == BuffItem.BuffType.enchant)
             {
-                rod.stats.chanceToHook = baseChanceToHook + baseChanceToHook * 0.05f;
+                rod.stats.chanceToHook = baseChanceToHook + 5;
 
                 int i = 0;
                 foreach (FishObject fish in ram)

@@ -6271,6 +6271,7 @@ MonoBehaviour:
   blueRect: {fileID: 968071464}
   Side: 0
   onGreen: 0
+  dampingFactor: 0.9
 --- !u!61 &436742094
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17623,7 +17624,7 @@ Transform:
   m_GameObject: {fileID: 1300399711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -69.3, y: 213.05, z: 286.38}
+  m_LocalPosition: {x: -67.29, y: 213.05, z: 279.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33531,8 +33532,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0766484fc7e8cf84f9594ab96199cdb3, type: 2}
   - {fileID: 11400000, guid: 4dabbe003d1d9e34280a688b316ee5ac, type: 2}
   defaultFish: {fileID: 11400000, guid: 811d3f46c2b14b542a0943c4a6c497eb, type: 2}
-  baseChanceToHook: 30
-  buff: {fileID: 11400000, guid: 703df134ab754284faa8bdb34787da2a, type: 2}
+  baseChanceToHook: 10
+  buff: {fileID: 0}
   ram: []
   eligibleFish: []
 --- !u!64 &6697621763513444209
@@ -34122,8 +34123,8 @@ MonoBehaviour:
   stats: {fileID: 7422428204014965543}
   components: {fileID: 7422428204014965544}
   fishSpawn: {fileID: 440864372}
-  GreenSize: 5
-  pointerSpeed: 1
+  GreenSize: 1
+  pointerSpeed: 5
   fillBarDiff: 4
   State: 0
   floatObject: {fileID: 0}
