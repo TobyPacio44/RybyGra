@@ -262,12 +262,12 @@ public class Inventory : MonoBehaviour
             if (eq.eqType == EquipmentObject.EquipmentType.Przyneta)
             {
                 if (!unlockedBaitSlots[0].activeSelf) { return; }
-
                 if (previous_bait > 2) { previous_bait = 0; }
                 if (!unlockedBaitSlots[2].activeSelf && previous_bait > 1){previous_bait = 0;}
                 if (!unlockedBaitSlots[1].activeSelf && previous_bait > 0){previous_bait = 0;}
 
-                if (bait[previous_bait].item == null) 
+                if(bait[previous_bait].item == eq) { bait[previous_bait].amount += amount; items.Remove(Object); }
+                else if (bait[previous_bait].item == null) 
                 { 
                     bait[previous_bait].item = eq; 
                     bait[previous_bait].amount = amount; 
@@ -337,7 +337,28 @@ public class Inventory : MonoBehaviour
 
     public void AddToInventory(ItemObject item, int amount)
     {
+        foreach (InventoryItem x in items)
+        {
+            if(x.item == item)
+            {
+                x.amount += amount;
+                return;
+            }
+        }
         items.Add(new InventoryItem(item, amount));
+    }
+
+    public void TakeOneBait()
+    {
+        for(int i = bait.Count-1;  i >= 0; i--)
+        {
+            if (bait[i].item != null)
+            {
+                bait[i].amount -= 1;
+                if (bait[i].amount < 1) { bait[i].item = null; bait[i].amount = 0; }
+            }
+        }
+        afterShop();
     }
 }
 [System.Serializable]

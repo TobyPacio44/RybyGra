@@ -15,6 +15,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: de1a295a4c1358746901b297066b9fdc, type: 3}
   prefab: {fileID: 5692214504385064583, guid: 37f23c5484fdf32429375c1e4c86d00d, type: 3}
   name: Kukurydza
-  price: 0
+  price: 5
   eqType: 5
   power: 0

@@ -31,7 +31,7 @@ public class ShopUI : MonoBehaviour
     public void BuyItem(ItemObject item)
     {
         int money = PlayerPrefs.GetInt("money");
-        if(item.price < money)
+        if(item.price <= money)
         {
             money -= item.price;
             PlayerPrefs.SetInt("money", money);

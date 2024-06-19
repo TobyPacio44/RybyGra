@@ -15,6 +15,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 4accce8a805a38c43b44c7af938cf44c, type: 3}
   prefab: {fileID: 4814339299394485216, guid: 187d4169d68c57649b22f345611a51eb, type: 3}
   name: RobakCz
-  price: 0
+  price: 5
   eqType: 5
   power: 0

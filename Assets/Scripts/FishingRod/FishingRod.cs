@@ -89,6 +89,8 @@ public class FishingRod : MonoBehaviour
             holdingFish = true;
             var instantiate = Instantiate(fish.prefab, fishSpawn.transform);
             StartCoroutine(takeFish(fish, instantiate));
+
+            player.inventory.TakeOneBait();
         }
     }
     IEnumerator takeFish(FishObject fish, GameObject fishObject)
