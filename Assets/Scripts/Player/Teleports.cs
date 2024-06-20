@@ -36,8 +36,9 @@ public class Teleports : MonoBehaviour
 
     public void Teleport(int a)
     {
-        player.transform.position = points[a].transform.position;
+        player.transform.position = points[a].GetComponent<Bus>().origin.transform.position;
         player.GetComponent<CharacterController>().enabled = true;
+
         UIOff();
     }
 }

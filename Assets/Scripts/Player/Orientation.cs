@@ -7,7 +7,7 @@ public class Orientation : MonoBehaviour
 {
     public Transform player;
     public Vision cam;
-    float MouseX;
+    public float MouseX;
 
     private void Update()
     {

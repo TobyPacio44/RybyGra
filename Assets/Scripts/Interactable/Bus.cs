@@ -9,6 +9,7 @@ public class Bus : MonoBehaviour, IInteractable
 {
     public Sprite sprite;
     public List<GameObject> teleports;
+    public Transform origin;
     public void Interact(Player player)
     {
         player.tel.UIOn(teleports);
