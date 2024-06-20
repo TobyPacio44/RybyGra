@@ -38,41 +38,12 @@ public class Inventory : MonoBehaviour
     public int itemsCapacity;
     public int fishesCapacity;
     private int previous_bait;
-    private bool opened;
+    public bool opened;
     private void Start()
     {
         previous_bait = 0;
         afterShop();
         money.UpdateMoney();
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if(player.buffManager.ui.activeSelf == true)
-            {
-                player.buffManager.ui.gameObject.SetActive(false);
-                player.GetComponent<CharacterController>().enabled = true;
-                player.Screen.move = true;
-                return;
-            }
-            if (!opened)
-            {
-                player.GetComponent<CharacterController>().enabled = false;
-                player.Screen.move = false;
-                ui.gameObject.SetActive(true);
-                UpdateEq();
-                opened = !opened;
-            }
-            else
-            {
-                player.GetComponent<CharacterController>().enabled = true;
-                player.Screen.move = true;
-                ui.gameObject.SetActive(false);
-                opened = !opened;
-            }
-
-        }
     }
     public void afterShop()
     {

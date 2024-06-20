@@ -46,6 +46,10 @@ public class FishingRod : MonoBehaviour
             {
                 child.gameObject.SetActive(false);
             }
+            foreach (Transform child in components.bait.transform)
+            {
+                child.gameObject.SetActive(false);
+            }
 
             StartCoroutine(Throw());
         }
@@ -70,6 +74,10 @@ public class FishingRod : MonoBehaviour
     public void Hooked(bool caught, FishObject fish)
     {
         foreach (Transform child in components.haczyk.transform)
+        {
+            child.gameObject.SetActive(true);
+        }
+        foreach (Transform child in components.bait.transform)
         {
             child.gameObject.SetActive(true);
         }

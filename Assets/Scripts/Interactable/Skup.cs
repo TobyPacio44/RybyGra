@@ -1,18 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Player;
 
-public class Skup : MonoBehaviour
+public class Skup : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Interact(Player player)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (player.skupUI.gameObject.active == false)
+        {
+            player.skupUI.CreateList();
+            player.skupUI.gameObject.SetActive(true);
+        }
     }
 }

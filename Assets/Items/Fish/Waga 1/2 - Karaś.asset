@@ -17,4 +17,6 @@ MonoBehaviour:
   name: "Kara\u015B"
   price: 5
   fishDifficulty: 2
-  weight: 1
+  weight: 0.1
+  mnoznik: 1
+  likes: {fileID: 0}

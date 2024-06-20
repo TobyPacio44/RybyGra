@@ -8,12 +8,30 @@ public class Shop : MonoBehaviour, IInteractable
 {
     public List<ItemObject> sellable;
 
+    public Player localPlayer;
+
+    public void Buy()
+    {
+            localPlayer.ShopUI.CreateList(sellable);
+            localPlayer.ShopUI.gameObject.SetActive(true);
+    }
+
+    public void Sell()
+    {
+            localPlayer.ShopUI.CreateSellList();
+            localPlayer.ShopUI.gameObject.SetActive(true);
+    }
+
     public void Interact(Player player)
     {
-        if (player.ShopUI.gameObject.active == false)
+        if (player.choice.gameObject.active == false && player.skupUI.gameObject.active == false)
         {
-            player.ShopUI.CreateList(sellable);
-            player.ShopUI.gameObject.SetActive(true);
+            player.GetComponent<CharacterController>().enabled = false;
+            player.Screen.move = false;
+
+            localPlayer = player;
+            player.choice.shop = this;
+            player.choice.gameObject.SetActive(true);
         }
     }
 

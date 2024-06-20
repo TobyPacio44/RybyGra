@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
     public Holder holder;
     public FishingMinigame minigame;
     public Inventory inventory;
+    public Choice choice;
     public ShopUI ShopUI;
+    public SkupUI skupUI;
     public BuffManager buffManager;
     public Teleports tel;
     public Accept accept;
