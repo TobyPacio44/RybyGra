@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "2 - Podstawowy ko\u0142owrotoek"
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: dcc69d6a77e437d45ab2b4721d28a543, type: 3}
-  prefab: {fileID: 4505075873826345226, guid: 4b9dc62f398edc744990d100430168ca, type: 3}
+  prefab: {fileID: 6025173663872492350, guid: 4b9dc62f398edc744990d100430168ca, type: 3}
   name: "Podstawowy ko\u0142owrotek"
   price: 5
   eqType: 1
