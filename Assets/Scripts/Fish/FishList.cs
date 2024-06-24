@@ -23,7 +23,7 @@ public class FishList : MonoBehaviour
         rod.stats.chanceToHook = baseChanceToHook;
 
         foreach (FishObject fish in list){
-            if (rod.stats.RodPower > 0) { if (fish.fishDifficulty < 6) { ram.Add(fish); continue; } }
+            if (rod.stats.RodPower > -1) { if (fish.fishDifficulty < 6) { ram.Add(fish); continue; } }
             if (rod.stats.RodPower > 99) { if (fish.fishDifficulty < 9) { ram.Add(fish); continue; } }
             if (rod.stats.RodPower > 999) { if (fish.fishDifficulty < 12) { ram.Add(fish); continue; } }
             if (rod.stats.RodPower > 2499) { if (fish.fishDifficulty < 19) { ram.Add(fish); continue; } }

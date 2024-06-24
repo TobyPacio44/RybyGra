@@ -141,6 +141,8 @@ public class FishingRod : MonoBehaviour
         //Cast UI
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(true);
 
+        if (SelectFish() == null) { yield break; }
+
         yield return StartCoroutine(hookTick(3));
 
         player.Screen.hookedSquare.gameObject.SetActive(true);

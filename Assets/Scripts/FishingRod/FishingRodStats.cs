@@ -6,6 +6,8 @@ public class FishingRodStats : MonoBehaviour
 {
     [Header("Power of rod - from 0 to 30000")]
     public int RodPower;
+    public List<Sprite> tiers = new List<Sprite>();
+
     [Header("Chance to hook something - from 1 to 100")]
     public float chanceToHook;
 }

@@ -35,6 +35,8 @@ public class Inventory : MonoBehaviour
     public EquipmentObject splawik;
     public EquipmentObject haczyk;
 
+    public GameObject tier;
+
     public int itemsCapacity;
     public int fishesCapacity;
     private int previous_bait;
@@ -117,12 +119,22 @@ public class Inventory : MonoBehaviour
     public void UpdateEquipment()
     {
         if (kij != null) {          ui.fishRodItems[0].GetComponent<UnityEngine.UI.Image>().sprite = kij.sprite; }
-        if (kolowrotek != null) {   ui.fishRodItems[1].GetComponent<UnityEngine.UI.Image>().sprite = kolowrotek.sprite; }
-        if (zylka != null) {        ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = zylka.sprite; }
-        if (haczyk != null) {       ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = haczyk.sprite; }
-        if (splawik != null) {      ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = splawik.sprite; }
+            else { ui.fishRodItems[0].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[0]; }
 
-        for(int i = 0; i < 3; i++)
+        if (kolowrotek != null) {   ui.fishRodItems[1].GetComponent<UnityEngine.UI.Image>().sprite = kolowrotek.sprite; }
+            else { ui.fishRodItems[1].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[1]; }
+
+        if (zylka != null) {        ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = zylka.sprite; }
+            else { ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[2]; }
+
+        if (haczyk != null) {       ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = haczyk.sprite; }
+            else { ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[3]; }
+
+        if (splawik != null) {      ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = splawik.sprite; }
+            else { ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[4]; }
+
+
+        for (int i = 0; i < 3; i++)
         {
             if (bait[i].item != null)
             {
@@ -165,6 +177,42 @@ public class Inventory : MonoBehaviour
         Instantiate(eq.prefab, Parent.transform);
     }
 
+    public void unEquip(int i)
+    {
+        switch (i)
+        {
+            case 0: if (kij != null){          AddToInventory(kij, 0); }            kij = null;
+                foreach (Transform child in fishingRod.components.kij.transform)
+                {
+                    Destroy(child.gameObject);
+                }
+                break;
+            case 1: if (kolowrotek != null){   AddToInventory(kolowrotek, 0); }     kolowrotek = null;
+                foreach (Transform child in fishingRod.components.kolowrotek.transform)
+                {
+                    Destroy(child.gameObject);
+                }
+                break;
+
+
+            case 2: if (zylka != null){        AddToInventory(zylka, 0); }          zylka = null;
+                break;
+
+
+            case 3: if (splawik != null){      AddToInventory(splawik, 0); }        splawik = null; 
+                break;
+
+
+            case 4: if (haczyk != null){       AddToInventory(haczyk, 0); }         haczyk = null;
+                foreach (Transform child in fishingRod.components.haczyk.transform)
+                {
+                    Destroy(child.gameObject);
+                }
+                break;
+        }
+
+        afterShop();
+    }
     public void ClickItemSlot(int slot)
     {
         var Object = items[slot - 1];
@@ -304,6 +352,15 @@ public class Inventory : MonoBehaviour
 
         fishingRod.stats.RodPower = a;
         ui.rodPower.text = fishingRod.stats.RodPower.ToString();
+
+        //tier.SetActive(false);
+        if (a > -1)     { tier.SetActive(true); tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[0]; }
+        if (a > 99)     {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[1]; }
+        if (a > 999)    {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[2]; }
+        if (a > 2499)   {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[3]; }
+        if (a > 7499)   {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[4]; }
+        if (a > 29999)  {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[5]; }
+
     }
 
     public void AddToInventory(ItemObject item, int amount)
