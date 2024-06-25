@@ -8,7 +8,7 @@ public class FishingRod : MonoBehaviour
     public bool canFish;
 
     public Player player;
-    public FishingMinigame minigame;
+    public MiniGame minigame;
     public FishingRodStats stats;
     public FishingRodComponents components;
     public GameObject fishSpawn;
@@ -82,7 +82,7 @@ public class FishingRod : MonoBehaviour
             child.gameObject.SetActive(true);
         }
 
-        minigame.parent.SetActive(false);
+        //minigame.parent.SetActive(false);
         State = state.idle;
         Destroy(floatObject);
         player.Screen.hookedSquare.gameObject.SetActive(false);
@@ -114,7 +114,6 @@ public class FishingRod : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                Debug.Log("Did not take fish");
                 holdingFish = false;
                 Destroy(fishObject);
                 player.accept.gameObject.SetActive(false);
@@ -124,7 +123,6 @@ public class FishingRod : MonoBehaviour
     }
     IEnumerator Throw()
     {
-        Debug.Log("Throw");
 
         if (State == state.hooking) { yield break; }
         GetComponent<Animation>().Play("RodAnimation");
@@ -151,10 +149,11 @@ public class FishingRod : MonoBehaviour
         player.Screen.hookedSquare.gameObject.SetActive(false);
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
 
-        minigame.parent.SetActive(true);
+        //minigame.parent.SetActive(true);
 
         //greenSize, pointerSpeedV, fillDiff
-        yield return StartCoroutine(minigame.Minigame(GreenSize, pointerSpeed, fillBarDiff, this, SelectFish())); 
+        //yield return StartCoroutine(minigame.Minigame(GreenSize, pointerSpeed, fillBarDiff, this, SelectFish()));
+        yield return StartCoroutine(minigame.Minigame(this, SelectFish())); 
     }
     IEnumerator hookTick(float time) 
     {

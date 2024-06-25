@@ -115,14 +115,11 @@ public class FishingMinigame : MonoBehaviour
             if (onGreen)
             {
                 blueRect.transform.localScale += new Vector3(1 / fillBarDiff, 0, 0);
-                Debug.Log("+");
             }
             else
             {
 
                 blueRect.transform.localScale -= new Vector3(1 / fillBarDiff, 0, 0);
-                Debug.Log("-");
-
             }
 
             if (Random.Range(0, 10) > 5)
