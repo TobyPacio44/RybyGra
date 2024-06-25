@@ -1,3 +1,4 @@
+
 using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
@@ -52,6 +53,7 @@ public class Inventory : MonoBehaviour
         SetUpEQ();
         UpdateEq();
         UpdateEquipment();
+        checkRod();
         CalculateRodPower();
         InstantiateBait();
 
@@ -161,14 +163,17 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-    public void InstantiateRod(GameObject Parent, EquipmentObject eq)
+    public void checkRod()
     {
         if (kij == null)
         {
             fishingRod.gameObject.SetActive(false);
         }
         else { fishingRod.gameObject.SetActive(true); }
+    }
 
+    public void InstantiateRod(GameObject Parent, EquipmentObject eq)
+    {
         foreach (Transform child in Parent.transform)
         {
             Destroy(child.gameObject);
@@ -179,6 +184,11 @@ public class Inventory : MonoBehaviour
 
     public void unEquip(int i)
     {
+        if (fishingRod.State != FishingRod.state.idle)
+        {
+            return;
+        }
+
         switch (i)
         {
             case 0: if (kij != null){          AddToInventory(kij, 0); }            kij = null;
@@ -209,12 +219,41 @@ public class Inventory : MonoBehaviour
                     Destroy(child.gameObject);
                 }
                 break;
+            case 5:
+                if (bait[0].item != null) { AddToInventory(bait[0].item, bait[0].amount); }
+                bait[0].item = null;
+                foreach (Transform child in fishingRod.components.bait.transform)
+                {
+                        Destroy(child.gameObject);
+                }
+                break;
+            case 6:
+                if (bait[1].item != null) { AddToInventory(bait[1].item, bait[1].amount); }
+                bait[1].item = null;
+                foreach (Transform child in fishingRod.components.bait.transform)
+                {
+                        Destroy(child.gameObject);
+                }
+                break;
+            case 7:
+                if (bait[2].item != null) { AddToInventory(bait[2].item, bait[2].amount); }
+                bait[2].item = null;
+                foreach (Transform child in fishingRod.components.bait.transform)
+                {
+                        Destroy(child.gameObject);
+                }
+                break;
         }
 
         afterShop();
     }
     public void ClickItemSlot(int slot)
     {
+        if (fishingRod.State != FishingRod.state.idle)
+        {
+            return;
+        }
+
         var Object = items[slot - 1];
         if (Object.item is EquipmentObject)
         {
