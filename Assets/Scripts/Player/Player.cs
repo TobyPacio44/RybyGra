@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public Holder holder;
-    public FishingMinigame minigame;
+    public MiniGame minigame;
     public Inventory inventory;
     public Choice choice;
     public ShopUI ShopUI;
