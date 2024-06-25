@@ -47,6 +47,8 @@ public class MiniGame : MonoBehaviour
         UI.SetActive(true);
         fishRenderer.sprite = fish.sprite;
         won = false;
+        pause = false;
+        hookProgress = 0;
         Resize();
 
         while (!won)
