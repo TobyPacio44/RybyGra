@@ -8,9 +8,10 @@ public class Vision : MonoBehaviour
     public bool move = true;
     public GameObject reticle;
     public GameObject hookedSquare;
+    public Orientation orientation;
 
-    float MouseX;
-    float MouseY;
+    //public float MouseX;
+    public float MouseY;
     public float sensitivity;
     private void Update()
     {
@@ -29,11 +30,11 @@ public class Vision : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        MouseX += Input.GetAxis("Mouse X") * sensitivity;
+        //Biore mouseX od orientacji jednak
+        //MouseX += Input.GetAxis("Mouse X") * sensitivity;
         MouseY += Input.GetAxis("Mouse Y") * sensitivity;
         MouseY = Mathf.Clamp(MouseY, -90, 90);
 
-        transform.rotation = Quaternion.Euler(-MouseY, MouseX, 0);
+        transform.rotation = Quaternion.Euler(-MouseY, orientation.MouseX, 0);
     }
 }

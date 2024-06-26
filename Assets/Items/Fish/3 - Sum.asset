@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c9e33a224dea140b645e54fd2bbc9c, type: 3}
   m_Name: 3 - Sum
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: bac0a11a5cdf8a94784b032697544244, type: 3}
+  sprite: {fileID: 21300000, guid: 3dc7170f6e2ab254e8b5e7c0ea7178a1, type: 3}
   prefab: {fileID: 4810621365446041855, guid: f398a7266dbf1194baf2a86648e9ea3a, type: 3}
   name: Sum
   price: 5
+  blocked: 0
   fishDifficulty: 3
-  weight: 1
+  mnoznik: 0
   likes: {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
+  tiery: 

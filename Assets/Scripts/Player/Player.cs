@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public BuffManager buffManager;
     public Teleports tel;
     public Accept accept;
+    public FishingInfoUI fishingInfoUI;
 
     public Vision Screen;
     public Transform cam;

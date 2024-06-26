@@ -16,6 +16,6 @@ MonoBehaviour:
   prefab: {fileID: 0}
   name: "\u017By\u0142ka taty"
   price: 5
-  blocked: 1
+  blocked: 0
   eqType: 2
   power: 7500

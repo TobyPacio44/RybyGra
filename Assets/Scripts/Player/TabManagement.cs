@@ -9,6 +9,14 @@ public class TabManagement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            if (player.fishingInfoUI.gameObject.activeSelf == true)
+            {
+                player.fishingInfoUI.gameObject.SetActive(false);
+                player.GetComponent<CharacterController>().enabled = true;
+                player.Screen.move = true;
+                return;
+            }
+
             if (player.buffManager.ui.activeSelf == true)
             {
                 player.buffManager.ui.gameObject.SetActive(false);
