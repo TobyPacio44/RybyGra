@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public Holder holder;
-    public FishingMinigame minigame;
+    public MiniGame minigame;
     public Inventory inventory;
     public Choice choice;
     public ShopUI ShopUI;
@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public BuffManager buffManager;
     public Teleports tel;
     public Accept accept;
+    public FishingInfoUI fishingInfoUI;
 
     public Vision Screen;
     public Transform cam;

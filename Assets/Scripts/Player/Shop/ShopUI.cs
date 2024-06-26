@@ -11,6 +11,29 @@ public class ShopUI : MonoBehaviour
     public GameObject buttonPrefab;
     public List<GameObject> slots;
 
+
+    public void Section(int i)
+    {
+        switch (i)
+        {
+            case 0: 
+                CreateList(player.choice.shop.kije);
+                break;
+            case 1:
+                CreateList(player.choice.shop.kolowrotki);
+                break;
+            case 2:
+                CreateList(player.choice.shop.zylki);
+                break;
+            case 3:
+                CreateList(player.choice.shop.haczyki);
+                break;
+            case 4:
+                CreateList(player.choice.shop.splawiki);
+                break;
+        }
+    }
+
     public void ClearList()
     {
         foreach(GameObject x in slots)
@@ -35,8 +58,12 @@ public class ShopUI : MonoBehaviour
             i++;
             newButton.GetComponent<Button>().onClick.AddListener(() => BuyItem(item));
             foreach(Transform child in newButton.transform){
+                if (child.name == "coming" && item.blocked) {
+                    child.gameObject.SetActive(true); 
+                    newButton.GetComponent<Button>().enabled = false; 
+                }
                 if (child.name == "Sprite") { child.GetComponent<Image>().sprite = item.sprite; }
-                if (child.name == "Cost") { child.GetComponent<TextMeshProUGUI>().text = item.price.ToString(); }
+                if (child.name == "Cost" && !item.blocked) { child.GetComponent<TextMeshProUGUI>().text = item.price.ToString(); }
             }
         }
     }
@@ -69,7 +96,12 @@ public class ShopUI : MonoBehaviour
         {
             money -= item.price;
             PlayerPrefs.SetInt("money", money);
-            player.inventory.AddToInventory(item, 1);
+            if (item is EquipmentObject)
+            {
+                player.inventory.AddToInventory(item, 0);
+            }
+            else { player.inventory.AddToInventory(item, 1); }
+            
             player.inventory.afterShop();
         }      
     }

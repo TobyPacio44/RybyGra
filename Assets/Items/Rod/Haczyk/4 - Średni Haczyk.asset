@@ -16,5 +16,6 @@ MonoBehaviour:
   prefab: {fileID: 7338915740130448160, guid: 2c428a45e85406749859422ab1126cd6, type: 3}
   name: "\u015Aredni haczyk"
   price: 300
+  blocked: 0
   eqType: 3
   power: 625

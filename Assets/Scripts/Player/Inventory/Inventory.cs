@@ -404,15 +404,22 @@ public class Inventory : MonoBehaviour
 
     public void AddToInventory(ItemObject item, int amount)
     {
-        foreach (InventoryItem x in items)
+        if (amount == 0)
         {
-            if(x.item == item)
-            {
-                x.amount += amount;
-                return;
-            }
+            items.Add(new InventoryItem(item, 0));
         }
-        items.Add(new InventoryItem(item, amount));
+        else
+        {
+            foreach (InventoryItem x in items)
+            {
+                if (x.item == item)
+                {
+                    x.amount += amount;
+                    return;
+                }
+            }
+            items.Add(new InventoryItem(item, amount));
+        }
     }
 
     public void TakeOneBait()

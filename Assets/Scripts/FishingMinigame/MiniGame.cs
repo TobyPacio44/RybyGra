@@ -6,38 +6,40 @@ using UnityEngine.UI;
 
 public class MiniGame : MonoBehaviour
 {
-    public GameObject UI;
 
-    public Transform topPivot;
-    public Transform botPivot;
-    public Transform fish;
-
-    float fishPosition;
-    float fishDestination;
-
-    float fishTimer;
-    [Header("How long to wait for new position")]
+    [Header("Ile ryba czeka na ruch 3-czeka 1-nie czeka")]
+    [Range(3, 1)]
     public float timerMultiplicator = 3f;
-
-    float fishSpeed;
-    [Header("Szybkoœæ ryby 1-najszybsza")]
+    [Header("2-wolna 0.1-szybka")]
+    [Range(2, 0.1f)]
     public float smoothMotion = 1f;
 
-    public Transform hook;
-    float hookPosition;
+    [Header("Wielkoœæ haczyka 0.1+")]
     public float hookSize = 0.1f;
-    float hookProgress;
-    public float hookPullVelocity;
-    public float hookPullPower = 0.01f;
-    public float hookGravityPower = 0.005f;
 
     [Header("Góra i dó³ progress")]
     public float hookPower = 5f;
     public float hookDegrade = 0.1f;
 
+    [Header("Reszta")]
+    public GameObject UI;
+    public Transform hook;
+    public Transform topPivot;
+    public Transform botPivot;
+    public Transform fish;
     public Image hookRenderer;
     public Image fishRenderer;
     public Transform progressContainer;
+
+    float hookPullPower = 0.04f;
+    float hookGravityPower = 0.01f;
+    float hookProgress;
+    float hookPosition;
+    float fishTimer;
+    float fishSpeed;
+    float fishPosition;
+    float fishDestination;
+    float hookPullVelocity;
 
     public bool pause;
     public bool won;

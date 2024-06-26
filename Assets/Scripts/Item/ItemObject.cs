@@ -16,4 +16,5 @@ public abstract class ItemObject : ScriptableObject
     public GameObject prefab;
     public string name;
     public int price;
+    public bool blocked;
 }

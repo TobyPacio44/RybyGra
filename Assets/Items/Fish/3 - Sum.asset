@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8c9e33a224dea140b645e54fd2bbc9c, type: 3}
-  m_Name: 3 - Szczupak
+  m_Name: 3 - Sum
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 2ee7fe82a9e3c3b448ee497d04794fd0, type: 3}
-  prefab: {fileID: 3561421960660117333, guid: f7366ba328e95ec4bbca15230397f18a, type: 3}
-  name: Szczupak
+  sprite: {fileID: 21300000, guid: 3dc7170f6e2ab254e8b5e7c0ea7178a1, type: 3}
+  prefab: {fileID: 4810621365446041855, guid: f398a7266dbf1194baf2a86648e9ea3a, type: 3}
+  name: Sum
   price: 5
+  blocked: 0
   fishDifficulty: 3
-  weight: 1
+  mnoznik: 0
   likes: {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
+  tiery: 
