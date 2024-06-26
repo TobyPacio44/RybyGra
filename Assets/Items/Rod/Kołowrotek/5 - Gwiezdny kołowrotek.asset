@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd95b128175886c418fa7aab8b6fe2ae, type: 3}
   m_Name: "5 - Gwiezdny ko\u0142owrotek"
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4cb4cf5d6bfb01a43ae4b68c6592fe73, type: 3}
   prefab: {fileID: 0}
   name: "Gwiezdny ko\u0142owrotek"
   price: 0
+  blocked: 1
   eqType: 1
   power: 1875

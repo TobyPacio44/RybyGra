@@ -7,12 +7,17 @@ using static Player;
 public class Shop : MonoBehaviour, IInteractable
 {
     public List<ItemObject> sellable;
+    public List<ItemObject> kije;
+    public List<ItemObject> kolowrotki;
+    public List<ItemObject> zylki;
+    public List<ItemObject> haczyki;
+    public List<ItemObject> splawiki;
 
     public Player localPlayer;
 
     public void Buy()
     {
-            localPlayer.ShopUI.CreateList(sellable);
+            localPlayer.ShopUI.CreateList(kije);
             localPlayer.ShopUI.gameObject.SetActive(true);
     }
 

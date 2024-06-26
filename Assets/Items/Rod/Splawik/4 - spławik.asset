@@ -16,5 +16,6 @@ MonoBehaviour:
   prefab: {fileID: 3675569533289515114, guid: 4999cd783754e0841b3810f50cd8c42a, type: 3}
   name: "Sp\u0142awik d\u0142ugi"
   price: 15
+  blocked: 1
   eqType: 4
   power: 0
