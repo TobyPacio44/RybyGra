@@ -7,8 +7,9 @@ public class FishingInfo : MonoBehaviour, IInteractable
     public string spotName;
     public FishList list;
     public GameObject map;
+    public GameObject upgradeMap;
     public List<FishObject> fishes;
-    public List<GameObject> upgrades;
+    public List<Build> upgrades;
 
     public List<Transform> teleports;
 

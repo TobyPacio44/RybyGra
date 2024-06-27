@@ -11,6 +11,7 @@ public class FishingInfoUI : MonoBehaviour
     public Player player;
     public FishingInfo info;
     public GameObject mapParent;
+    public GameObject upgradeMapParent;
 
     public GameObject mapSection;
     public GameObject upgradeSection;
@@ -24,7 +25,6 @@ public class FishingInfoUI : MonoBehaviour
     public void switchToMap()
     {
         mapSection.SetActive(true);
-
         upgradeSection.SetActive(false);
         fishSection.SetActive(false);
 
@@ -33,16 +33,17 @@ public class FishingInfoUI : MonoBehaviour
     public void switchToUpgrade()
     {
         upgradeSection.SetActive(true);
-
         mapSection.SetActive(false);
         fishSection.SetActive(false);
+
+        openUpgrades();
     }
     public void switchToFish()
     {
         fishSection.SetActive(true);
-
         mapSection.SetActive(false);
         upgradeSection.SetActive(false);
+
         openFish();
     }
 
@@ -58,7 +59,6 @@ public class FishingInfoUI : MonoBehaviour
         }
         
     }
-
     public void openFish()
     {
         foreach(GameObject z in fishes)
@@ -80,9 +80,26 @@ public class FishingInfoUI : MonoBehaviour
             fishes.Add(z);
         }
     }
+    public void openUpgrades()
+    {
+        if (upgradeMapParent.transform.childCount > 0) { return; }
+        GameObject map = Instantiate(info.upgradeMap, upgradeMapParent.transform);
+        int i = 0;
+        foreach (Transform child in map.transform)
+        {
+            child.GetComponent<Button>().onClick.AddListener(() => Build(int.Parse(child.name), child.GetChild(0).gameObject));
+            child.GetChild(0).GetComponent<TextMeshProUGUI>().text = info.upgrades[i].price.ToString();
+            i++;
+        }
+    }
+
+    public void Build(int i, GameObject button)
+    {
+        info.upgrades[i].build();
+        Destroy(button);
+    }
     public void Teleport(int i)
     {
-        Debug.Log(i);
         player.transform.position = info.teleports[i].transform.position;
         player.GetComponent<CharacterController>().enabled = true;
         switchToNormal();

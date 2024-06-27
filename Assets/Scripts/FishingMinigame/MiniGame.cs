@@ -31,8 +31,8 @@ public class MiniGame : MonoBehaviour
     public Image fishRenderer;
     public Transform progressContainer;
 
-    float hookPullPower = 0.04f;
-    float hookGravityPower = 0.01f;
+    public float hookPullPower = 0.04f;
+    public float hookGravityPower = 0.01f;
     float hookProgress;
     float hookPosition;
     float fishTimer;
@@ -89,7 +89,7 @@ public class MiniGame : MonoBehaviour
             hookPullVelocity = 0;
         }
 
-        hookPullVelocity = Mathf.Clamp(hookPullVelocity, -0.008f, 0.008f);
+        hookPullVelocity = Mathf.Clamp(hookPullVelocity, -0.008f, 0.01f);
         hookPosition += hookPullVelocity;
         hookPosition = Mathf.Clamp(hookPosition, hookSize/2, 1-hookSize/2);
         hook.position = Vector3.Lerp(botPivot.position, topPivot.position, hookPosition);
