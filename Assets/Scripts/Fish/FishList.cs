@@ -10,17 +10,35 @@ public class FishList : MonoBehaviour
     public List<FishObject> list;
     public FishObject defaultFish;
     public float baseChanceToHook;
+    public float offChanceToHook;
+    public bool activeHours;
 
     public BuffItem buff;   
     public List<FishObject> ram = new List<FishObject>();
     public List<FishObject> eligibleFish = new List<FishObject>();
 
+    public IEnumerator updateChance(FishingRod rod)
+    {
+        while (true)
+        {
+            if (activeHours)
+            {
+                rod.stats.chanceToHook = baseChanceToHook;
+            }
+            else
+            {
+                rod.stats.chanceToHook = offChanceToHook;
+            }
+            yield return new WaitForSeconds(1);
+        }
+    }
+
     public void HandleFishSelection(FishingRod rod, List<InventoryItem> bait)
     {
+        StartCoroutine(updateChance(rod));
+
         ram.Clear();
         eligibleFish.Clear();
-
-        rod.stats.chanceToHook = baseChanceToHook;
 
         foreach (FishObject fish in list){
             if (rod.stats.RodPower > -1) { if (fish.fishDifficulty < 6) { ram.Add(fish); continue; } }

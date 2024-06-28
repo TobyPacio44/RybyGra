@@ -21,6 +21,8 @@ public class FishingInfoUI : MonoBehaviour
     public List<Transform> fishSlots;
     public List<GameObject> fishes;
     public TextMeshProUGUI spotName;
+    public TextMeshProUGUI hour1;
+    public TextMeshProUGUI hour2;
 
     public void switchToMap()
     {
@@ -57,7 +59,8 @@ public class FishingInfoUI : MonoBehaviour
             child.GetComponent<Button>().onClick.AddListener(() => Teleport(int.Parse(child.name)));
             Debug.Log(int.Parse(child.name));
         }
-        
+        hour1.text = info.hour1.ToString();
+        hour2.text = info.hour2.ToString();
     }
     public void openFish()
     {
