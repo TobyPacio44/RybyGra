@@ -7,10 +7,21 @@ public class FishingInfo : MonoBehaviour, IInteractable
     public string spotName;
     public FishList list;
     public GameObject map;
+    public GameObject upgradeMap;
     public List<FishObject> fishes;
-    public List<GameObject> upgrades;
+    public List<Build> upgrades;
+
+    public int hour1;
+    public int hour2;
 
     public List<Transform> teleports;
+
+    private void Update()
+    {
+        int time = GameManager.Instance.hour;
+        if (time < hour1 || time > hour2) { list.activeHours = false; }
+        else {  list.activeHours = true; }
+    }
 
     public void Interact(Player player)
     {

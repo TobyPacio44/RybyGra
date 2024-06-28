@@ -13,14 +13,6 @@ public class FishingRod : MonoBehaviour
     public FishingRodComponents components;
     public GameObject fishSpawn;
 
-    [Header("Minigame")]
-    [Header("greenSize - from 1 to 10")]
-    public float GreenSize;
-    [Header("pointerSpeed - from 1 to 10")]
-    public float pointerSpeed;
-    [Header("fillBar - from 1 to 4")]
-    public float fillBarDiff;
-
     [HideInInspector]
     public state State;
     public enum state
@@ -87,6 +79,7 @@ public class FishingRod : MonoBehaviour
         Destroy(floatObject);
         player.Screen.hookedSquare.gameObject.SetActive(false);
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
+        fishList.StopAllCoroutines();
         fishList = null;
         StopAllCoroutines();
 
