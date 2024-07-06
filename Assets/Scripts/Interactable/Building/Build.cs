@@ -9,15 +9,16 @@ public class Build : MonoBehaviour
     public GameObject indicator;
     public int price;
 
-    public void build()
+    public void build(GameObject destroy)
     {
         int money = PlayerPrefs.GetInt("money");
         if (price <= money)
         {
             money -= price;
             PlayerPrefs.SetInt("money", money);
-            Destroy(indicator);
             building.SetActive(true);
+            Destroy(indicator);
+            Destroy(destroy);
         }
         else
         {

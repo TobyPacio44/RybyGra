@@ -98,8 +98,7 @@ public class FishingInfoUI : MonoBehaviour
 
     public void Build(int i, GameObject button)
     {
-        info.upgrades[i].build();
-        Destroy(button);
+        info.upgrades[i].build(button);
     }
     public void Teleport(int i)
     {

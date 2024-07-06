@@ -7,45 +7,7 @@ public class TabManagement : MonoBehaviour
     public Player player;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if (player.fishingInfoUI.gameObject.activeSelf == true)
-            {
-                player.fishingInfoUI.gameObject.SetActive(false);
-                player.GetComponent<CharacterController>().enabled = true;
-                player.Screen.move = true;
-                return;
-            }
-
-            if (player.buffManager.ui.activeSelf == true)
-            {
-                player.buffManager.ui.gameObject.SetActive(false);
-                player.GetComponent<CharacterController>().enabled = true;
-                player.Screen.move = true;
-                return;
-            }
-            if (player.ShopUI.gameObject.activeSelf == true)
-            {
-                player.ShopUI.gameObject.SetActive(false);
-                player.GetComponent<CharacterController>().enabled = true;
-                player.Screen.move = true;
-                return;
-            }
-            if (player.skupUI.gameObject.activeSelf == true)
-            {
-                player.skupUI.gameObject.SetActive(false);
-                player.GetComponent<CharacterController>().enabled = true;
-                player.Screen.move = true;
-                return;
-            }
-            if (player.choice.gameObject.activeSelf == true)
-            {
-                player.choice.gameObject.SetActive(false);
-                player.GetComponent<CharacterController>().enabled = true;
-                player.Screen.move = true;
-                return;
-            }
-
+        if (Input.GetKeyDown(KeyCode.Tab)) {
             if (!player.inventory.opened)
             {
                 player.GetComponent<CharacterController>().enabled = false;
@@ -59,9 +21,27 @@ public class TabManagement : MonoBehaviour
                 player.GetComponent<CharacterController>().enabled = true;
                 player.Screen.move = true;
                 player.inventory.ui.gameObject.SetActive(false);
-                player.inventory.opened = !player.inventory.opened; 
-            }
+                player.inventory.opened = !player.inventory.opened;
+            } 
+        }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+                player.fishingInfoUI.gameObject.SetActive(false);
+                player.buffManager.ui.gameObject.SetActive(false);
+                player.ShopUI.gameObject.SetActive(false);
+                player.skupUI.gameObject.SetActive(false);
+                player.choice.gameObject.SetActive(false);
+                player.tel.gameObject.SetActive(false);
+                player.accept.gameObject.SetActive(false);
+                player.Screen.move = true;
+
+            if (player.inventory.opened)
+            {
+                player.GetComponent<CharacterController>().enabled = true;
+                player.inventory.ui.gameObject.SetActive(false);
+                player.inventory.opened = !player.inventory.opened;
+            }
         }
     }
 }
