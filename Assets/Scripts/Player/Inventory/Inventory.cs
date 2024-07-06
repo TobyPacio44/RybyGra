@@ -14,6 +14,9 @@ using UnityEngine.Windows.Speech;
 
 public class Inventory : MonoBehaviour
 {
+    public GameObject icon;
+    public GameObject nick;
+
     public Player player;
     public InventoryUI ui;
     public Money money;
@@ -50,6 +53,7 @@ public class Inventory : MonoBehaviour
     }
     public void afterShop()
     {
+        SetUpPlayer();
         SetUpEQ();
         UpdateEq();
         UpdateEquipment();
@@ -117,6 +121,12 @@ public class Inventory : MonoBehaviour
             }
             else { element.transform.GetChild(0).gameObject.SetActive(false); }
         }
+    }
+
+    public void SetUpPlayer()
+    {
+        icon.GetComponent<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("playerIcons/" + PlayerPrefs.GetInt("icon"));
+        nick.GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetString("Name");
     }
     public void UpdateEquipment()
     {
