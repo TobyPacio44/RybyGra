@@ -36,4 +36,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void OpenURL(string x)
+    {
+        Application.OpenURL(x);
+    }
 }
