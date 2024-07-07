@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c9e33a224dea140b645e54fd2bbc9c, type: 3}
   m_Name: "0 - \u0141\u0119g\xF3wka"
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: bac0a11a5cdf8a94784b032697544244, type: 3}
-  prefab: {fileID: 8458440758302779607, guid: c7634ee6fcde57a44b7a2dd09aa0fbe5, type: 3}
+  sprite: {fileID: 21300000, guid: b784abb249f839c42838abc2c16a9fd5, type: 3}
+  prefab: {fileID: 7678431596526514943, guid: 3c8c03dffaf7082429651ff7e9e4d768, type: 3}
   name: "\u0141\u0119g\xF3wka"
   price: 5
+  blocked: 0
   fishDifficulty: 0
-  weight: 1
+  mnoznik: 0
+  likes: {fileID: 0}
+  tiery: 

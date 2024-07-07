@@ -15,6 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: dad3ea4d3d8bac143a91a730bf85b665, type: 3}
   prefab: {fileID: 0}
   name: "Podstawowa \u017Cy\u0142ka"
-  price: 5
+  price: 30
+  blocked: 0
   eqType: 2
   power: 25

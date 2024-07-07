@@ -15,9 +15,9 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 69fec34a752783446b6f028a8f81630c, type: 3}
   prefab: {fileID: 3159599341915701815, guid: 719425218e941de41b72d97ee6bef65c, type: 3}
   name: "Oko\u0144"
-  price: 5
-  fishDifficulty: 1
-  weight: 1
+  price: 20
+  blocked: 0
+  fishDifficulty: 6
   mnoznik: 1
   likes: {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
   tiery: 0000000000

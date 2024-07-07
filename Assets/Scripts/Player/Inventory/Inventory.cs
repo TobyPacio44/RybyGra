@@ -254,7 +254,7 @@ public class Inventory : MonoBehaviour
                 }
                 break;
         }
-
+        AudioManager.instance.PlaySFX("popClose");
         afterShop();
     }
     public void ClickItemSlot(int slot)
@@ -357,6 +357,7 @@ public class Inventory : MonoBehaviour
             }
         }
 
+        AudioManager.instance.PlaySFX("popClose");
         afterShop();
     }
     public void HandleBaitSlotManagement(EquipmentObject haczyk)

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c9e33a224dea140b645e54fd2bbc9c, type: 3}
   m_Name: "2 - Wzdr\u0119ga"
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: bac0a11a5cdf8a94784b032697544244, type: 3}
+  sprite: {fileID: 21300000, guid: 3fb172493de08494b9c1dfa8515edd38, type: 3}
   prefab: {fileID: 1357015039500291965, guid: 871aebee272ccd14fbeec60d49234edc, type: 3}
   name: "Wzdr\u0119ga"
-  price: 5
+  price: 20
   blocked: 0
-  fishDifficulty: 2
+  fishDifficulty: 8
   mnoznik: 0
-  likes: {fileID: 0}
+  likes: {fileID: 11400000, guid: d4dfc17d9756f794c97b4e089fe202a2, type: 2}
   tiery: 

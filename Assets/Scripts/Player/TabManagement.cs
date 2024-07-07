@@ -25,7 +25,7 @@ public class TabManagement : MonoBehaviour
             } 
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab))
         {
                 player.fishingInfoUI.gameObject.SetActive(false);
                 player.buffManager.ui.gameObject.SetActive(false);
@@ -34,13 +34,9 @@ public class TabManagement : MonoBehaviour
                 player.choice.gameObject.SetActive(false);
                 player.tel.gameObject.SetActive(false);
                 player.accept.gameObject.SetActive(false);
-                player.Screen.move = true;
-
-            if (player.inventory.opened)
+            if (!player.inventory.opened)
             {
-                player.GetComponent<CharacterController>().enabled = true;
-                player.inventory.ui.gameObject.SetActive(false);
-                player.inventory.opened = !player.inventory.opened;
+                player.Screen.move = true;
             }
         }
     }

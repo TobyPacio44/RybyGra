@@ -146,6 +146,7 @@ public class FishingRod : MonoBehaviour
 
         //greenSize, pointerSpeedV, fillDiff
         //yield return StartCoroutine(minigame.Minigame(GreenSize, pointerSpeed, fillBarDiff, this, SelectFish()));
+        AudioManager.instance.PlaySFX("spin");
         yield return StartCoroutine(minigame.Minigame(this, SelectFish())); 
     }
     IEnumerator hookTick(float time) 

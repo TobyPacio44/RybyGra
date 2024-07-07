@@ -15,6 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 39483decd1dd3f1459f04b61f5875809, type: 3}
   prefab: {fileID: 2469439648032423132, guid: 622383f4b9583f84695647a40bd77b54, type: 3}
   name: "Ma\u0142y haczyk"
-  price: 220
+  price: 140
+  blocked: 0
   eqType: 3
   power: 25

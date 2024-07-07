@@ -3,12 +3,24 @@ using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject main;
     public GameObject options;
     public GameObject credits;
+
+    public GameObject sfx;
+    public GameObject music;
+    private void Start()
+    {
+        float z = sfx.GetComponent<Slider>().value;
+        PlayerPrefs.SetFloat("sfxVolume", z);
+
+        float y = music.GetComponent<Slider>().value;
+        PlayerPrefs.SetFloat("musicVolume", y);
+    }
 
     public void openMain()
     {

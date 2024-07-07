@@ -15,9 +15,9 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 178afa0db9c6da94aab990702d4287a9, type: 3}
   prefab: {fileID: 4955133781679277839, guid: 5f2e72eeea118e54e8f4e44bbdf366ad, type: 3}
   name: Karp
-  price: 5
+  price: 35
   blocked: 0
-  fishDifficulty: 3
+  fishDifficulty: 9
   mnoznik: 0
   likes: {fileID: 11400000, guid: af44315bf4dcf1e4f80d1ee0bdcd23f2, type: 2}
   tiery: 

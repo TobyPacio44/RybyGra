@@ -26,4 +26,15 @@ public class Options : MonoBehaviour
         string nick = nickInput.GetComponent<TextMeshProUGUI>().text;
         PlayerPrefs.SetString("Name", nick);
     }
+
+    public void changeSfx(GameObject x)
+    {
+        float z = x.GetComponent<Slider>().value;
+        PlayerPrefs.SetFloat("sfxVolume", z);
+    }
+    public void changeMusic(GameObject x)
+    {
+        float z = x.GetComponent<Slider>().value;
+        PlayerPrefs.SetFloat("musicVolume", z);
+    }
 }

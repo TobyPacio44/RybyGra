@@ -46,6 +46,7 @@ public class MiniGame : MonoBehaviour
 
     public IEnumerator Minigame(FishingRod rod, FishObject fish)
     {
+        AudioManager.instance.sfxSource.mute = true;
         UI.SetActive(true);
         fishRenderer.sprite = fish.sprite;
         won = false;
@@ -81,7 +82,14 @@ public class MiniGame : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             hookPullVelocity += hookPullPower * Time.deltaTime;
+            AudioManager.instance.sfxSource.mute = false;
         }
+        else
+        {
+            AudioManager.instance.sfxSource.mute = true;
+        }
+
+
         hookPullVelocity -= hookGravityPower * Time.deltaTime;
 
         if (hook.position == botPivot.position || hook.position == botPivot.position)
@@ -130,6 +138,7 @@ public class MiniGame : MonoBehaviour
 
         if(hookProgress >= 1f)
         {
+            AudioManager.instance.PlaySFX("legato");
             won = true;
             pause = true;
         }
