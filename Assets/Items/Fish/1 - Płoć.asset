@@ -18,6 +18,7 @@ MonoBehaviour:
   price: 5
   blocked: 0
   fishDifficulty: 1
-  mnoznik: 0
+  weight: 0
+  mnoznik: 10
   likes: {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
-  tiery: 
+  tiery: 0101000000

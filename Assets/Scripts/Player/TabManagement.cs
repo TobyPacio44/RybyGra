@@ -34,6 +34,9 @@ public class TabManagement : MonoBehaviour
                 player.choice.gameObject.SetActive(false);
                 player.tel.gameObject.SetActive(false);
                 player.accept.gameObject.SetActive(false);
+                player.book.gameObject.SetActive(false);
+
+
             if (!player.inventory.opened)
             {
                 player.Screen.move = true;

@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: ade99335113128b46b95480a4032b4c6, type: 3}
   prefab: {fileID: 6025173663872492350, guid: 4b9dc62f398edc744990d100430168ca, type: 3}
   name: "Podstawowy ko\u0142owrotek"
-  price: 40
+  price: 80
   blocked: 0
   eqType: 1
   power: 25

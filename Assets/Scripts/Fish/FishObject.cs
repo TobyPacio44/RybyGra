@@ -7,10 +7,10 @@ public class FishObject : ItemObject
     [Header("(0-17)")]
     public int fishDifficulty;
     //(0.1 - 500) kg
-    float weight;
+    public float weight;
 
-    [Header("Mno¿nik")]
-    public int mnoznik;
+    //[Header("Mno¿nik")]
+    public float mnoznik;
 
     [Header("Przynêty")]
     public EquipmentObject likes;

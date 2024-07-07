@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public Teleports tel;
     public Accept accept;
     public FishingInfoUI fishingInfoUI;
+    public Book book;
 
     public Vision Screen;
     public Transform cam;

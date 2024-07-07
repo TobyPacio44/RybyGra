@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: d6eff067167f16b4ab122b175623f03f, type: 3}
   prefab: {fileID: 0}
   name: "Energetyczna \u017Cy\u0142ka"
-  price: 90
+  price: 320
   blocked: 0
   eqType: 2
   power: 625

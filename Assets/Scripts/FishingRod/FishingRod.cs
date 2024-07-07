@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Build;
 using UnityEngine;
 
 public class FishingRod : MonoBehaviour
@@ -56,6 +57,31 @@ public class FishingRod : MonoBehaviour
         if (fishList.eligibleFish.Count > 0)
         {
             FishObject selected = fishList.eligibleFish[Random.Range(0, fishList.eligibleFish.Count)];
+
+            bool a = false;
+            while (!a)
+            {
+                int z = Random.Range(0, 4);
+                if (selected.tiery[z] == true)
+                {
+                    switch (z)
+                    {
+                        case 0: selected.weight = Random.Range(0.1f, 0.5f  ); break;
+                        case 1: selected.weight = Random.Range(0.6f, 1.5f  ); break;
+                        case 2: selected.weight = Random.Range(1.6f, 3f    ); break;
+                        case 3: selected.weight = Random.Range(3.1f, 10f   ); break;
+                        case 4: selected.weight = Random.Range(10.1f,50f   ); break;
+                    }
+
+                    selected.weight = (Mathf.Round(selected.weight * 100)) / 100;
+
+                    selected.price = selected.price + (int)(selected.weight * selected.mnoznik);
+                    Debug.Log("waga: "+selected.weight);
+
+                    a = true;
+                }
+            }
+
             return selected;
         }
         else
@@ -86,7 +112,7 @@ public class FishingRod : MonoBehaviour
         if (caught && fish != null)
         {
             player.accept.gameObject.SetActive(true);
-            player.accept.SetAcceptUI(fish.sprite, fish.name, fish.price);
+            player.accept.SetAcceptUI(fish.sprite, fish.name, fish.price, fish.weight);
             holdingFish = true;
             var instantiate = Instantiate(fish.prefab, fishSpawn.transform);
             StartCoroutine(takeFish(fish, instantiate));
@@ -132,7 +158,7 @@ public class FishingRod : MonoBehaviour
         //Cast UI
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(true);
 
-        if (SelectFish() == null) { yield break; }
+        if (fishList.eligibleFish.Count==0) { yield break; }
 
         yield return StartCoroutine(hookTick(3));
 

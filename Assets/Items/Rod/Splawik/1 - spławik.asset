@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 161df2bc9598a814d9803cf97a6ecddb, type: 3}
   prefab: {fileID: 7837972321110556742, guid: a6b991f8ff943c345b65c25f32160131, type: 3}
   name: "Podstawowy sp\u0142awik"
-  price: 15
+  price: 60
   blocked: 0
   eqType: 4
   power: 0

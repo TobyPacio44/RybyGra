@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: a244ff17a5671ab4098525e64032dab9, type: 3}
   prefab: {fileID: 0}
   name: "\u017By\u0142ka konstelacji"
-  price: 140
+  price: 550
   blocked: 0
   eqType: 2
   power: 1875

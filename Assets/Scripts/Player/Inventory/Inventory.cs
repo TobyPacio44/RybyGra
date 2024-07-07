@@ -257,6 +257,17 @@ public class Inventory : MonoBehaviour
         AudioManager.instance.PlaySFX("popClose");
         afterShop();
     }
+    public void openHelpBook()
+    {
+        player.inventory.ui.gameObject.SetActive(false);
+        player.inventory.opened = !player.inventory.opened;
+
+        player.book.gameObject.SetActive(true);
+        player.GetComponent<CharacterController>().enabled = false;
+        player.Screen.move = false;
+
+    }
+
     public void ClickItemSlot(int slot)
     {
         if (fishingRod.State != FishingRod.state.idle)

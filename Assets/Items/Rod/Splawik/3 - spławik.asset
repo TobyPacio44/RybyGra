@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: b5076b76b7a013a469dd6be91a77e421, type: 3}
   prefab: {fileID: 5274227167712902028, guid: b5f08ba23bf341649b851ea0f1c77749, type: 3}
   name: "Sp\u0142awik gruby"
-  price: 15
+  price: 60
   blocked: 0
   eqType: 4
   power: 0

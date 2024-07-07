@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 7a27dd6c5e36a7c4a999fed9f59c7d3c, type: 3}
   prefab: {fileID: 3252525930154588753, guid: f1c9d66e6a8df4b46aa8d5bc3b46cdf9, type: 3}
   name: "Sp\u0142awik spiczasty"
-  price: 15
+  price: 60
   blocked: 0
   eqType: 4
   power: 0

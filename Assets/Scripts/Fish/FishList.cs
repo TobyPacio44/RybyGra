@@ -50,12 +50,12 @@ public class FishList : MonoBehaviour
 
         foreach(FishObject fish in ram)
         {
-            eligibleFish.Add(fish);
+            eligibleFish.Add(FishObject.Instantiate(fish));
         }
 
         foreach (FishObject fish in ram) {
             foreach(InventoryItem x in bait) {
-                if (x.item == fish.likes) { eligibleFish.Add(fish); }
+                if (x.item == fish.likes) { eligibleFish.Add(FishObject.Instantiate(fish)); }
             }
         }
 

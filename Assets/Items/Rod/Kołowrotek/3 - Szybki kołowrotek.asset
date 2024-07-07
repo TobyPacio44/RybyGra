@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: d9ecb0a3c2e5f034c8f8dc92a3e6f286, type: 3}
   prefab: {fileID: 4979361643493741733, guid: 999358c39444e80489c3c766945f3190, type: 3}
   name: "Szybki ko\u0142owrotek"
-  price: 120
+  price: 160
   blocked: 0
   eqType: 1
   power: 250
