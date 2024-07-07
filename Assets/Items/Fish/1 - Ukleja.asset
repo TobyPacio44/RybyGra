@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: 1 - Ukleja
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: bac0a11a5cdf8a94784b032697544244, type: 3}
-  prefab: {fileID: 8458440758302779607, guid: c7634ee6fcde57a44b7a2dd09aa0fbe5, type: 3}
+  prefab: {fileID: 4308154659888565889, guid: 32a494d582f6a724f95e6f4c163b433c, type: 3}
   name: Ukleja
   price: 5
+  blocked: 0
   fishDifficulty: 1
-  weight: 1
+  mnoznik: 0
+  likes: {fileID: 0}
+  tiery: 
