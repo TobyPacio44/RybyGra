@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 93160c6282d756c4e98235eb2dffdd31, type: 3}
   prefab: {fileID: 0}
   name: Basic buff
-  price: 150
+  price: 50
   blocked: 0
   buffType: 0
   description: Increases taking by 15%
