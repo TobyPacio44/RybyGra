@@ -43,7 +43,7 @@ public class Teleports : MonoBehaviour
 
         foreach(GameObject go in points[a].GetComponent<Bus>().teleports)
         {
-             go.GetComponent<Bus>().disable.SetActive(false);
+             go.GetComponent<Bus>().disable.SetActive(false);   
         }
 
 
