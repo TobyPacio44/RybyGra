@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Options : MonoBehaviour
@@ -23,8 +24,11 @@ public class Options : MonoBehaviour
 
     private void Update()
     {
-        string nick = nickInput.GetComponent<TextMeshProUGUI>().text;
-        PlayerPrefs.SetString("Name", nick);
+        if (nickInput != null)
+        {
+            string nick = nickInput.GetComponent<TextMeshProUGUI>().text;
+            PlayerPrefs.SetString("Name", nick);
+        }
     }
 
     public void changeSfx(GameObject x)
@@ -36,5 +40,14 @@ public class Options : MonoBehaviour
     {
         float z = x.GetComponent<Slider>().value;
         PlayerPrefs.SetFloat("musicVolume", z);
+    }
+
+    public void closeTab()
+    {
+        this.gameObject.SetActive(false);
+    }
+    public void exit()
+    {
+        SceneManager.LoadScene(0);
     }
 }

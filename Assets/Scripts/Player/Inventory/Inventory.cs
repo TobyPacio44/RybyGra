@@ -1,5 +1,3 @@
-
-using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.WebSockets;
@@ -194,6 +192,8 @@ public class Inventory : MonoBehaviour
 
     public void unEquip(int i)
     {
+        if (player.inventory.items.Count > 23) { return; }
+
         if (fishingRod.State != FishingRod.state.idle)
         {
             return;

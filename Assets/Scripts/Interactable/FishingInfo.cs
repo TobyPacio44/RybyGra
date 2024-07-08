@@ -16,6 +16,10 @@ public class FishingInfo : MonoBehaviour, IInteractable
 
     public List<Transform> teleports;
 
+    private void Start()
+    {
+        list.info = this;
+    }
     private void Update()
     {
         int time = GameManager.Instance.hour;

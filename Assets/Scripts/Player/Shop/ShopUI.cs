@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,6 +35,9 @@ public class ShopUI : MonoBehaviour
                 break;
             case 5:
                 CreateList(player.choice.shop.bait);
+                break;
+            case 6:
+                CreateList(player.choice.shop.buffs);
                 break;
         }
     }
@@ -101,6 +103,8 @@ public class ShopUI : MonoBehaviour
     }
     public void BuyItem(ItemObject item)
     {
+        if (player.inventory.items.Count > 23) { return; }
+
         int money = PlayerPrefs.GetInt("money");
         if(item.price <= money)
         {
@@ -132,6 +136,7 @@ public class ShopUI : MonoBehaviour
                     player.inventory.AddToInventory(item, 0);
                 }
             }
+            else { player.inventory.AddToInventory(item, 0); }
             CalculateMoney();
             player.inventory.afterShop();
         }      

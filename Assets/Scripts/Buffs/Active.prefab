@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffManager: {fileID: 0}
   active: 0
-  time: 30
+  time: 120
   timeText: {fileID: 3364263149453239920}
   on: {fileID: 0}
 --- !u!1 &3256100479082040463

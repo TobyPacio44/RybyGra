@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class FishingInfoUI : MonoBehaviour
 {
@@ -57,7 +56,6 @@ public class FishingInfoUI : MonoBehaviour
         foreach(Transform child in map.transform)
         {
             child.GetComponent<Button>().onClick.AddListener(() => Teleport(int.Parse(child.name)));
-            Debug.Log(int.Parse(child.name));
         }
         hour1.text = info.hour1.ToString();
         hour2.text = info.hour2.ToString();

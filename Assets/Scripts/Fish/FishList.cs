@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class FishList : MonoBehaviour
 {
+    public FishingInfo info;
     public List<FishObject> list;
     public FishObject defaultFish;
     public float baseChanceToHook;
@@ -55,7 +56,10 @@ public class FishList : MonoBehaviour
 
         foreach (FishObject fish in ram) {
             foreach(InventoryItem x in bait) {
-                if (x.item == fish.likes) { eligibleFish.Add(FishObject.Instantiate(fish)); }
+                if (x.item == fish.likes) {
+                    eligibleFish.Add(FishObject.Instantiate(fish)); 
+                    eligibleFish.Add(FishObject.Instantiate(fish)); 
+                }
             }
         }
 

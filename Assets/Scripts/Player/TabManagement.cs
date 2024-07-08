@@ -36,10 +36,28 @@ public class TabManagement : MonoBehaviour
                 player.accept.gameObject.SetActive(false);
                 player.book.gameObject.SetActive(false);
 
-
-            if (!player.inventory.opened)
+            if (!player.inventory.opened && !player.options.gameObject.activeSelf)
             {
                 player.Screen.move = true;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            player.inventory.ui.gameObject.SetActive(false);
+            player.inventory.opened = !player.inventory.opened;
+
+            if (!player.options.gameObject.activeSelf)
+            {
+                player.GetComponent<CharacterController>().enabled = false;
+                player.Screen.move = false;
+                player.options.gameObject.SetActive(true);
+            }
+            else
+            {
+                player.GetComponent<CharacterController>().enabled = true;
+                player.Screen.move = true;
+                player.options.gameObject.SetActive(false);
             }
         }
     }

@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public Accept accept;
     public FishingInfoUI fishingInfoUI;
     public Book book;
+    public Options options;
 
     public Vision Screen;
     public Transform cam;

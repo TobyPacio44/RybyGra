@@ -12,6 +12,7 @@ public class Shop : MonoBehaviour, IInteractable
     public List<ItemObject> zylki;
     public List<ItemObject> haczyki;
     public List<ItemObject> splawiki;
+    public List<ItemObject> buffs;
 
     public Player localPlayer;
 

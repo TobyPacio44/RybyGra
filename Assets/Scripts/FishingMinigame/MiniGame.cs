@@ -58,7 +58,8 @@ public class MiniGame : MonoBehaviour
         {
             yield return null;
         }
-
+        AudioManager.instance.sfxSource.mute = false;
+        AudioManager.instance.PlaySFX("legato");
         rod.Hooked(true, fish);
         UI.SetActive(false);
     }
@@ -137,8 +138,7 @@ public class MiniGame : MonoBehaviour
         }
 
         if(hookProgress >= 1f)
-        {
-            AudioManager.instance.PlaySFX("legato");
+        {           
             won = true;
             pause = true;
         }

@@ -35,9 +35,17 @@ public class Teleports : MonoBehaviour
     }
 
     public void Teleport(int a)
-    {
+    {                 
+        points[a].GetComponent<Bus>().disable.SetActive(true);
+
         player.transform.position = points[a].GetComponent<Bus>().origin.transform.position;
         player.GetComponent<CharacterController>().enabled = true;
+
+        foreach(GameObject go in points[a].GetComponent<Bus>().teleports)
+        {
+             go.GetComponent<Bus>().disable.SetActive(false);
+        }
+
 
         UIOff();
     }
