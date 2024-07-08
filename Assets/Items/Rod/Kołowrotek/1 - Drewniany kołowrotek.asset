@@ -18,4 +18,4 @@ MonoBehaviour:
   price: 0
   blocked: 0
   eqType: 1
-  power: 0
+  power: 15

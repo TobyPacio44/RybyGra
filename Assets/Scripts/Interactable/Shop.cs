@@ -6,7 +6,7 @@ using static Player;
 
 public class Shop : MonoBehaviour, IInteractable
 {
-    public List<ItemObject> sellable;
+    public List<ItemObject> bait;
     public List<ItemObject> kije;
     public List<ItemObject> kolowrotki;
     public List<ItemObject> zylki;

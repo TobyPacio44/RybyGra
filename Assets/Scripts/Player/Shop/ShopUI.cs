@@ -10,8 +10,11 @@ public class ShopUI : MonoBehaviour
     public Player player;
     public GameObject buttonPrefab;
     public List<GameObject> slots;
-
-
+    public TextMeshProUGUI money;
+    public void CalculateMoney()
+    {
+        money.text = PlayerPrefs.GetInt("money").ToString();
+    }
     public void Section(int i)
     {
         switch (i)
@@ -31,12 +34,16 @@ public class ShopUI : MonoBehaviour
             case 4:
                 CreateList(player.choice.shop.splawiki);
                 break;
+            case 5:
+                CreateList(player.choice.shop.bait);
+                break;
         }
     }
 
     public void ClearList()
     {
-        foreach(GameObject x in slots)
+        CalculateMoney();
+        foreach (GameObject x in slots)
         {
             foreach(Transform child in x.transform)
             {
@@ -70,6 +77,8 @@ public class ShopUI : MonoBehaviour
 
     public void CreateSellList()
     {
+        CalculateMoney();
+
         ClearList();
 
         player.GetComponent<CharacterController>().enabled = false;
@@ -78,6 +87,7 @@ public class ShopUI : MonoBehaviour
         int i = 0;
         foreach (InventoryItem item in player.inventory.items)
         {
+            if (item.amount > 0) { continue; }
             GameObject newButton = Instantiate(buttonPrefab, slots[i].transform);
             i++;
             newButton.GetComponent<Button>().onClick.AddListener(() => SellItem(item));
@@ -96,12 +106,33 @@ public class ShopUI : MonoBehaviour
         {
             money -= item.price;
             PlayerPrefs.SetInt("money", money);
+
             if (item is EquipmentObject)
             {
-                player.inventory.AddToInventory(item, 0);
+                var eq = (EquipmentObject)item;
+                if (eq.eqType == EquipmentObject.EquipmentType.Przyneta)
+                {
+                    bool found = false;
+                    foreach (InventoryItem z in player.inventory.items)
+                    {
+                        if (z.item == item)
+                        {
+                            z.amount += 1;
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found)
+                    {
+                        player.inventory.AddToInventory(item, 1);
+                    }
+                }
+                else
+                {
+                    player.inventory.AddToInventory(item, 0);
+                }
             }
-            else { player.inventory.AddToInventory(item, 1); }
-            
+            CalculateMoney();
             player.inventory.afterShop();
         }      
     }
@@ -119,6 +150,7 @@ public class ShopUI : MonoBehaviour
         }
         player.inventory.afterShop();
         CreateSellList();
+        CalculateMoney();
     }
 
     public void Close(GameObject x)

@@ -16,5 +16,6 @@ MonoBehaviour:
   prefab: {fileID: 1966131811506692946, guid: 29ead9cc993756445a65f84e7120c539, type: 3}
   name: RobakB
   price: 5
+  blocked: 0
   eqType: 5
   power: 0

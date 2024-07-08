@@ -85,7 +85,7 @@ public class FishingInfoUI : MonoBehaviour
     }
     public void openUpgrades()
     {
-        if (upgradeMapParent.transform.childCount > 0) { return; }
+        if (upgradeMapParent.transform.childCount > 1) { return; }
         GameObject map = Instantiate(info.upgradeMap, upgradeMapParent.transform);
         int i = 0;
         foreach (Transform child in map.transform)

@@ -61,7 +61,7 @@ public class FishingRod : MonoBehaviour
             bool a = false;
             while (!a)
             {
-                int z = Random.Range(0, 4);
+                int z = Random.Range(0, 5);
                 if (selected.tiery[z] == true)
                 {
                     switch (z)
