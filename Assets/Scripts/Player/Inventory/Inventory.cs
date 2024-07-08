@@ -259,6 +259,8 @@ public class Inventory : MonoBehaviour
     }
     public void openHelpBook()
     {
+        if(player.tabManagement.tabTip.activeSelf) { player.tabManagement.tabTip.SetActive(false); }
+
         player.inventory.ui.gameObject.SetActive(false);
         player.inventory.opened = !player.inventory.opened;
 

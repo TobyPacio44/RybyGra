@@ -5,6 +5,7 @@ using UnityEngine;
 public class TabManagement : MonoBehaviour
 {
     public Player player;
+    public GameObject tabTip;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab)) {
