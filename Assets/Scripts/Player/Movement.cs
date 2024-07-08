@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     [HideInInspector] public CharacterController controller;
     public float Speed;
+    public float sprintSpeed;
     public Transform orientation;
 
     private void Start()
@@ -17,9 +18,17 @@ public class Movement : MonoBehaviour
     {
         Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 move = transform.TransformDirection(input);
+        move = Vector3.ClampMagnitude(move, 1f);
         move.y = -10;
 
-        controller.Move(move*Time.deltaTime*Speed);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            controller.Move(move * Time.deltaTime * sprintSpeed);
+        }
+        else
+        {
 
+        controller.Move(move*Time.deltaTime*Speed);
+        }
     }
 }
