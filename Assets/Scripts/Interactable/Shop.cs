@@ -18,7 +18,7 @@ public class Shop : MonoBehaviour, IInteractable
 
     public void Buy()
     {
-            localPlayer.ShopUI.CreateList(kije);
+            localPlayer.ShopUI.CreateList(kije, false);
             localPlayer.ShopUI.gameObject.SetActive(true);
     }
 

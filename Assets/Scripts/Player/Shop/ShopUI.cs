@@ -19,25 +19,25 @@ public class ShopUI : MonoBehaviour
         switch (i)
         {
             case 0: 
-                CreateList(player.choice.shop.kije);
+                CreateList(player.choice.shop.kije, false);
                 break;
             case 1:
-                CreateList(player.choice.shop.kolowrotki);
+                CreateList(player.choice.shop.kolowrotki, false);
                 break;
             case 2:
-                CreateList(player.choice.shop.zylki);
+                CreateList(player.choice.shop.zylki, false);
                 break;
             case 3:
-                CreateList(player.choice.shop.haczyki);
+                CreateList(player.choice.shop.haczyki, false);
                 break;
             case 4:
-                CreateList(player.choice.shop.splawiki);
+                CreateList(player.choice.shop.splawiki, false);
                 break;
             case 5:
-                CreateList(player.choice.shop.bait);
+                CreateList(player.choice.shop.bait, true);
                 break;
             case 6:
-                CreateList(player.choice.shop.buffs);
+                CreateList(player.choice.shop.buffs, false);
                 break;
         }
     }
@@ -53,8 +53,10 @@ public class ShopUI : MonoBehaviour
             }
         }
     }
-    public void CreateList(List<ItemObject> items)
+    public void CreateList(List<ItemObject> items, bool doAmount)
     {
+        bool amount = false;
+        amount = doAmount;
         ClearList();
 
         player.GetComponent<CharacterController>().enabled = false;
@@ -66,13 +68,18 @@ public class ShopUI : MonoBehaviour
             GameObject newButton = Instantiate(buttonPrefab, slots[i].transform) ;
             i++;
             newButton.GetComponent<Button>().onClick.AddListener(() => BuyItem(item));
-            foreach(Transform child in newButton.transform){
+            newButton.GetComponent<Button>().onClick.AddListener(() => AudioManager.instance.PlaySFX("Coin"));
+            foreach (Transform child in newButton.transform){
                 if (child.name == "coming" && item.blocked) {
                     child.gameObject.SetActive(true); 
                     newButton.GetComponent<Button>().enabled = false; 
                 }
                 if (child.name == "Sprite") { child.GetComponent<Image>().sprite = item.sprite; }
                 if (child.name == "Cost" && !item.blocked) { child.GetComponent<TextMeshProUGUI>().text = item.price.ToString(); }
+                if (child.name == "Amount") { 
+                    if(amount) { child.gameObject.SetActive(true); child.GetComponent<TextMeshProUGUI>().text = "x5"; }
+                    else { child.gameObject.SetActive(false); }
+                }
             }
         }
     }
@@ -121,14 +128,14 @@ public class ShopUI : MonoBehaviour
                     {
                         if (z.item == item)
                         {
-                            z.amount += 1;
+                            z.amount += 5;
                             found = true;
                             break;
                         }
                     }
                     if (!found)
                     {
-                        player.inventory.AddToInventory(item, 1);
+                        player.inventory.AddToInventory(item, 5);
                     }
                 }
                 else

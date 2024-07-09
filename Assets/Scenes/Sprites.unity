@@ -1101,6 +1101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuffPlace
       objectReference: {fileID: 0}
+    - target: {fileID: 6656916186041880476, guid: be9f597b9ec944840bf9c4a491004c0b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8775197075310960323, guid: be9f597b9ec944840bf9c4a491004c0b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
