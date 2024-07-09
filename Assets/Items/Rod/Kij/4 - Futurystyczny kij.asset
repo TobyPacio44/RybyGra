@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd95b128175886c418fa7aab8b6fe2ae, type: 3}
   m_Name: 4 - Futurystyczny kij
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 5a2df46d974c74748afff033529fd545, type: 3}
-  prefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 86594d18bec5b7c43ad592588b9b7718, type: 3}
+  prefab: {fileID: 6347775618025377105, guid: 87f7899947255e843b5c062dbd5f2ecd, type: 3}
   name: Futurystyczny kij
-  price: 0
-  blocked: 1
+  price: 1500
+  blocked: 0
   eqType: 0
   power: 625
+  capacity: 0
