@@ -39,6 +39,9 @@ public class ShopUI : MonoBehaviour
             case 6:
                 CreateList(player.choice.shop.buffs, false);
                 break;
+            case 7:
+                CreateList(player.choice.shop.nests, false);
+                break;
         }
     }
 

@@ -28,24 +28,26 @@ public class Inventory : MonoBehaviour
     public List<GameObject> unlockedFishesSlots = new List<GameObject>();
 
     public List<ItemObject> zanêty = new List<ItemObject>();
-    public List<InventoryItem> bait = new List<InventoryItem>();
-    public List<GameObject> unlockedBaitSlots = new List<GameObject>();
+
+    public InventoryItem bait;
+    public GameObject unlockedBaitSlots;
 
     public EquipmentObject kij;
     public EquipmentObject kolowrotek;
     public EquipmentObject zylka;
     public EquipmentObject splawik;
     public EquipmentObject haczyk;
+    public EquipmentObject nest;
 
     public GameObject tier;
 
     public int itemsCapacity;
     public int fishesCapacity;
-    private int previous_bait;
+    //private int previous_bait;
     public bool opened;
     private void Start()
     {
-        previous_bait = 0;
+        //previous_bait = 0;
         afterShop();
         money.UpdateMoney();
     }
@@ -67,6 +69,10 @@ public class Inventory : MonoBehaviour
         {
             x.SetActive(false);
         }
+        for (int i = 0; i < 16; i++)
+        {
+            unlockedFishesSlots[i].SetActive(false);
+        }
         for (int i = 0; i < fishesCapacity; i++)
         {
             //ui.fishesItems[i].SetActive(true);
@@ -81,10 +87,8 @@ public class Inventory : MonoBehaviour
             //ui.itemsItems[i].SetActive(true);
             unlockedItemsSlots[i].SetActive(true);
         }
-        foreach (GameObject x in ui.przynetyItems)
-        {
-            x.SetActive(false);
-        }
+
+        //ui.fishRodItems[5].SetActive(false);
     }
     public void UpdateEq()
     {
@@ -137,38 +141,46 @@ public class Inventory : MonoBehaviour
         if (zylka != null) {        ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = zylka.sprite; }
             else { ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[2]; }
 
-        if (haczyk != null) {       ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = haczyk.sprite; }
-            else { ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[3]; }
+
+        if (haczyk != null) {       ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = haczyk.sprite; 
+                                    unlockedBaitSlots.SetActive(true);
+        }
+            else { ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[3];
+            unlockedBaitSlots.SetActive(false);
+        }
 
         if (splawik != null) {      ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = splawik.sprite; }
             else { ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[4]; }
 
-
-        for (int i = 0; i < 3; i++)
-        {
-            if (bait[i].item != null)
+            if (bait.item != null)
             {
-                ui.przynetyItems[i].SetActive(true);
-                ui.przynetyItems[i].GetComponent<UnityEngine.UI.Image>().sprite = bait[i].item.sprite;
-                ui.przynetyItems[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = bait[i].amount.ToString();
+                ui.fishRodItems[5].SetActive(true);
+                ui.fishRodItems[5].GetComponent<UnityEngine.UI.Image>().sprite = bait.item.sprite;
+                ui.fishRodItems[5].transform.GetChild(0).gameObject.SetActive(true);
+                ui.fishRodItems[5].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = bait.amount.ToString();
             }
             else
             {
-                ui.przynetyItems[i].SetActive(false);
-                //ui.przynetyItems[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = 0.ToString();
+                ui.fishRodItems[5].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[5];
+                ui.fishRodItems[5].transform.GetChild(0).gameObject.SetActive(false);
             }
-        }
 
+        if (nest != null) { ui.fishRodItems[6].GetComponent<UnityEngine.UI.Image>().sprite = nest.sprite; }
+        else { ui.fishRodItems[6].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[6]; }
     }
     public void InstantiateBait()
     {
         foreach(Transform x in fishingRod.components.bait.transform) { Destroy(x.gameObject); }
-        foreach(InventoryItem x in bait)
+        //foreach(InventoryItem x in bait)
+        //{
+        //   if (x.item != null)
+        //    {
+        //        Instantiate(x.item.prefab, fishingRod.components.bait.transform);
+        //    }
+        //}
+        if (bait.item != null)
         {
-            if (x.item != null)
-            {
-                Instantiate(x.item.prefab, fishingRod.components.bait.transform);
-            }
+            Instantiate(bait.item.prefab, fishingRod.components.bait.transform);
         }
     }
     public void checkRod()
@@ -223,35 +235,26 @@ public class Inventory : MonoBehaviour
                 break;
 
 
-            case 4: if (haczyk != null){       AddToInventory(haczyk, 0); }         haczyk = null;
+            case 4: if(bait.item != null) { break; }
+                if (haczyk != null){       AddToInventory(haczyk, 0); }         haczyk = null;
                 foreach (Transform child in fishingRod.components.haczyk.transform)
                 {
                     Destroy(child.gameObject);
                 }
                 break;
             case 5:
-                if (bait[0].item != null) { AddToInventory(bait[0].item, bait[0].amount); }
-                bait[0].item = null;
+                if (bait.item != null) { AddToInventory(bait.item, bait.amount); }
+                bait.item = null;
                 foreach (Transform child in fishingRod.components.bait.transform)
                 {
                         Destroy(child.gameObject);
                 }
                 break;
             case 6:
-                if (bait[1].item != null) { AddToInventory(bait[1].item, bait[1].amount); }
-                bait[1].item = null;
-                foreach (Transform child in fishingRod.components.bait.transform)
-                {
-                        Destroy(child.gameObject);
-                }
-                break;
-            case 7:
-                if (bait[2].item != null) { AddToInventory(bait[2].item, bait[2].amount); }
-                bait[2].item = null;
-                foreach (Transform child in fishingRod.components.bait.transform)
-                {
-                        Destroy(child.gameObject);
-                }
+                if (fishes.Count > 3) { break; }
+                if (nest != null) { AddToInventory(nest, 0); }
+                fishesCapacity = 4;
+                nest = null;
                 break;
         }
         AudioManager.instance.PlaySFX("popClose");
@@ -316,6 +319,21 @@ public class Inventory : MonoBehaviour
                     items[slot - 1].item = ram;
                 }
             }
+            if (eq.eqType == EquipmentObject.EquipmentType.Nest)
+            {
+                if (nest == null) { nest = eq; items.Remove(Object); fishesCapacity = nest.capacity; }
+                else
+                {
+                    if (fishes.Count <= eq.capacity)
+                    {
+                        Debug.Log(fishes.Count+eq.capacity);
+                        var ram = nest;
+                        nest = eq;
+                        items[slot - 1].item = ram;
+                        fishesCapacity = nest.capacity;
+                    }
+                }
+            }
             if (eq.eqType == EquipmentObject.EquipmentType.Haczyk)
             {
                 if (haczyk == null) { haczyk = eq; items.Remove(Object); }
@@ -326,7 +344,7 @@ public class Inventory : MonoBehaviour
                     items[slot - 1].item = ram;
                 }
 
-                HandleBaitSlotManagement(eq);
+                //HandleBaitSlotManagement(eq);
                 InstantiateRod(fishingRod.components.haczyk, eq);
             }
             if (eq.eqType == EquipmentObject.EquipmentType.Splawik)
@@ -342,30 +360,30 @@ public class Inventory : MonoBehaviour
 
             if (eq.eqType == EquipmentObject.EquipmentType.Przyneta)
             {
-                if (!unlockedBaitSlots[0].activeSelf) { return; }
-                if (previous_bait > 2) { previous_bait = 0; }
-                if (!unlockedBaitSlots[2].activeSelf && previous_bait > 1){previous_bait = 0;}
-                if (!unlockedBaitSlots[1].activeSelf && previous_bait > 0){previous_bait = 0;}
+                if (!unlockedBaitSlots.activeSelf) { return; }
+                //if (previous_bait > 2) { previous_bait = 0; }
+                //if (!unlockedBaitSlots.activeSelf && previous_bait > 1){previous_bait = 0;}
+                //if (!unlockedBaitSlots.activeSelf && previous_bait > 0){previous_bait = 0;}
 
-                if(bait[previous_bait].item == eq) { bait[previous_bait].amount += amount; items.Remove(Object); }
-                else if (bait[previous_bait].item == null) 
+                if(bait.item == eq) { bait.amount += amount; items.Remove(Object); }
+                else if (bait.item == null) 
                 { 
-                    bait[previous_bait].item = eq; 
-                    bait[previous_bait].amount = amount; 
+                    bait.item = eq; 
+                    bait.amount = amount; 
                     items.Remove(Object); 
-                    previous_bait++; 
+                    //previous_bait++; 
                 }
                 else
                 {
-                    var ram = bait[previous_bait].item;
-                    var ram2 = bait[previous_bait].amount;
+                    var ram = bait.item;
+                    var ram2 = bait.amount;
 
-                    bait[previous_bait].item = eq;
-                    bait[previous_bait].amount = amount;
+                    bait.item = eq;
+                    bait.amount = amount;
 
                     items[slot - 1].item = ram;
                     items[slot - 1].amount = ram2;
-                    previous_bait++;
+                    //previous_bait++;
                 }
             }
         }
@@ -373,28 +391,28 @@ public class Inventory : MonoBehaviour
         AudioManager.instance.PlaySFX("popClose");
         afterShop();
     }
-    public void HandleBaitSlotManagement(EquipmentObject haczyk)
-    {
-        previous_bait = 0;
-        foreach(GameObject x in unlockedBaitSlots)
-        {
-            x.SetActive(false);
-        }
-
-        if(haczyk.power > -1) { unlockedBaitSlots[0].SetActive(true); }
-        if(haczyk.power > 25) { unlockedBaitSlots[1].SetActive(true); }
-        if(haczyk.power > 625) { unlockedBaitSlots[2].SetActive(true); }
-
-        for (int i = 0; i < 3; i++)
-        {
-            if (!unlockedBaitSlots[i].activeSelf && bait[i].item != null)
-            {
-                AddToInventory(bait[i].item, 1);
-                bait[i] = null;
-                ui.przynetyItems[i].GetComponent<UnityEngine.UI.Image>().sprite = null;
-            }
-        }
-    }
+    //public void HandleBaitSlotManagement(EquipmentObject haczyk)
+    //{
+    //    previous_bait = 0;
+    //    foreach(GameObject x in unlockedBaitSlots)
+    //    {
+    //        x.SetActive(false);
+    //    }
+    //
+    //    if(haczyk.power > -1) { unlockedBaitSlots[0].SetActive(true); }
+    //    if(haczyk.power > 25) { unlockedBaitSlots[1].SetActive(true); }
+    //    if(haczyk.power > 625) { unlockedBaitSlots[2].SetActive(true); }
+    //
+    //    for (int i = 0; i < 3; i++)
+    //    {
+    //        if (!unlockedBaitSlots[i].activeSelf && bait[i].item != null)
+    //        {
+    //            AddToInventory(bait[i].item, 1);
+    //            bait[i] = null;
+    //            ui.przynetyItems[i].GetComponent<UnityEngine.UI.Image>().sprite = null;
+    //        }
+    //    }
+    //}
     public bool canFish()
     {
         if (kij == null) { return false; }
@@ -448,14 +466,14 @@ public class Inventory : MonoBehaviour
 
     public void TakeOneBait()
     {
-        for(int i = bait.Count-1;  i >= 0; i--)
-        {
-            if (bait[i].item != null)
+        //for(int i = bait.Count-1;  i >= 0; i--)
+        //{
+            if (bait.item != null)
             {
-                bait[i].amount -= 1;
-                if (bait[i].amount < 1) { bait[i].item = null; bait[i].amount = 0; }
+                bait.amount -= 1;
+                if (bait.amount < 1) { bait.item = null; bait.amount = 0; }
             }
-        }
+        //}
         afterShop();
     }
 }

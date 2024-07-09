@@ -34,7 +34,7 @@ public class FishList : MonoBehaviour
         }
     }
 
-    public void HandleFishSelection(FishingRod rod, List<InventoryItem> bait)
+    public void HandleFishSelection(FishingRod rod, InventoryItem bait)
     {
         StartCoroutine(updateChance(rod));
 
@@ -55,12 +55,12 @@ public class FishList : MonoBehaviour
         }
 
         foreach (FishObject fish in ram) {
-            foreach(InventoryItem x in bait) {
-                if (x.item == fish.likes) {
+            //foreach(InventoryItem x in bait) {
+                if (bait.item == fish.likes) {
                     eligibleFish.Add(FishObject.Instantiate(fish)); 
                     eligibleFish.Add(FishObject.Instantiate(fish)); 
                 }
-            }
+            //}
         }
 
         if (buff == null)

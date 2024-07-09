@@ -12,9 +12,11 @@ public class EquipmentObject : ItemObject
         Zylka,
         Haczyk,
         Splawik,
-        Przyneta
+        Przyneta,
+        Nest
     }
 
     public EquipmentType eqType;
     public int power;
+    public int capacity;
 }

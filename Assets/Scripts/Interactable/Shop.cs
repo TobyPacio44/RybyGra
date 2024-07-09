@@ -13,6 +13,7 @@ public class Shop : MonoBehaviour, IInteractable
     public List<ItemObject> haczyki;
     public List<ItemObject> splawiki;
     public List<ItemObject> buffs;
+    public List<ItemObject> nests;
 
     public Player localPlayer;
 

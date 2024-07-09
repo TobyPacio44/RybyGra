@@ -8,8 +8,8 @@ public class InventoryUI : MonoBehaviour
     public List<GameObject> fishesItems = new List<GameObject>();
     public List<GameObject> itemsItems = new List<GameObject>();
     public List<GameObject> zanetyItems = new List<GameObject>();
-    public List<GameObject> przynetyItems = new List<GameObject>();
     public List<GameObject> fishRodItems = new List<GameObject>();
+    //public GameObject przynetaItem;
     public List<Sprite> fishRodItemsPlaceHolders = new List<Sprite>();
     public TextMeshProUGUI rodPower;
 }
