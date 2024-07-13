@@ -18,7 +18,17 @@ public class FloatScript : MonoBehaviour
     {
         if (other.GetComponent<FishList>() != null)
         {
+            AudioManager.instance.PlaySFX("Water");
             rod.fishList = other.GetComponent<FishList>();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<FishList>() == null)
+        {
+            Debug.Log(1);
+            rod.Hooked(false, null);
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public Player player;
     [HideInInspector] public CharacterController controller;
     public float Speed;
     public float sprintSpeed;
@@ -20,6 +21,11 @@ public class Movement : MonoBehaviour
         Vector3 move = transform.TransformDirection(input);
         move = Vector3.ClampMagnitude(move, 1f);
         move.y = -10;
+
+        if (player.inventory.fishingRod.State != FishingRod.state.idle)
+        {
+            return;
+        }
 
         if (Input.GetKey(KeyCode.LeftShift))
         {

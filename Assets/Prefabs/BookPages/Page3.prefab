@@ -891,7 +891,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5261720451247694354}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.15583801, y: 0.166758, z: 0.20505002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -899,8 +899,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.4, y: 12.4}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -12.89, y: 0.6}
+  m_SizeDelta: {x: 147.3981, y: 141.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &468275745932362464
 CanvasRenderer:
@@ -930,7 +930,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f870f0d8d53a99b488cca42a4a5cfad2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 557e779cde01d2540bf58d7dd47a2ba0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -974,8 +974,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.876865, y: 19.8}
-  m_SizeDelta: {x: 109.60339, y: 58.3964}
+  m_AnchoredPosition: {x: -21.03778, y: 19.8}
+  m_SizeDelta: {x: 236.08989, y: 58.3964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &651209845439046764
 CanvasRenderer:
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Interact [E] with a shop to buy or sell items'
+  m_text: '- Visit Garry''s Store to buy or sell items'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -1108,8 +1108,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.3, y: -18.6}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -25.35, y: -24.5}
+  m_SizeDelta: {x: 72.44967, y: 73.2842}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6417658873050278896
 CanvasRenderer:

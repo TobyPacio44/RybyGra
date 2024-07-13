@@ -43,6 +43,7 @@ public class FishingRod : MonoBehaviour
                 child.gameObject.SetActive(false);
             }
 
+          
             StartCoroutine(Throw());
         }
     }
@@ -104,7 +105,7 @@ public class FishingRod : MonoBehaviour
         Destroy(floatObject);
         player.Screen.hookedSquare.gameObject.SetActive(false);
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
-        fishList.StopAllCoroutines();
+        if (fishList != null) { fishList.StopAllCoroutines(); }       
         fishList = null;
         StopAllCoroutines();
 
@@ -145,6 +146,7 @@ public class FishingRod : MonoBehaviour
         if (State == state.hooking) { yield break; }
         GetComponent<Animation>().Play("RodAnimation");
         yield return new WaitForSeconds(0.45f);
+        AudioManager.instance.PlaySFX("Throw");
         ThrowFloat();
         State = state.cast;
 

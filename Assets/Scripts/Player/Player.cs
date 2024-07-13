@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public Book book;
     public Options options;
     public TabManagement tabManagement;
+    public DialogueManager dialogueManager;
 
     public Vision Screen;
     public Transform cam;

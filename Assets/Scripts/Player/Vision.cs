@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Vision : MonoBehaviour
 {
+    public static Vision instance;
+
     public bool move = true;
     public GameObject reticle;
     public GameObject hookedSquare;
@@ -13,6 +15,13 @@ public class Vision : MonoBehaviour
     //public float MouseX;
     public float MouseY;
     public float sensitivity;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     private void Update()
     {
         if (move)
