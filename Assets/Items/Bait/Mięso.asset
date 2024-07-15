@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 0c06b5b437ba0604b9130bbf89e326e5, type: 3}
   prefab: {fileID: 3884316231025074524, guid: 7fe3c8ca13fb9f0458247e0c91cd7452, type: 3}
-  name: "Mi\u0119so"
+  name: Meat
   price: 5
   blocked: 0
   eqType: 5
   power: 0
+  capacity: 0

@@ -72,6 +72,7 @@ public class ShopUI : MonoBehaviour
             i++;
             newButton.GetComponent<Button>().onClick.AddListener(() => BuyItem(item));
             newButton.GetComponent<Button>().onClick.AddListener(() => AudioManager.instance.PlaySFX("Coin"));
+            newButton.GetComponent<ItemHover>().item = item;
             foreach (Transform child in newButton.transform){
                 if (child.name == "coming" && item.blocked) {
                     child.gameObject.SetActive(true); 

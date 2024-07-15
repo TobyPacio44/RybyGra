@@ -58,6 +58,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: a80a1e075170db24a92761e80b2ac7a2, type: 3}
   - name: legato
     clip: {fileID: 8300000, guid: 0fc9aeecb25c0fe4bb8506838c71aaa1, type: 3}
+  - name: Coin
+    clip: {fileID: 8300000, guid: 627c73157922d0647a3f74ad307dc4c8, type: 3}
+  - name: Throw
+    clip: {fileID: 8300000, guid: 8fb666f6aac1116478a5ec9740c17ce8, type: 3}
+  - name: Water
+    clip: {fileID: 8300000, guid: 2b6d69e7c2ef58e498a1d78f14dbeec1, type: 3}
   musicSource: {fileID: 4188619829529784806}
   sfxSource: {fileID: 2513390608792108543}
 --- !u!1 &5884852682046998538

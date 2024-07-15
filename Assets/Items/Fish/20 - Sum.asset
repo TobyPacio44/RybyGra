@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 3dc7170f6e2ab254e8b5e7c0ea7178a1, type: 3}
   prefab: {fileID: 4810621365446041855, guid: f398a7266dbf1194baf2a86648e9ea3a, type: 3}
-  name: Sum
+  name: Catfish
   price: 50
   blocked: 0
   fishDifficulty: 20
   weight: 0
   mnoznik: 10
-  likes: {fileID: 11400000, guid: dae5d35f5eec3b14a87e71e29e7ca504, type: 2}
+  likes: {fileID: 11400000, guid: 9d60e3b17a7d26644b912e6c3beafec4, type: 2}
   tiery: 0000010101

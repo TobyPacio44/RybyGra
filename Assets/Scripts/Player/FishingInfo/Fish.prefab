@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 4421886414068716477}
   - component: {fileID: 6221855225542959899}
   - component: {fileID: 3673277852803783591}
+  - component: {fileID: 8781361553706612560}
   m_Layer: 5
   m_Name: sprite2
   m_TagString: Untagged
@@ -288,6 +289,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8781361553706612560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387069410681894932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7595c71907796234ebe3000bd32aee52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &3479244099953624378
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8600708243935483707
 RectTransform:
   m_ObjectHideFlags: 0

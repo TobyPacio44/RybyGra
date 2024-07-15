@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -74,7 +75,7 @@ public class FishingInfoUI : MonoBehaviour
             foreach(Transform child in z.transform)
             {
                 if (child.name == "sprite1") { child.GetComponent<Image>().sprite = x.sprite; }
-                if (child.name == "sprite2") { child.GetComponent<Image>().sprite = x.likes.sprite; }
+                if (child.name == "sprite2") { child.GetComponent<Image>().sprite = x.likes.sprite; child.GetComponent<ItemHover>().item = x.likes; }
                 if (child.name == "nazwa") { child.GetComponent<TextMeshProUGUI>().text = x.name.ToString(); }
             }
             i++;

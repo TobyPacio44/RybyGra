@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 9e530b8107dbc3b439bb3c551b209b58, type: 3}
   prefab: {fileID: 4814339299394485216, guid: 187d4169d68c57649b22f345611a51eb, type: 3}
-  name: RobakCz
+  name: Red worm
   price: 3
   blocked: 0
   eqType: 5
   power: 0
+  capacity: 0

@@ -9,9 +9,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 
-
 public class Inventory : MonoBehaviour
 {
+    public static Inventory instance;
+
     public GameObject icon;
     public GameObject nick;
 
@@ -45,6 +46,15 @@ public class Inventory : MonoBehaviour
     public int fishesCapacity;
     //private int previous_bait;
     public bool opened;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     private void Start()
     {
         //previous_bait = 0;
@@ -95,6 +105,7 @@ public class Inventory : MonoBehaviour
         foreach (GameObject x in ui.fishesItems)
         {
             x.GetComponent<UnityEngine.UI.Image>().sprite = null;
+            x.GetComponent<ItemHover>().item = null;
             x.SetActive(false);
         }
         for (int i = 0; i < fishes.Count; i++)
@@ -102,6 +113,7 @@ public class Inventory : MonoBehaviour
             var element = ui.fishesItems[i];
             element.SetActive(true);
             element.GetComponent<UnityEngine.UI.Image>().sprite = fishes[i].sprite;
+            element.GetComponent<ItemHover>().item = fishes[i];
         }
 
         foreach (GameObject x in ui.itemsItems)
@@ -109,12 +121,14 @@ public class Inventory : MonoBehaviour
             x.GetComponent<UnityEngine.UI.Image>().sprite = null;
             x.SetActive(false);
             x.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = 0.ToString();
+            x.GetComponent<ItemHover>().item = null;
         }
         for (int i = 0; i < items.Count; i++)
         {
             var element = ui.itemsItems[i];
             element.SetActive(true);
             element.GetComponent<UnityEngine.UI.Image>().sprite = items[i].item.sprite;
+            element.GetComponent<ItemHover>().item = items[i].item;
 
             if (items[i].amount > 0)
             {
@@ -132,25 +146,42 @@ public class Inventory : MonoBehaviour
     }
     public void UpdateEquipment()
     {
-        if (kij != null) {          ui.fishRodItems[0].GetComponent<UnityEngine.UI.Image>().sprite = kij.sprite; }
-            else { ui.fishRodItems[0].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[0]; }
+        if (kij != null) {          ui.fishRodItems[0].GetComponent<UnityEngine.UI.Image>().sprite = kij.sprite;
+            ui.fishRodItems[0].GetComponent<ItemHover>().item = kij; }
+            else { ui.fishRodItems[0].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[0];
+            ui.fishRodItems[0].GetComponent<ItemHover>().item = null;
+        }
 
-        if (kolowrotek != null) {   ui.fishRodItems[1].GetComponent<UnityEngine.UI.Image>().sprite = kolowrotek.sprite; }
-            else { ui.fishRodItems[1].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[1]; }
+        if (kolowrotek != null) {   ui.fishRodItems[1].GetComponent<UnityEngine.UI.Image>().sprite = kolowrotek.sprite;
+            ui.fishRodItems[1].GetComponent<ItemHover>().item = kolowrotek;
+        }
+            else { ui.fishRodItems[1].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[1];
+            ui.fishRodItems[1].GetComponent<ItemHover>().item = null;
+        }
 
-        if (zylka != null) {        ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = zylka.sprite; }
-            else { ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[2]; }
+        if (zylka != null) {        ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = zylka.sprite;
+            ui.fishRodItems[2].GetComponent<ItemHover>().item = zylka;
+        }
+            else { ui.fishRodItems[2].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[2];
+            ui.fishRodItems[2].GetComponent<ItemHover>().item = null;
+        }
 
 
         if (haczyk != null) {       ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = haczyk.sprite; 
                                     unlockedBaitSlots.SetActive(true);
+            ui.fishRodItems[3].GetComponent<ItemHover>().item = haczyk;
         }
             else { ui.fishRodItems[3].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[3];
             unlockedBaitSlots.SetActive(false);
+            ui.fishRodItems[3].GetComponent<ItemHover>().item = null;
         }
 
-        if (splawik != null) {      ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = splawik.sprite; }
-            else { ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[4]; }
+        if (splawik != null) {      ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = splawik.sprite;
+            ui.fishRodItems[4].GetComponent<ItemHover>().item = splawik;
+        }
+            else { ui.fishRodItems[4].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[4];
+            ui.fishRodItems[4].GetComponent<ItemHover>().item = null;
+        }
 
             if (bait.item != null)
             {
@@ -158,15 +189,21 @@ public class Inventory : MonoBehaviour
                 ui.fishRodItems[5].GetComponent<UnityEngine.UI.Image>().sprite = bait.item.sprite;
                 ui.fishRodItems[5].transform.GetChild(0).gameObject.SetActive(true);
                 ui.fishRodItems[5].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = bait.amount.ToString();
+                ui.fishRodItems[5].GetComponent<ItemHover>().item = bait.item;
             }
             else
             {
                 ui.fishRodItems[5].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[5];
+                ui.fishRodItems[5].GetComponent<ItemHover>().item = null;
                 ui.fishRodItems[5].transform.GetChild(0).gameObject.SetActive(false);
             }
 
-        if (nest != null) { ui.fishRodItems[6].GetComponent<UnityEngine.UI.Image>().sprite = nest.sprite; }
-        else { ui.fishRodItems[6].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[6]; }
+        if (nest != null) { ui.fishRodItems[6].GetComponent<UnityEngine.UI.Image>().sprite = nest.sprite;
+            ui.fishRodItems[6].GetComponent<ItemHover>().item = nest;
+        }
+        else { ui.fishRodItems[6].GetComponent<UnityEngine.UI.Image>().sprite = ui.fishRodItemsPlaceHolders[6];
+            ui.fishRodItems[6].GetComponent<ItemHover>().item = null;
+        }
     }
     public void InstantiateBait()
     {
@@ -267,6 +304,7 @@ public class Inventory : MonoBehaviour
         player.inventory.ui.gameObject.SetActive(false);
         player.inventory.opened = !player.inventory.opened;
 
+        AudioManager.instance.PlaySFX("popClose");
         player.book.gameObject.SetActive(true);
         player.GetComponent<CharacterController>().enabled = false;
         player.Screen.move = false;
@@ -274,7 +312,7 @@ public class Inventory : MonoBehaviour
     }
 
     public void ClickItemSlot(int slot)
-    {
+    {        
         if (fishingRod.State != FishingRod.state.idle)
         {
             return;

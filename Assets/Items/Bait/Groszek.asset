@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 5cd14d23a9bbbb1409fd6e02261de17c, type: 3}
   prefab: {fileID: 8173521526502746500, guid: 75272dbf41b0dbb469d442a96ee60794, type: 3}
-  name: Groszek
+  name: Peas
   price: 2
   blocked: 0
   eqType: 5
   power: 0
+  capacity: 0

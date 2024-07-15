@@ -21,6 +21,7 @@ public class TabManagement : MonoBehaviour
             {
                 player.GetComponent<CharacterController>().enabled = true;
                 player.Screen.move = true;
+                FollowMouse.instance.gameObject.SetActive(false);
                 player.inventory.ui.gameObject.SetActive(false);
                 player.inventory.opened = !player.inventory.opened;
             } 
@@ -58,6 +59,7 @@ public class TabManagement : MonoBehaviour
             {
                 player.GetComponent<CharacterController>().enabled = true;
                 player.Screen.move = true;
+                FollowMouse.instance.gameObject.SetActive(false);
                 player.options.gameObject.SetActive(false);
             }
         }

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: c36af2575c50b2040a6ce0b48450e73a, type: 3}
   prefab: {fileID: 4464115846893803366, guid: e415561a1339d864ebb968c95bffcf03, type: 3}
-  name: Mucha
+  name: Fly
   price: 3
   blocked: 0
   eqType: 5
   power: 0
+  capacity: 0

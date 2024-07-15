@@ -17,11 +17,13 @@ public class Book : MonoBehaviour
         if(number >= pages.Length) { number = 0; } 
         if(number < 0) { number = pages.Length-1; }
 
+        AudioManager.instance.PlaySFX("popClose");
         page = Instantiate(pages[number], pageParent);
     }
 
     public void closeBook()
     {
+        AudioManager.instance.PlaySFX("popClose");
         gameObject.SetActive(false);
         player.GetComponent<CharacterController>().enabled = true;
         player.Screen.move = true;
