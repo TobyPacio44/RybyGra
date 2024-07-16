@@ -42,6 +42,11 @@ public class Teleports : MonoBehaviour
         player.GetComponent<Player>().Screen.orientation.LookAt(points[a]);
         player.GetComponent<CharacterController>().enabled = true;
 
+        if(points[a].GetComponent<Bus>().musicName != null)
+        {
+            AudioManager.instance.PlayMusic(points[a].GetComponent<Bus>().musicName);
+        }
+
         foreach(GameObject go in points[a].GetComponent<Bus>().teleports)
         {
              go.GetComponent<Bus>().disable.SetActive(false);   

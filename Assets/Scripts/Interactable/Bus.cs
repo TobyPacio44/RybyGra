@@ -11,6 +11,8 @@ public class Bus : MonoBehaviour, IInteractable
     public List<GameObject> teleports;
     public Transform origin;
     public GameObject disable;
+
+    public string musicName;
     public void Interact(Player player)
     {
         player.tel.UIOn(teleports);
