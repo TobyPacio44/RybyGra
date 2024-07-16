@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7323493496613525963}
   - component: {fileID: 9018313633295450825}
   - component: {fileID: 2180533263516998513}
+  - component: {fileID: 7924106041247046613}
   m_Layer: 0
   m_Name: Bus Stop
   m_TagString: Untagged
@@ -137,6 +138,7 @@ MonoBehaviour:
   teleports:
   - {fileID: 0}
   origin: {fileID: 6589053945455102804}
+  disable: {fileID: 0}
 --- !u!65 &2180533263516998513
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -158,3 +160,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.28828076, y: 0.09153238, z: 0.31012475}
   m_Center: {x: -0.04740183, y: -8.6686506e-16, z: 0.1450896}
+--- !u!65 &7924106041247046613
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441864007715571943}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13625742, y: 0.09153247, z: 0.31012484}
+  m_Center: {x: -0.021908576, y: -0.00000003123903, z: 0.14508963}

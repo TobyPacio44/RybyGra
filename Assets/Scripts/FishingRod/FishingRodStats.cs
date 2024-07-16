@@ -5,6 +5,7 @@ using UnityEngine;
 public class FishingRodStats : MonoBehaviour
 {
     [Header("Power of rod - from 0 to 30000")]
+    public int rodTier;
     public int RodPower;
     public List<Sprite> tiers = new List<Sprite>();
 

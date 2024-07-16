@@ -34,7 +34,7 @@ public class Vision : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
         }
     }
-
+   
     public void CameraMovement()
     {
         Cursor.lockState = CursorLockMode.Locked;

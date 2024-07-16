@@ -17,4 +17,5 @@ public class FishObject : ItemObject
 
     [Header("Tiery")]
     public List<bool> tiery;
+    public int tier;
 }

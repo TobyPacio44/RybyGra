@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
+
     public Holder holder;
     public MiniGame minigame;
     public Inventory inventory;
@@ -22,16 +24,26 @@ public class Player : MonoBehaviour
 
     public Vision Screen;
     public Transform cam;
+
+    public LayerMask IgnoreMe;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
     private void Update()
     {
         RaycastHit hit;
 
-        if (!Physics.Raycast(transform.position, transform.forward, 2.5f))
+        if (!Physics.Raycast(transform.position, transform.forward, 3f, ~IgnoreMe))
         {
             Screen.reticle.gameObject.SetActive(false);
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 2.5f))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 3f, ~IgnoreMe))
         {
             IInteractable interactable = hit.transform.GetComponent<IInteractable>();
             if (interactable != null)

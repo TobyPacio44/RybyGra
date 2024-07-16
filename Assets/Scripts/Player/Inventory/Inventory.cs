@@ -13,26 +13,16 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
 
-    public GameObject icon;
-    public GameObject nick;
-
     public Player player;
     public InventoryUI ui;
     public Money money;
     public FishingRod fishingRod;
 
+    public int itemsCapacity;
+    public int fishesCapacity;
     public List<InventoryItem> items = new List<InventoryItem>();
-    //public List<ItemObject> items = new List<ItemObject>();
-    public List<GameObject> unlockedItemsSlots = new List<GameObject>();
-
     public List<FishObject> fishes = new List<FishObject>();
-    public List<GameObject> unlockedFishesSlots = new List<GameObject>();
-
-    public List<ItemObject> zanêty = new List<ItemObject>();
-
     public InventoryItem bait;
-    public GameObject unlockedBaitSlots;
-
     public EquipmentObject kij;
     public EquipmentObject kolowrotek;
     public EquipmentObject zylka;
@@ -40,10 +30,15 @@ public class Inventory : MonoBehaviour
     public EquipmentObject haczyk;
     public EquipmentObject nest;
 
+    //public List<ItemObject> zanêty = new List<ItemObject>();
+    //public List<ItemObject> items = new List<ItemObject>();
+    public List<GameObject> unlockedItemsSlots = new List<GameObject>();
+    public List<GameObject> unlockedFishesSlots = new List<GameObject>();
+    public GameObject unlockedBaitSlots;
     public GameObject tier;
+    public GameObject icon;
+    public GameObject nick;
 
-    public int itemsCapacity;
-    public int fishesCapacity;
     //private int previous_bait;
     public bool opened;
 
@@ -473,12 +468,12 @@ public class Inventory : MonoBehaviour
         ui.rodPower.text = fishingRod.stats.RodPower.ToString();
 
         //tier.SetActive(false);
-        if (a > -1)     { tier.SetActive(true); tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[0]; }
-        if (a > 99)     {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[1]; }
-        if (a > 999)    {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[2]; }
-        if (a > 2499)   {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[3]; }
-        if (a > 7499)   {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[4]; }
-        if (a > 29999)  {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[5]; }
+        if (a > -1)     { tier.SetActive(true); tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[0]; fishingRod.stats.rodTier = 0; }
+        if (a > 99)     {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[1]; fishingRod.stats.rodTier = 1; }
+        if (a > 999)    {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[2]; fishingRod.stats.rodTier = 2; }
+        if (a > 2499)   {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[3]; fishingRod.stats.rodTier = 3; }
+        if (a > 7499)   {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[4]; fishingRod.stats.rodTier = 4; }
+        if (a > 29999)  {                       tier.GetComponent<UnityEngine.UI.Image>().sprite = fishingRod.stats.tiers[5]; fishingRod.stats.rodTier = 5; }
 
     }
 

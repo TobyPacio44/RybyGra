@@ -15,11 +15,12 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return)) { currentSentence++; NextSentence(); }
+        if(Input.GetKeyDown(KeyCode.Mouse0)) { currentSentence++; NextSentence(); }
     }
     public void LoadDialogue(Dialogue dialogue)
     {
         Dialogue = dialogue;
+        Dialogue.gameObject.GetComponent<Collider>().enabled = false;
         if (Dialogue.sentences.Count > 0)
         {
             currentSentence = 0;
@@ -35,7 +36,10 @@ public class DialogueManager : MonoBehaviour
         AudioManager.instance.PlaySFX("popClose");
         if (Dialogue == null) { gameObject.SetActive(false); return; }
 
-        if (currentSentence>Dialogue.sentences.Count-1) { gameObject.SetActive(false); return; }
+        if (currentSentence>Dialogue.sentences.Count-1) { gameObject.SetActive(false); 
+        Dialogue.gameObject.GetComponent<Collider>().enabled = true;
+            return; 
+        }
 
         sentence.text = Dialogue.sentences[currentSentence];
 

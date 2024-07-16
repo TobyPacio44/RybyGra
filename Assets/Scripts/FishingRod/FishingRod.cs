@@ -66,11 +66,11 @@ public class FishingRod : MonoBehaviour
                 {
                     switch (z)
                     {
-                        case 0: selected.weight = Random.Range(0.1f, 0.5f  ); break;
-                        case 1: selected.weight = Random.Range(0.6f, 1.5f  ); break;
-                        case 2: selected.weight = Random.Range(1.6f, 3f    ); break;
-                        case 3: selected.weight = Random.Range(3.1f, 10f   ); break;
-                        case 4: selected.weight = Random.Range(10.1f,50f   ); break;
+                        case 0: selected.tier = 0; selected.weight = Random.Range(0.1f, 0.5f  ); break;
+                        case 1: selected.tier = 1; selected.weight = Random.Range(0.6f, 1.5f  ); break;
+                        case 2: selected.tier = 2; selected.weight = Random.Range(1.6f, 3f    ); break;
+                        case 3: selected.tier = 3; selected.weight = Random.Range(3.1f, 10f   ); break;
+                        case 4: selected.tier = 4; selected.weight = Random.Range(10.1f,50f   ); break;
                     }
 
                     selected.weight = (Mathf.Round(selected.weight * 100)) / 100;
