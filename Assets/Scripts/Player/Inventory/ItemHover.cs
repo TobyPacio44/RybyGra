@@ -12,7 +12,7 @@ public class ItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (item != null)
+        if (item != null && !item.blocked)
         {
             FollowMouse.instance.gameObject.SetActive(true);
             FollowMouse.instance.transform.position = transform.position;
@@ -25,7 +25,7 @@ public class ItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (item != null)
+        if (item != null && !item.blocked)
         {
             FollowMouse.instance.gameObject.SetActive(true);
             FollowMouse.instance.transform.position = transform.position;
@@ -39,7 +39,7 @@ public class ItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerMove(PointerEventData eventData)
     {
-        if (item != null)
+        if (item != null && !item.blocked)
         {
             FollowMouse.instance.gameObject.SetActive(true);
             FollowMouse.instance.transform.position = transform.position;

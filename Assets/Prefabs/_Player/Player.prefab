@@ -4765,6 +4765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e16bcffcbd6bf46b8c9ca6e5252895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rodTier: 0
   RodPower: 0
   tiers:
   - {fileID: 21300000, guid: 78a5c6167100e8a4580ff66184750ae6, type: 3}
@@ -5548,12 +5549,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2193e4db964d3441a49f0ec9a88bb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 1529316645324001132}
-  nick: {fileID: 4601462436849034940}
   player: {fileID: 8015155054135798997}
   ui: {fileID: 2134406440707593736}
   money: {fileID: 3771956272718832870}
   fishingRod: {fileID: 1547759412163786475}
+  itemsCapacity: 24
+  fishesCapacity: 4
   items:
   - item: {fileID: 11400000, guid: 9d50c07a2f3a8654bb57da3af776e364, type: 2}
     amount: 0
@@ -5569,6 +5570,17 @@ MonoBehaviour:
     amount: 10
   - item: {fileID: 11400000, guid: 703df134ab754284faa8bdb34787da2a, type: 2}
     amount: 0
+  fishes:
+  - {fileID: 11400000, guid: 811d3f46c2b14b542a0943c4a6c497eb, type: 2}
+  bait:
+    item: {fileID: 0}
+    amount: 0
+  kij: {fileID: 0}
+  kolowrotek: {fileID: 0}
+  zylka: {fileID: 0}
+  splawik: {fileID: 0}
+  haczyk: {fileID: 0}
+  nest: {fileID: 0}
   unlockedItemsSlots:
   - {fileID: 5319446783652939613}
   - {fileID: 1086936117578001743}
@@ -5594,8 +5606,6 @@ MonoBehaviour:
   - {fileID: 451057439220747458}
   - {fileID: 6377378355809570655}
   - {fileID: 1062064738301509910}
-  fishes:
-  - {fileID: 11400000, guid: 811d3f46c2b14b542a0943c4a6c497eb, type: 2}
   unlockedFishesSlots:
   - {fileID: 5787938025319210255}
   - {fileID: 3508172706885497794}
@@ -5613,20 +5623,10 @@ MonoBehaviour:
   - {fileID: 4000622007222876799}
   - {fileID: 1739287428120093922}
   - {fileID: 2637418259221391823}
-  "zan\u0119ty": []
-  bait:
-    item: {fileID: 0}
-    amount: 0
   unlockedBaitSlots: {fileID: 6848717202787537099}
-  kij: {fileID: 0}
-  kolowrotek: {fileID: 0}
-  zylka: {fileID: 0}
-  splawik: {fileID: 0}
-  haczyk: {fileID: 0}
-  nest: {fileID: 0}
   tier: {fileID: 3528350976213213952}
-  itemsCapacity: 24
-  fishesCapacity: 4
+  icon: {fileID: 1529316645324001132}
+  nick: {fileID: 4601462436849034940}
   opened: 0
 --- !u!114 &3771956272718832870
 MonoBehaviour:
@@ -8948,6 +8948,41 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1532062870304448179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4782036725349350949}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4782036725349350949
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532062870304448179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3387749456109683730}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1557857175999624834
 GameObject:
   m_ObjectHideFlags: 0
@@ -14712,6 +14747,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2631681443877107471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3483571826607012884}
+  - component: {fileID: 1339667177285798177}
+  - component: {fileID: 6514270519567866178}
+  m_Layer: 5
+  m_Name: image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3483571826607012884
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631681443877107471}
+  m_LocalRotation: {x: -0, y: 0.000000029802315, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2574174928584553803}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.00007915497, y: 0.000044822693}
+  m_SizeDelta: {x: 392.69507, y: 86.25421}
+  m_Pivot: {x: 1, y: 1}
+--- !u!222 &1339667177285798177
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631681443877107471}
+  m_CullTransparentMesh: 1
+--- !u!114 &6514270519567866178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631681443877107471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 0.4392157}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2636736166462544482
 GameObject:
   m_ObjectHideFlags: 0
@@ -20904,6 +21014,7 @@ RectTransform:
   m_LocalScale: {x: 0.79669, y: 0.79669, z: 0.79669}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3483571826607012884}
   - {fileID: 8281147550757649117}
   m_Father: {fileID: 3387749456109683730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36505,8 +36616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec91d0cff521f044b8042549931f695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 0
   timerMultiplicator: 3
-  smoothMotion: 1
   hookSize: 0.3
   hookPower: 0.1
   hookDegrade: 0.1
@@ -36520,6 +36631,7 @@ MonoBehaviour:
   progressContainer: {fileID: 3681115418975820772}
   hookPullPower: 0.1
   hookGravityPower: 0.035
+  smoothMotion: 1
   pause: 1
   won: 0
 --- !u!1 &6687602888363659876
@@ -47317,6 +47429,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2574174928584553803}
+  - {fileID: 4782036725349350949}
   - {fileID: 776160816414170434}
   - {fileID: 8113261484104195893}
   - {fileID: 6741354859460046417}

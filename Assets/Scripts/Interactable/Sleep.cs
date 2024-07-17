@@ -6,6 +6,9 @@ public class Sleep : MonoBehaviour, IInteractable
 {
     public void Interact(Player player)
     {
-        GameManager.Instance.hour += 1;
+        if(GameManager.Instance.hour > 18 || GameManager.Instance.hour < 5)
+        {
+            GameManager.Instance.StartDay();
+        }
     }
 }

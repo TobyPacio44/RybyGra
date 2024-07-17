@@ -15,10 +15,11 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 5b5f43c72e8c64a4c94a210a75dad11b, type: 3}
   prefab: {fileID: 1439808298133626354, guid: 8053660bb3790ad47a1a02f1c2769361, type: 3}
   name: 'Bream '
-  price: 20
+  price: 25
   blocked: 0
   fishDifficulty: 8
   weight: 0
   mnoznik: 10
   likes: {fileID: 11400000, guid: af44315bf4dcf1e4f80d1ee0bdcd23f2, type: 2}
   tiery: 0001010000
+  tier: 0

@@ -15,10 +15,11 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 69fec34a752783446b6f028a8f81630c, type: 3}
   prefab: {fileID: 3159599341915701815, guid: 719425218e941de41b72d97ee6bef65c, type: 3}
   name: Perch
-  price: 20
+  price: 30
   blocked: 0
   fishDifficulty: 12
   weight: 0
   mnoznik: 10
   likes: {fileID: 11400000, guid: d62bff26ae9dbc543ba2629bd14df090, type: 2}
   tiery: 0001010000
+  tier: 0

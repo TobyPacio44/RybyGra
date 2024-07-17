@@ -15,10 +15,11 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: b784abb249f839c42838abc2c16a9fd5, type: 3}
   prefab: {fileID: 7678431596526514943, guid: 3c8c03dffaf7082429651ff7e9e4d768, type: 3}
   name: Roach
-  price: 5
+  price: 10
   blocked: 0
   fishDifficulty: 1
   weight: 0
   mnoznik: 10
   likes: {fileID: 11400000, guid: 6db35b63baa73eb4da262a66dac3acd6, type: 2}
   tiery: 0101000000
+  tier: 0
