@@ -11,11 +11,22 @@ public class Accept : MonoBehaviour
     public TextMeshProUGUI Price;
     public TextMeshProUGUI Weight;
 
-    public void SetAcceptUI(Sprite sprite, string name, int price, float weight)
+    public void SetAcceptUI(Sprite sprite, string name, int price, float weight, bool fish)
     {
+        if (fish)
+        {
+            Price.gameObject.SetActive(true); 
+            Weight.gameObject.SetActive(true); 
+            Weight.text = weight.ToString() + "kg"; 
+            Price.text = price.ToString();
+        }
+        else
+        {
+            Price.gameObject.SetActive(false); 
+            Weight.gameObject.SetActive(false);
+        }
+
         Sprite.GetComponent<UnityEngine.UI.Image>().sprite = sprite;
-        Text.text = name;
-        Price.text = price.ToString();
-        Weight.text = weight.ToString()+"kg";
+        Text.text = name;        
     }
 }

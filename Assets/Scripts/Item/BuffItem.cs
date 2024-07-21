@@ -10,7 +10,8 @@ public class BuffItem : ItemObject
         strenghten,
         enchant,
         rarity,
-        giants
+        giants,
+        findings
     }
 
     public BuffType buffType;

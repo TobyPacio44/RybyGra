@@ -101,6 +101,6 @@ public class BuffManager : MonoBehaviour
     {
         player.GetComponent<CharacterController>().enabled = true;
         player.Screen.move = true;
-        gameObject.SetActive(false);
+        ui.SetActive(false);
     }
 }

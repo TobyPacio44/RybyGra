@@ -15,7 +15,8 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 3ef9ec5c10225f247ad253a4127786d2, type: 3}
   prefab: {fileID: 3052311760715891308, guid: 5cc13a87de2894c47bb370ecf0a1dacd, type: 3}
   name: Mocny kij
-  price: 800
+  price: 450
   blocked: 0
   eqType: 0
   power: 250
+  capacity: 0

@@ -15,7 +15,8 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 2bb05ff681c63914eaf6064999b2696f, type: 3}
   prefab: {fileID: 6645467927905199945, guid: f44c9dc7220a9ca429f7c185f46baced, type: 3}
   name: "Tytanowy ko\u0142owrotek"
-  price: 750
+  price: 550
   blocked: 0
   eqType: 1
   power: 625
+  capacity: 0

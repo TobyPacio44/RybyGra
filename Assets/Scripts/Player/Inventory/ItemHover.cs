@@ -6,11 +6,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class ItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerMoveHandler
+public class ItemHover : MonoBehaviour, IPointerExitHandler, IPointerMoveHandler
 {
     public ItemObject item;
 
-    public void OnPointerDown(PointerEventData eventData)
+    /*public void OnPointerDown(PointerEventData eventData)
     {
         if (item != null && !item.blocked)
         {
@@ -31,7 +31,7 @@ public class ItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             FollowMouse.instance.transform.position = transform.position;
             FollowMouse.instance.text.text = item.name;
         }
-    }
+    }*/
     public void OnPointerExit(PointerEventData eventData)
     {
         FollowMouse.instance.gameObject.SetActive(false);
@@ -39,6 +39,15 @@ public class ItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerMove(PointerEventData eventData)
     {
+        if (item is FishObject)
+        {
+            var fish = (FishObject)item;
+            FollowMouse.instance.gameObject.SetActive(true);
+            FollowMouse.instance.transform.position = transform.position;
+            FollowMouse.instance.text.text = fish.name+ "<br>Weight: " + fish.weight + " kg <br>Price: " + fish.price;
+            return;
+        }
+
         if (item != null && !item.blocked)
         {
             FollowMouse.instance.gameObject.SetActive(true);

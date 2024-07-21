@@ -29,9 +29,13 @@ public class FishingRod : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (!canFish) { return; }
+            if (!canFish) {
+                StaticTip.instance.AddTip("Equip all rod components to fish.", 5);
+                return; }
             if (holdingFish) { return; }
-            if (player.inventory.fishesCapacity <= player.inventory.fishes.Count) { return; };
+            if (player.inventory.fishesCapacity <= player.inventory.fishes.Count) {
+                StaticTip.instance.AddTip("Fish inventory is full. Visit Billy.", 5);
+                return; };
             if (State == state.cast) { Hooked(false, null); return; }
 
             foreach (Transform child in components.haczyk.transform)
@@ -89,8 +93,8 @@ public class FishingRod : MonoBehaviour
             return null;
         }
     }
-    public void Hooked(bool caught, FishObject fish)
-    {
+    public void Hooked(bool caught, ItemObject fish)
+    {        
         foreach (Transform child in components.haczyk.transform)
         {
             child.gameObject.SetActive(true);
@@ -105,19 +109,32 @@ public class FishingRod : MonoBehaviour
         Destroy(floatObject);
         player.Screen.hookedSquare.gameObject.SetActive(false);
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
-        if (fishList != null) { fishList.StopAllCoroutines(); }       
-        fishList = null;
+        if (fishList != null) { fishList.StopAllCoroutines(); }               
         StopAllCoroutines();
 
         if (caught && fish != null)
         {
-            player.accept.gameObject.SetActive(true);
-            player.accept.SetAcceptUI(fish.sprite, fish.name, fish.price, fish.weight);
-            holdingFish = true;
-            var instantiate = Instantiate(fish.prefab, fishSpawn.transform);
-            StartCoroutine(takeFish(fish, instantiate));
+            if (fish is FishObject)
+            {
+                var Fish = fish as FishObject;
 
-            player.inventory.TakeOneBait();
+                player.accept.gameObject.SetActive(true);
+                player.accept.SetAcceptUI(Fish.sprite, Fish.name, Fish.price, Fish.weight, true);
+                holdingFish = true;
+                var instantiate = Instantiate(Fish.prefab, fishSpawn.transform);
+                StartCoroutine(takeFish(Fish, instantiate));
+                player.inventory.TakeOneBait();
+                fishList = null;
+            }
+            if (fish is FindingObject)
+            {
+                var Fish = fish as FindingObject;
+                player.accept.gameObject.SetActive(true);
+                player.accept.SetAcceptUI(Fish.sprite, Fish.name, Fish.price, 0, false);
+                holdingFish = true;
+                var instantiate = Instantiate(Fish.prefab, fishSpawn.transform);
+                StartCoroutine(takeItem(Fish, instantiate));
+            }      
         }
     }
     IEnumerator takeFish(FishObject fish, GameObject fishObject)
@@ -136,6 +153,29 @@ public class FishingRod : MonoBehaviour
                 holdingFish = false;
                 Destroy(fishObject);
                 player.accept.gameObject.SetActive(false);
+            }
+            yield return null;
+        }
+    }
+    IEnumerator takeItem(FindingObject fish, GameObject fishObject)
+    {
+        while (holdingFish)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (fish.unique) { fishList.findings.Remove(fish); player.inventory.findings.Add(fish); }
+                player.inventory.AddToInventory(fish, 0);
+                holdingFish = false;
+                Destroy(fishObject);
+                player.accept.gameObject.SetActive(false); 
+                fishList = null;
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                holdingFish = false;
+                Destroy(fishObject);
+                player.accept.gameObject.SetActive(false);
+                fishList = null;
             }
             yield return null;
         }
@@ -168,6 +208,12 @@ public class FishingRod : MonoBehaviour
 
         player.Screen.hookedSquare.gameObject.SetActive(false);
         player.Screen.hookedSquare.transform.parent.gameObject.SetActive(false);
+
+        if (Random.Range(0, 100) <= fishList.findingsChance)
+        {
+            Hooked(true, fishList.findings[Random.Range(0,fishList.findings.Count)]);
+            yield break;
+        }
 
         //minigame.parent.SetActive(true);
 

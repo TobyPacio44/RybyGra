@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
     public int fishesCapacity;
     public List<InventoryItem> items = new List<InventoryItem>();
     public List<FishObject> fishes = new List<FishObject>();
+    public List<FindingObject> findings = new List<FindingObject>();
     public InventoryItem bait;
     public EquipmentObject kij;
     public EquipmentObject kolowrotek;

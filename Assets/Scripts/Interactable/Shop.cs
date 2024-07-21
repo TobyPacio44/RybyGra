@@ -10,7 +10,7 @@ public class Shop : MonoBehaviour, IInteractable
     public List<ItemObject> kije;
     public List<ItemObject> kolowrotki;
     public List<ItemObject> zylki;
-    public List<ItemObject> haczyki;
+    public List<ItemObject> haczyki;    
     public List<ItemObject> splawiki;
     public List<ItemObject> buffs;
     public List<ItemObject> nests;
@@ -19,12 +19,14 @@ public class Shop : MonoBehaviour, IInteractable
 
     public void Buy()
     {
+            localPlayer.ShopUI.sections.gameObject.SetActive(true);
             localPlayer.ShopUI.CreateList(kije, false);
             localPlayer.ShopUI.gameObject.SetActive(true);
     }
 
     public void Sell()
     {
+            localPlayer.ShopUI.sections.gameObject.SetActive(false);
             localPlayer.ShopUI.CreateSellList();
             localPlayer.ShopUI.gameObject.SetActive(true);
     }

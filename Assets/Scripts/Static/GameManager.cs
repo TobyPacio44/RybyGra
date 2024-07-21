@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     public Material nightSkyBox;
     public Material daySkyBox;
-    private GameObject day;
+    public GameObject day;
     public GameObject dayPref;
 
     public int hour;

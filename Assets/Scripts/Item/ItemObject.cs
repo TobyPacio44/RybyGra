@@ -12,6 +12,7 @@ public enum ItemType
 }
 public abstract class ItemObject : ScriptableObject
 {
+    [Header("Item")]
     public Sprite sprite;
     public GameObject prefab;
     public string name;

@@ -10,6 +10,7 @@ public class ShopUI : MonoBehaviour
     public GameObject buttonPrefab;
     public List<GameObject> slots;
     public TextMeshProUGUI money;
+    public GameObject sections;
     public void CalculateMoney()
     {
         money.text = PlayerPrefs.GetInt("money").ToString();
@@ -100,14 +101,28 @@ public class ShopUI : MonoBehaviour
         int i = 0;
         foreach (InventoryItem item in player.inventory.items)
         {
+            int newPrice = 0;
             if (item.amount > 0) { continue; }
+
+            if(item.item is FindingObject finder)
+            {
+                if (finder.unique) { continue; }
+            }
+
             GameObject newButton = Instantiate(buttonPrefab, slots[i].transform);
             i++;
             newButton.GetComponent<Button>().onClick.AddListener(() => SellItem(item));
             foreach (Transform child in newButton.transform)
             {
                 if (child.name == "Sprite") { child.GetComponent<Image>().sprite = item.item.sprite; }
-                int newPrice = item.item.price / 2;
+                if(item.item is FindingObject)
+                {
+                    newPrice = item.item.price;
+                }
+                else
+                {
+                    newPrice = item.item.price / 2;
+                }
                 if (child.name == "Cost") { child.GetComponent<TextMeshProUGUI>().text = newPrice.ToString(); }
             }
         }

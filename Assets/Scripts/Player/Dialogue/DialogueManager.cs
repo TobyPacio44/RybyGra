@@ -38,6 +38,7 @@ public class DialogueManager : MonoBehaviour
 
         if (currentSentence>Dialogue.sentences.Count-1) { gameObject.SetActive(false); 
         Dialogue.gameObject.GetComponent<Collider>().enabled = true;
+            Dialogue = null;
             return; 
         }
 

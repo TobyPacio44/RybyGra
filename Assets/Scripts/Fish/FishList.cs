@@ -9,13 +9,19 @@ public class FishList : MonoBehaviour
 {
     public FishingInfo info;
     public List<FishObject> list;
+    public List<FindingObject> findings;
+
     public FishObject defaultFish;
     public float baseChanceToHook;
     public float offChanceToHook;
     public bool activeHours;
+    public int baseFindingChance;
+
+    [HideInInspector]
+    public int findingsChance;
 
     public BuffItem buff;   
-    public List<FishObject> ram = new List<FishObject>();
+    private List<FishObject> ram = new List<FishObject>();
     public List<FishObject> eligibleFish = new List<FishObject>();
 
     public IEnumerator updateChance(FishingRod rod)
@@ -63,6 +69,8 @@ public class FishList : MonoBehaviour
             //}
         }
 
+        findingsChance = baseFindingChance;
+
         if (buff == null)
         {
             return; 
@@ -101,6 +109,11 @@ public class FishList : MonoBehaviour
                     eligibleFish[i].price = Convert.ToInt32(price);
                     i++;
                 }
+            }
+
+            if (buff.buffType == BuffItem.BuffType.findings)
+            {
+                findingsChance = baseFindingChance + 30;
             }
         }
     }

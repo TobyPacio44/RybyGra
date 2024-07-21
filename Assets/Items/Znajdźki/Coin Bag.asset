@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0adc50b13290be4fa3c207beacfcf29, type: 3}
+  m_Name: Coin Bag
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: d577a4c5d80acea448de9887cafbf768, type: 3}
+  prefab: {fileID: 4878207314957767742, guid: e59c59c975f0deb49b9eee0fb514ba6e, type: 3}
+  name: Coin Bag
+  price: 300
+  blocked: 0
+  id: 0
+  message: {fileID: 0}
+  unique: 1

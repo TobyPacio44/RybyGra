@@ -19,3 +19,4 @@ MonoBehaviour:
   blocked: 0
   eqType: 3
   power: 7500
+  capacity: 0

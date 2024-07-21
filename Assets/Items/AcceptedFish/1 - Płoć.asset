@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c9e33a224dea140b645e54fd2bbc9c, type: 3}
+  m_Name: "1 - P\u0142o\u0107"
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: b784abb249f839c42838abc2c16a9fd5, type: 3}
+  prefab: {fileID: 7678431596526514943, guid: 3c8c03dffaf7082429651ff7e9e4d768, type: 3}
+  name: Roach
+  price: 30
+  blocked: 0
+  fishDifficulty: 1
+  weight: 0
+  mnoznik: 10
+  likes: {fileID: 11400000, guid: 6db35b63baa73eb4da262a66dac3acd6, type: 2}
+  tiery: 0101000000
+  tier: 0

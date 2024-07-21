@@ -22,6 +22,7 @@ public class StaticTip : MonoBehaviour
     }
     public void AddTip(string text, float seconds)
     {
+        if (uiText.text == text) { return; }
         image.gameObject.SetActive(true);
         uiText.text = text;
         StartCoroutine(pulse(seconds));
@@ -36,6 +37,7 @@ public class StaticTip : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
+        uiText.text = "";
         image.gameObject.SetActive(false);
         StopAllCoroutines();
     }
