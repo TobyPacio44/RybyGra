@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87ea18f9c66c85a42be4484f460e0987, type: 3}
-  m_Name: Basic Buff
+  m_Name: 2 - Findings buff
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: efd50e940805a9440ae93121175a3cbf, type: 3}
+  sprite: {fileID: 21300000, guid: 20bcd8d2a4724c241bbb5aa0b2d17d89, type: 3}
   prefab: {fileID: 0}
-  name: Basic buff
-  price: 50
+  name: Findings buff
+  price: 80
   blocked: 0
-  buffType: 0
-  description: Increases taking by 15%
+  buffType: 5
+  description: Increases findings rate by 30%
