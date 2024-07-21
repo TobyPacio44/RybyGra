@@ -115,6 +115,14 @@ public class FishList : MonoBehaviour
             {
                 findingsChance = baseFindingChance + 30;
             }
+
+            if(eligibleFish.Count == 0)
+            {
+                foreach (FishObject fish in ram)
+                {
+                    eligibleFish.Add(fish);
+                }
+            }
         }
     }
 }
