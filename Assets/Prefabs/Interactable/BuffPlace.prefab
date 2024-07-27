@@ -79,6 +79,7 @@ MonoBehaviour:
   fishList: {fileID: 0}
   buffList:
   - {fileID: 11400000, guid: 2e8b0f461680b834490439c019e45ab3, type: 2}
+  - {fileID: 11400000, guid: 15744db4c97ad53458bb5845fb05e012, type: 2}
   - {fileID: 11400000, guid: 703df134ab754284faa8bdb34787da2a, type: 2}
 --- !u!1 &6681447930699362322
 GameObject:
